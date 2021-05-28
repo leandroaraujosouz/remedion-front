@@ -1,0 +1,11 @@
+.fs-16{
+    font-size: 16pt;
+}
+
+a{
+    cursor: pointer;
+}
+
+.cor-menu{
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.316), rgb(255, 255, 255));
+}
