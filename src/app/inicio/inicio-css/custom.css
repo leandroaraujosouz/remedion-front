@@ -1,32 +1,52 @@
 #principal {
-    
+    background-image: url('https://imgur.com/i3WmNDn.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
 
 #header {
     width: 100%;
     background-color: transparent;
-    transition: background ease-out all 0.2s;
+    transition: background ease-out all 0.2s;    
 }
 
 #header.active {
     position: fixed;
-    background: #fff;
+    background: #a1d2dadc;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
     z-index: 9999;
 }
 
 #header .nav-link {
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 750;
     padding-left: 0;
     padding-right: 0;
-    color: #000;
+    color: #26727e;
     border-bottom: solid 4px transparent;
 }
 
 #header .nav-link:hover {
-    border-bottom: solid 4px var(--secondary);
-    color: var(--secondary);
+    border-bottom: solid 4px var(--primary);
+    color: var(--primary);
+}
+
+#header .nav-button {
+    font-weight: 700;
+    color: white;
+    border-radius: 7px;
+    background-color: var(--primary);
+}
+
+#header .nav-button:hover {
+    color: white;
+    background-color: var(--primary-dark);
+    border-bottom: solid 4px #fff;
 }
 
 #slider h1 {
@@ -87,7 +107,7 @@
 }
 
 #clientes .cliente-texto .imagem span {
-    color: var(--secondary);
+    color: var(--primary);
     font-size: 110px;
     line-height: 110px;
     letter-spacing: -10px;
@@ -132,7 +152,7 @@
     font-weight: 700;
 }
 
-#servicos .destaque {
+#perfis .destaque {
     display: block;
     background: var(--light);
     border-radius: 5px;
@@ -142,52 +162,51 @@
     text-decoration: none;
     transition: all ease-out 0.2s;
     filter: grayscale(100%);
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
-#servicos .destaque:hover {
-    background: #fff;
+#perfis .destaque:hover {
+    background: #5d9ba56b;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.12);
     transform: scale(1.1);
     filter: none;
     opacity: 1;
 }
 
-#servicos .destaque .img-container {
+#perfis .destaque .img-container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 200px;
 }
 
-#servicos .destaque .img-container img {
+#perfis .destaque .img-container img {
     max-height: 160px;
     border-radius: 100px;
 }
 
-#servicos .destaque .img-container:hover img {
+#perfis .destaque .img-container:hover img {
     transform: scale(1.25);
     transition: ease-out all 0.2s;
 }
 
-#servicos .destaque .img-container:hover h5 {
+#perfis .destaque .img-container:hover h5 {
     transform: scale(1.25);
     transition: ease-out all 0.2s;
 }
 
-#servicos ul {
+#perfis ul {
     margin: 0;
     padding: 0;
     display: flex;
 }
 
-#servicos ul li {
+#perfis ul li {
     display: flex;
     list-style-type: none;
-   
 }
 
-#servicos ul li a {
+#perfis ul li a {
     display: flex;
     width: 40px;
     height: 40px;
@@ -198,21 +217,22 @@
     transition: all ease-out 0.2s;
 }
 
-#servicos ul li a:hover {
+#perfis ul li a:hover {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.686);
 }
 
-#servicos ul li img {
+#perfis ul li img {
     max-height: 20px;
 }
 
-
-
+#perfis .destaque ul li:first-child {
+    margin-top: -1px;
+}
 
 #contato .email {
     border-radius: 5px;
-    background-color: var(--secondary);
+    background-color: var(--primary);
     color: #fff;
     position: relative;
     display: flex;
@@ -256,19 +276,7 @@
 }
 
 #contato ul li a {
-    display: flex;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    transition: all ease-out 0.2s;
-}
-
-#contato ul li a:hover {
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-    background-color: #fff;
+    text-decoration: none;
 }
 
 #contato ul li img {
