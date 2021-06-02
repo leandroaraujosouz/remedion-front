@@ -23,8 +23,8 @@
 
                 <a class="nav-link dropdown-toggle d-flex align-items-center p-1" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <p class="m-0 font-weight-bold text-dark fs-16"> David Santos</p>
-                    <img src="https://imgur.com/Kum0F0G.jpg" alt="Imagem do user" width="50px" height="50px"
+                    <p class="m-0 font-weight-bold text-dark fs-16"> {{nome}}</p>
+                    <img src="{{foto}}" alt="Imagem do user" width="50px" height="50px"
                         class="img-fluid rounded-circle  ml-2">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right m-0 text-dark" aria-labelledby="navbarDropdown">
@@ -32,7 +32,7 @@
                     <a class="dropdown-item font-weight-bold" routerLink='/cadastrar-produto'>Cadastrar Produto</a>
                     <a class="dropdown-item font-weight-bold" href="#">Carrinho</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item font-weight-bold" href="#"> Sair <i class="fa fa-sign-out"
+                    <a (click)= sair() class="dropdown-item font-weight-bold" href="#"> Sair <i class="fa fa-sign-out"
                             aria-hidden="true"></i></a>
                 </div>
             </li>

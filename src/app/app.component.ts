@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './service/auth.service';
 
 
 @Component({
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'remedion-front';
+  constructor(public auth: AuthService){}
+  
 }
 
