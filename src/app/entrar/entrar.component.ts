@@ -20,6 +20,7 @@ export class EntrarComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
+    window.document.body.style.backgroundImage = "url('https://i.imgur.com/TLGOmuJ.jpg')"
   }
 
   entrar(){
@@ -55,7 +56,7 @@ export class EntrarComponent implements OnInit {
         alert('usuario ou senha estão incorretos!')
       }
     })
-    window.document.body.style.backgroundImage = "url('https://i.imgur.com/TLGOmuJ.jpg')"
+    
   }
 
 }
