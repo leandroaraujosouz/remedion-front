@@ -9,7 +9,8 @@ export class EntrarComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    window.document.body.style.backgroundImage = "url('https://i.imgur.com/TLGOmuJ.jpg')"
   }
 
 }

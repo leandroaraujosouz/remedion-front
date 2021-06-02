@@ -11,7 +11,7 @@ export class CadastroProdutoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    environment.fundo = 'http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg'
+    window.document.body.style.backgroundImage = "url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg')"
   }
 
 }

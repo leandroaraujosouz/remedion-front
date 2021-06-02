@@ -1,4 +1,3 @@
-import { environment } from 'src/environments/environment.prod';
 import { Component } from '@angular/core';
 
 
@@ -9,6 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'remedion-front';
-  fundo = environment.fundo;
 }
 

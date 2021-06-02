@@ -17,7 +17,7 @@ export class CadastroUsuarioComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    environment.fundo = 'https://i.imgur.com/CnzlKp0.jpg'
+    window.document.body.style.backgroundImage = "url('https://i.imgur.com/CnzlKp0.jpg')"
     window.scroll(0,0)
   }
 

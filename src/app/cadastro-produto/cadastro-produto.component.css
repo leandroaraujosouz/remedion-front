@@ -6,7 +6,7 @@
     font-size: 4rem;
     margin-bottom: 40px;
   }
-  
+
   #logo{
     width: 100%;
 }
@@ -62,12 +62,6 @@
         width: 90%;
     }
   }
-  .fundo{
-    background-image: url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg');
-    background-size: cover;
-    background-repeat: repeat-y;
-    background-position: center;
-    background-attachment: fixed;
-  }
- 
   
+
+
