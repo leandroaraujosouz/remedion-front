@@ -11,8 +11,8 @@ export class CadastroUsuarioComponent implements OnInit {
 
   //Variáveis
   user: User = new User
-  auxSenha: string = ''
-  auxTipoUsuario: string = ''
+  auxSenha: string
+  auxTipoUsuario: string
   constructor() { }
 
   ngOnInit() {

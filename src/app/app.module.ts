@@ -10,6 +10,7 @@ import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.co
 import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
 import {MenuComponent} from './menu/menu.component';
 import { EntrarComponent } from './entrar/entrar.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { EntrarComponent } from './entrar/entrar.component';
     CadastroUsuarioComponent,
     CadastroProdutoComponent,
     MenuComponent,
-    EntrarComponent
+    EntrarComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
