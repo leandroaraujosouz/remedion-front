@@ -1,6 +1,7 @@
 import { environment } from 'src/environments/environment.prod';
-import { User } from '../model/User';
+
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-cadastro-usuario',

@@ -1,5 +1,5 @@
 import { UserLogin } from './../model/UserLogin'
-import { User } from '../model/User'
+import { User } from '../model/user'
 import { environment } from 'src/environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
