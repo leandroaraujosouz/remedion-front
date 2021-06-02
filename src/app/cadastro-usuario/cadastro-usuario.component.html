@@ -42,7 +42,7 @@
 
             <div class="form-group">
               <label for="tipoUsuario">Usuário</label>
-              <select class="form-control campos" name="tipoUsuario" id="tipoUsuario">
+              <select class="form-control campos" name="tipoUsuario" id="tipoUsuario" (change)='tipoUsuario($event)'>
                 <option>Selecione um tipo de usuário</option>
                 <option value="normal">Normal</option>
                 <option value="adm">Administrador</option>
@@ -52,7 +52,7 @@
 
           <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-danger mt-3 mr-2" routerLink='/entrar'>CANCELAR</button>
-            <button type="submit" class="btn btn-success mt-3">CADASTRAR</button>
+            <button type="submit" class="btn btn-success mt-3" (click)= 'cadastrar()'>CADASTRAR</button>
           </div>
 
         </div>
