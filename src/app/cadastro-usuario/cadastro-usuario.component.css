@@ -55,3 +55,7 @@
     background-repeat: repeat-y;
     background-position: center;
   }
+  .margin-100{
+    margin-bottom: 100px;
+    padding-top: 100px;
+  }
