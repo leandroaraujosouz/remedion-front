@@ -55,6 +55,7 @@ export class EntrarComponent implements OnInit {
         alert('usuario ou senha estão incorretos!')
       }
     })
+    window.document.body.style.backgroundImage = "url('https://i.imgur.com/TLGOmuJ.jpg')"
   }
 
 }

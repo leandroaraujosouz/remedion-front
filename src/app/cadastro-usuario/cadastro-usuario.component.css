@@ -5,7 +5,7 @@
   .titulo{
     font-size: 2rem;
   }
-  
+
   .molde {
     background: rgba(255, 255, 255, 0.51);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -49,12 +49,7 @@
       padding: 20px;
     }
   }
-  .fundo{
-    background-image: url('https://i.imgur.com/CnzlKp0.jpg');
-    background-size: cover;
-    background-repeat: repeat-y;
-    background-position: center;
-  }
+
   .margin-100{
     margin-bottom: 100px;
     padding-top: 100px;
