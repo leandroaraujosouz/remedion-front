@@ -1,3 +1,4 @@
+import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'inicio', component: InicioComponent},
   {path: 'entrar', component: EntrarComponent},
   {path: 'cadastrar-usuario', component: CadastroUsuarioComponent},
-  {path: 'cadastrar-produto', component: CadastroProdutoComponent}
+  {path: 'cadastrar-produto', component: CadastroProdutoComponent},
+  {path: 'pesquisa', component: PesquisaComponent}
 ];
 
 @NgModule({

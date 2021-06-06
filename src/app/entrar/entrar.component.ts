@@ -10,9 +10,9 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./entrar.component.css']
 })
 export class EntrarComponent implements OnInit {
-  
-  userLogin: UserLogin = new UserLogin
 
+  userLogin: UserLogin = new UserLogin
+  fundo: any
   constructor(
     private auth: AuthService,
     private router: Router
@@ -20,7 +20,13 @@ export class EntrarComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
-    window.document.body.style.backgroundImage = "url('https://i.imgur.com/TLGOmuJ.jpg')"
+
+    this.fundo = window.document.querySelector('#fundo')
+    this.mudar()
+  }
+
+  mudar(){
+    this.fundo.style.backgroundImage = "url('https://i.imgur.com/TLGOmuJ.jpg')"
   }
 
   entrar(){
@@ -56,7 +62,7 @@ export class EntrarComponent implements OnInit {
         alert('usuario ou senha estão incorretos!')
       }
     })
-    
+
   }
 
 }

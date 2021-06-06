@@ -1,8 +1,10 @@
+import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 import { AppComponent } from './app.component';
 import { RodapeComponent } from './rodape/rodape.component';
@@ -13,6 +15,8 @@ import { EntrarComponent } from './entrar/entrar.component';
 import { InicioComponent } from './inicio/inicio.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,13 +25,15 @@ import { InicioComponent } from './inicio/inicio.component';
     CadastroProdutoComponent,
     MenuComponent,
     EntrarComponent,
-    InicioComponent
+    InicioComponent,
+    PesquisaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
