@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 #fundo {
   background-image: url('https://imgur.com/i3WmNDn.jpg');
   background-size: cover;
@@ -10,28 +11,29 @@
   -o-background-size: cover;
 }
 
-  body{
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+body {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
-  .molde {
-    background: rgba(255, 255, 255, 0.774);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 138px 0px 90px;
-    padding: 50px;
-  }
 
-  @media (min-width: 768px) {
-    .border-r {
-      border-right: 1px solid #dee2e6 !important;
-    }
+.molde {
+  background: rgba(255, 255, 255, 0.774);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 138px 0px 90px;
+  padding: 50px;
+}
+
+@media (min-width: 768px) {
+  .border-r {
+    border-right: 1px solid #dee2e6 !important;
+  }
   .height-100 {
     margin-top: 100px;
     margin-bottom: 100px;
   }
-  }
+}

@@ -5,6 +5,7 @@ import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.co
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
 
 const routes: Routes = [
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'entrar', component: EntrarComponent},
   {path: 'cadastrar-usuario', component: CadastroUsuarioComponent},
   {path: 'cadastrar-produto', component: CadastroProdutoComponent},
-  {path: 'pesquisa', component: PesquisaComponent}
+  {path: 'pesquisa', component: PesquisaComponent},
+  {path: 'categoria-delete', component: CategoriaDeleteComponent}
 ];
 
 @NgModule({
