@@ -16,15 +16,20 @@ export class CadastroUsuarioComponent implements OnInit {
   user: User = new User
   auxSenha: string = ''
   auxTipoUsuario: string = ''
-
+  fundo: any //variavel que pegar div de fundo
   constructor(
     private authService: AuthService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    window.document.body.style.backgroundImage = "url('https://i.imgur.com/CnzlKp0.jpg')"
+    this.fundo = window.document.querySelector('#fundo')
+    this.mudar() //muda o fundo da tela
     window.scroll(0,0)
+  }
+
+  mudar(){
+    this.fundo.style.backgroundImage = "url('https://i.imgur.com/CnzlKp0.jpg')"
   }
 
   //Método para confirmar a senha do cadastro do usuário

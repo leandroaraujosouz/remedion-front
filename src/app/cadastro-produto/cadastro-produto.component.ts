@@ -8,10 +8,14 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class CadastroProdutoComponent implements OnInit {
 
+  fundo: any
   constructor() { }
 
   ngOnInit() {
-    window.document.body.style.backgroundImage = "url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg')"
+    this.fundo = window.document.querySelector('#fundo')
+    this.mudar()
   }
-
+  mudar(){
+    this.fundo.style.backgroundImage = "url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg')"
+  }
 }

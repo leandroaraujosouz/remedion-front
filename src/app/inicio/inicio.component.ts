@@ -8,9 +8,12 @@ declare var $:any;
 })
 export class InicioComponent implements OnInit {
 
+  fundo: any
   constructor() { }
 
   ngOnInit(): void {
+    this.fundo = window.document.querySelector('#fundo')
+    this.mudar()
     window.onscroll = function () {
       if (window.pageYOffset > 140) {
         $("#header").addClass("active");
@@ -18,5 +21,8 @@ export class InicioComponent implements OnInit {
         $("#header").removeClass("active");
       }
     }
+  }
+  mudar(){
+    this.fundo.style.backgroundImage = "url('https://i.imgur.com/TLGOmuJ.jpg')"
   }
 }
