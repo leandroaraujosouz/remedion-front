@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'pesquisa', component: PesquisaComponent},
   {path: 'categoria-edit/:id', component: CategoriaEditComponent},
   {path: 'categoria', component: CategoriaComponent},
-  {path: 'categoria-delete', component: CategoriaDeleteComponent}
+  {path: 'categoria-delete/:id', component: CategoriaDeleteComponent}
 ];
 
 @NgModule({

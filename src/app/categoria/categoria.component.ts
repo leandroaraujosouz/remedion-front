@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
+import { Categoria } from '../model/Categoria';
+import { CategoriaService } from '../service/categoria.service';
 
 @Component({
   selector: 'app-categoria',
@@ -12,7 +16,7 @@ export class CategoriaComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private temaService: CategoriaService
+    private categoriaService: CategoriaService
   ) { }
 
   ngOnInit(){
@@ -24,7 +28,7 @@ export class CategoriaComponent implements OnInit {
   } 
 
   findAllCategoria(){
-    this.temaService.getAllCategoria().subscribe((resp:Categoria[])=>{
+    this.categoriaService.getAllCategoria().subscribe((resp:Categoria[])=>{
       this.listaCategoria = resp 
     })
   }

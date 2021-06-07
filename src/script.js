@@ -1,1 +1,0 @@
-fundo = window.document.querySelector

@@ -27,8 +27,8 @@ export class CategoriaDeleteComponent implements OnInit {
       alert('Sua sessão expirou. Faça o login novamente')
       this.router.navigate(['/entrar'])
     } 
-    let id = this.route.snapshot.params['id']
-    this.findByIdCategoria(id)
+    this.idCategoria = this.route.snapshot.params['id']
+    this.findByIdCategoria(this.idCategoria)
   }
 
   findByIdCategoria(id: number){
@@ -40,7 +40,7 @@ export class CategoriaDeleteComponent implements OnInit {
   apagar(){
     this.categoriaService.deleteCategoria(this.idCategoria).subscribe(() => {
       alert('Categoria apagada com sucesso !')
-      this.router.navigate(['/cadastrar-produto'])
+      this.router.navigate(['/categoria'])
     })
   }
 
