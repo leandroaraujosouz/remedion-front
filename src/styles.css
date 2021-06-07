@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+#fundo {
+  background-image: url('https://imgur.com/i3WmNDn.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
 
   body{
     background-size: cover;
