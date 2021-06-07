@@ -1,3 +1,4 @@
+import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'entrar', component: EntrarComponent},
   {path: 'cadastrar-usuario', component: CadastroUsuarioComponent},
   {path: 'cadastrar-produto', component: CadastroProdutoComponent},
-  {path: 'pesquisa', component: PesquisaComponent}
+  {path: 'pesquisa', component: PesquisaComponent},
+  {path: 'categoria-edit/:id', component: CategoriaEditComponent}
 ];
 
 @NgModule({

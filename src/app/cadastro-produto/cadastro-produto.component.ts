@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -9,9 +10,14 @@ import { environment } from 'src/environments/environment.prod';
 export class CadastroProdutoComponent implements OnInit {
 
   fundo: any
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    if(environment.token == '') {
+      this.router.navigate(['/entrar'])
+    }
     this.fundo = window.document.querySelector('#fundo')
     this.mudar()
   }
