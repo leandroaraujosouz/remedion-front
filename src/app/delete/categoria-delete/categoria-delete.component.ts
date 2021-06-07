@@ -10,12 +10,12 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./categoria-delete.component.css']
 })
 export class CategoriaDeleteComponent implements OnInit {
-  categoria: Categoria = new Categoria() 
+  categoria: Categoria = new Categoria()
   idCategoria: number
   fundo: any
 
   constructor(
-    private categoriaService: CategoriaService, 
+    private categoriaService: CategoriaService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -26,7 +26,7 @@ export class CategoriaDeleteComponent implements OnInit {
     if(environment.token == ''){
       alert('Sua sessão expirou. Faça o login novamente')
       this.router.navigate(['/entrar'])
-    } 
+    }
     this.idCategoria = this.route.snapshot.params['id']
     this.findByIdCategoria(this.idCategoria)
   }
@@ -35,7 +35,7 @@ export class CategoriaDeleteComponent implements OnInit {
     this.categoriaService.getByIdCategoria(id).subscribe((resp: Categoria) => {
       this.categoria = resp
     })
-  } 
+  }
 
   apagar(){
     this.categoriaService.deleteCategoria(this.idCategoria).subscribe(() => {
@@ -45,8 +45,7 @@ export class CategoriaDeleteComponent implements OnInit {
   }
 
   mudar(){
-    this.fundo.style.backgroundImage = "url('https://imgur.com/ks39nQS.jpg') ",
-    this.fundo.style.opacity = "0.8"
+    this.fundo.style.backgroundImage = "url('https://imgur.com/ks39nQS.jpg') "
   }
 
 }

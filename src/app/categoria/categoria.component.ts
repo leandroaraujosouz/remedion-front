@@ -11,6 +11,7 @@ import { CategoriaService } from '../service/categoria.service';
 })
 export class CategoriaComponent implements OnInit {
 
+  fundo: any
   categoria: Categoria = new Categoria ()
   listaCategoria: Categoria[]
 
@@ -23,16 +24,21 @@ export class CategoriaComponent implements OnInit {
     if(environment.token==''){
       this.router.navigate(['/entrar'])
     }
-
+    
+    this.fundo = window.document.querySelector('#fundo')
+    this.mudar()
     this.findAllCategoria()
-  } 
+  }
+
+  mudar(){
+    this.fundo.style.backgroundImage = "url('https://images.pexels.com/photos/3683074/pexels-photo-3683074.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') "
+  }
 
   findAllCategoria(){
     this.categoriaService.getAllCategoria().subscribe((resp:Categoria[])=>{
-      this.listaCategoria = resp 
+      this.listaCategoria = resp
     })
   }
-
 
   cadastrar(){
     this.categoriaService.postCategoria(this.categoria).subscribe((resp:Categoria)=>{
@@ -42,6 +48,6 @@ export class CategoriaComponent implements OnInit {
       this.categoria = new Categoria()
     })
   }
-  
+
 
 }
