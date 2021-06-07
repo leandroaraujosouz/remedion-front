@@ -6,6 +6,7 @@ import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.co
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 
 const routes: Routes = [
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'cadastrar-usuario', component: CadastroUsuarioComponent},
   {path: 'cadastrar-produto', component: CadastroProdutoComponent},
   {path: 'pesquisa', component: PesquisaComponent},
-  {path: 'categoria-edit/:id', component: CategoriaEditComponent}
+  {path: 'categoria-edit/:id', component: CategoriaEditComponent},
+  {path: 'categoria', component: CategoriaComponent}
 ];
 
 @NgModule({
