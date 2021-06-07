@@ -1,17 +1,42 @@
 
 
 <div class="container-fluid height-100">
+  <div class="row d-flex align-items-end mb-5 border border-dark pb-3">
+    <div class="col-md-3">
+      <div class="form-group mb-0">
+        <label for="medicamento">MEDICAMENTO:</label>
+        <input type="text" class="form-control campos" id="medicamento" [(ngModel)]='request.query'>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group mb-0">
+        <label for="zona">ZONA</label>
+        <select name="zona" id="zona" class="form-control campos">
+          <option value="CENTRO">CENTRO</option>
+          <option value="CENTRO-SUL">CENTRO-SUL</option>
+          <option value="LESTE">LESTE</option>
+          <option value="NORDESTE">NORDESTE</option>
+          <option value="NOROESTE">NOROESTE</option>
+          <option value="NORTE">NORTE</option>
+          <option value="OESTE">OESTE</option>
+          <option value="SUDESTE">SUDESTE</option>
+          <option value="SUL">SUL</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div>
+        <button type="submit" class="btn btn-success campos" (click)="pesquisa()">PESQUISAR</button>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-6">
-      <h1 class="text-center">pesquisa</h1>
-      <div class="form-group">
-        <label for="pesquisa">pesquisa</label>
-        <input [(ngModel)]="request.query" type="text" id="pesquisa" class="form-control" placeholder="rua, estabelecimento, cidade, etc..">
-      </div>
       <div>
-        <button type="submit" class="btn btn-info" (click)="pesquisa()">pesquisa</button>
+        <h2>posto</h2>
+        <p>endereço</p>
       </div>
-
     </div>
 
     <div class="col-md-6">
