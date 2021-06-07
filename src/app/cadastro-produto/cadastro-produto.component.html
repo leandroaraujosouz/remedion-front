@@ -1,10 +1,10 @@
-  <div class="container-fluid">
+  <div class="container-fluid height-100">
     <form>
       <div class="row">
 
-        <div class="col-md-6 m-auto">
+        <div class="col-md-6 molde height-100 m-auto">
 
-          <div class="row molde height-100 justify-content-center">
+          <div class="row  justify-content-center">
 
             <span><img id='logo' src="https://imgur.com/mKM8ufz.jpg" alt="logo Remedion"></span>
             <span>
@@ -31,7 +31,7 @@
                 <label for="classificacao">Classificação</label>
                 <input class="form-control campos" type="text" name="classificacao" id="classificacao">
               </div>
-              
+
             </div>
 
             <div class="col-md-6 text-left">
@@ -56,26 +56,23 @@
                 <input class="form-control campos" type="text" name="endereco" id="endereco">
               </div>
             </div>
-            
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="texto">Escolha uma categoria ou <a routerLink="/categoria" >cadastre uma nova</a> </label>
-                  <select name="tema" id="tema" class="form-control">
-                    <option value="">Temas</option>
-                  </select>
-                </div>
+          </div>
+          <div class="row d-flex justify-content-left">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="texto">Escolha uma categoria ou <a routerLink="/categoria" >cadastre uma nova</a> </label>
+                <select name="tema" id="tema" class="form-control campos">
+                  <option value="">Temas</option>
+                </select>
               </div>
             </div>
+          </div>
 
-            <div class="row">
-              <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-danger mt-3 mr-2" >CANCELAR</button>
-                <button type="submit" class="btn btn-success mt-3">Cadastrar</button>
-              </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <button type="submit" class="btn btn-danger mt-3 mr-2" >CANCELAR</button>
+              <button type="submit" class="btn btn-success mt-3">Cadastrar</button>
             </div>
-            
-
           </div>
 
         </div>
