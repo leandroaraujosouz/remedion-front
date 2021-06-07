@@ -23,6 +23,6 @@ export class InicioComponent implements OnInit {
     }
   }
   mudar(){
-    this.fundo.style.backgroundImage = "url('https://i.imgur.com/TLGOmuJ.jpg')"
+    this.fundo.style.backgroundImage = "url('https://imgur.com/i3WmNDn.jpg')"
   }
 }
