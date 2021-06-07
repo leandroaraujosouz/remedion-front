@@ -13,6 +13,7 @@ import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.co
 import {MenuComponent} from './menu/menu.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 
 
 
@@ -26,7 +27,8 @@ import { InicioComponent } from './inicio/inicio.component';
     MenuComponent,
     EntrarComponent,
     InicioComponent,
-    PesquisaComponent
+    PesquisaComponent,
+    CategoriaComponent
   ],
   imports: [
     BrowserModule,
