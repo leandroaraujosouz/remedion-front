@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+html {
+  scroll-behavior: smooth;
+}
+
 #fundo {
   background-image: url('https://imgur.com/i3WmNDn.jpg');
   background-size: cover;
@@ -37,6 +41,10 @@ body {
   .form-font {
       font-family:'Comfortaa', cursive;
       font-weight:400;
+  }
+
+  .roboto-font {
+    font-family: 'Roboto', sans-serif;
   }
 
   @media (min-width: 768px) {

@@ -1,0 +1,39 @@
+<div class="container mb-5 mt-5 molde">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center text-secondary">Apagar Produto</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="text-center text-secondary">Você tem certeza que deseja apagar esse Produto?</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card text-center" style="background-color: transparent;">
+          <div class="card-body">
+            <h5 class="card-title m-0">Descrição: {{produto.nome}}</h5>
+            <small class="text-muted">Categoria: {{produto.categoria.tipo}}</small>
+            <p class="card-text mt-3">Estoque: {{produto.estoque}}</p>
+            <p class="card-text mt-3">Classificação: {{produto.classificacao}}</p>
+            <p class="card-text mt-3">Posto: {{produto.posto}}</p>
+            <p class="card-text mt-3">Municipio/Cidade: {{produto.municipioCidade}}</p>
+            <p class="card-text mt-3">Zona: {{produto.zona}}</p>
+            <p class="card-text mt-3">Endereço: {{produto.endereco}}</p>
+            <p class="card-text mt-3">Ativo: {{produto.ativo}}</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-12 d-flex justify-content-center">
+        <button class="btn btn-danger mr-4" routerLink='/consultar-produto'>Não</button>
+        <button class="btn btn-success" (click)="apagar()">Sim</button>
+      </div>
+    </div>
+  </div>

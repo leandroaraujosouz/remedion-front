@@ -1,0 +1,115 @@
+<div class="border molde ml-5 mr-5 height-100" style="border-radius: 50px 50px;">
+    <div class="container-fluid">
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h1 class="text-center text-secondary">Consultar Remédios</h1>
+            </div>
+        </div>
+
+        <!-- pesquisa -->
+        <div class="row d-flex align-items-end justify-content-left mb-2">
+
+            <div class="col-md-3">
+                <div class="form-group mb-0">
+                    <label for="descricao"></label>
+                    <input [(ngModel)]="produto.nome" type="text" class="form-control campos" id="descricao"
+                        placeholder="Medicamento">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group mb-0">
+                    <label for="posto"></label>
+                    <input [(ngModel)]="produto.posto" type="text" class="form-control campos" id="posto"
+                        placeholder="Posto">
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group mb-0">
+                    <label for="municipioCidade"></label>
+                    <input [(ngModel)]="produto.municipioCidade" type="text" class="form-control campos"
+                        id="municipioCidade" placeholder="Municipio/Cidade">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group mb-0">
+                    <label for="zona"></label>
+                    <select [(ngModel)]="produto.zona" name="zona" id="zona" class="form-control campos">
+                        <option value="">Selecione uma zona..</option>
+                        <option value="CENTRO">CENTRO</option>
+                        <option value="CENTRO-SUL">CENTRO-SUL</option>
+                        <option value="LESTE">LESTE</option>
+                        <option value="NORDESTE">NORDESTE</option>
+                        <option value="NOROESTE">NOROESTE</option>
+                        <option value="NORTE">NORTE</option>
+                        <option value="OESTE">OESTE</option>
+                        <option value="SUDESTE">SUDESTE</option>
+                        <option value="SUL">SUL</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div>
+                    <button type="submit" class="btn btn-success campos" (click)="pesquisa()">PESQUISAR</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row text-center mt-5 mb-2">
+            <div class="col-md-12">
+
+                <p class="text-center mt-3">
+                    Deseja Cadastrar um novo produto? <a routerLink='/cadastrar-produto'>Cadastre aqui</a>
+                </p>
+            </div>
+        </div>
+        <!-- /pesquisa -->
+        <!-- listaRemedios  -->
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Estoque</th>
+                            <th scope="col">Classificação</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Posto</th>
+                            <th scope="col">Endereço</th>
+                            <th scope="col">Municipio/Cidade</th>
+                            <th scope="col">Zona</th>
+                            <th scope="col">Ativo</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let itens of listaProdutos'>
+                            <th scope="row">{{itens.id}}</th>
+                            <td>{{itens.nome}}</td>
+                            <td>{{itens.estoque}}</td>
+                            <td>{{itens.classificacao}}</td>
+                            <td>{{itens.categoria.tipo}}</td>
+                            <td>{{itens.posto}}</td>
+                            <td>{{itens.endereco}}</td>
+                            <td>{{itens.municipioCidade}}</td>
+                            <td>{{itens.zona}}</td>
+                            <td>{{itens.ativo}}</td>
+                            <td>
+                                <button class="btn btn-info" [routerLink]="['/produto-edit',itens.id]">Editar</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger"
+                                    [routerLink]="['/produto-delete',itens.id]">Deletar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- /listaRemedios  -->
+    </div>
+</div>
