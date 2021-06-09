@@ -1,0 +1,101 @@
+<div class="container-fluid height-100">
+  <form>
+    <div class="row">
+
+      <div class="col-md-6 molde height-100 m-auto">
+        <div class="row d-flex justify-content-center">
+          <div class="col text-center">
+            <span><img class="img-fluid" id='logo' src="https://imgur.com/mKM8ufz.jpg" alt="logo Remedion"></span>
+            <span>
+              <h3 class="form-font my-4">Atualizar Cadastro de Remédio</h3>
+            </span>
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+
+          <div class="col-md-6 border-r text-left roboto-font">
+
+            <div class="form-group">
+              <label for="descricao">Descrição</label>
+              <input [(ngModel)]='produto.nome' class="form-control campos" type="text" name="descricao" id="descricao">
+            </div>
+
+            <div class="form-group">
+              <label for="estoque">Quantidade em Estoque</label>
+              <input [(ngModel)]='produto.estoque' class="form-control campos" type="text" name="estoque" id="estoque">
+            </div>
+
+            <div class="form-group">
+              <label for="classificacao">Classificação</label>
+              <input [(ngModel)]='produto.classificacao' class="form-control campos" type="text" name="classificacao"
+                id="classificacao">
+            </div>
+
+            <div class="form-group">
+              <label for="texto">Escolha uma categoria</label>
+              <select name="tema" id="tema" class="form-control campos" [(ngModel)]='idCategoria'
+                (change)='findByIdCategoria()'>
+                <option *ngFor='let item of listaCategorias' value="{{item.id}}">{{item.tipo}}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="ativo">Ativo</label>
+              <select name="ativo" id="ativo" class="form-control campos" [(ngModel)]='produto.ativo'>
+                <option value="true">Sim</option>
+                <option value="false">Não</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="col-md-6 text-left roboto-font">
+
+            <div class="form-group">
+              <label for="posto">Posto</label>
+              <input [(ngModel)]='produto.posto' class="form-control campos" type="text" name="posto" id="posto">
+            </div>
+
+            <div class="form-group">
+              <label for="cidade">Município/Cidade</label>
+              <input [(ngModel)]='produto.municipioCidade' class="form-control campos" type="text" name="cidade"
+                id="cidade">
+            </div>
+
+            <div class="form-group">
+              <label for="zona">Zona</label>
+              <select name="zona" id="zona" class="form-control campos" [(ngModel)]='produto.zona'>
+                <option value="CENTRO">CENTRO</option>
+                <option value="CENTRO-SUL">CENTRO-SUL</option>
+                <option value="LESTE">LESTE</option>
+                <option value="NORDESTE">NORDESTE</option>
+                <option value="NOROESTE">NOROESTE</option>
+                <option value="NORTE">NORTE</option>
+                <option value="OESTE">OESTE</option>
+                <option value="SUDESTE">SUDESTE</option>
+                <option value="SUL">SUL</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="endereco">Endereço</label>
+              <input [(ngModel)]='produto.endereco' class="form-control campos" type="text" name="endereco"
+                id="endereco">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 text-center form-font">
+            <button type="submit" class="btn btn-danger mt-4 mr-2" routerLink='/cadastrar-produto'>Cancelar</button>
+            <button type="submit" class="btn btn-success mt-4" (click)="atualizarProduto()">Atualizar</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </form>
+</div>
+
