@@ -80,7 +80,7 @@ export class ProdutoEditComponent implements OnInit {
       this.produto = resp
       alert('Produto atualizado com sucesso!')
       this.produto = new Produto()
-      this.router.navigate(['/'])
+      this.router.navigate(['/consultar-produto'])
     })
 
   }
