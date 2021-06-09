@@ -25,6 +25,17 @@ export class ProdutoService {
     return this.http.get<Produto>(`${environment.server}/produto/${id}`,this.token)
   }
 
+  getByNomeProduto(nome: String): Observable <Produto[]>{
+    return this.http.get<Produto[]>(`${environment.server}/produto/nome/${nome}`,this.token)
+  }
+
+  getAllByNomePosto(nome: String, posto: String): Observable<Produto[]>{
+    return this.http.get<Produto[]>(`${environment.server}/produto/nomePosto/${nome}/${posto}`,this.token)
+  }
+
+  getAllByNomeMunicipioZona(nome: String, municipio: String, zona: String): Observable<Produto[]>{
+    return this.http.get<Produto[]>(`${environment.server}/produto/completa/${nome}/${municipio}/${zona}`,this.token)
+  }
 
   postProduto(Produto: Produto): Observable<Produto>{
     return this.http.post<Produto>(`${environment.server}/produto`,Produto, this.token)

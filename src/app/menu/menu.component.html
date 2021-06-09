@@ -28,11 +28,11 @@
                         class="img-fluid rounded-circle  ml-2">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right m-0 text-dark" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item font-weight-bold" href="#">Perfil</a>
+                    <a class="dropdown-item font-weight-bold" routerLink='/pesquisa'>Pesquisa</a>
                     <a class="dropdown-item font-weight-bold" routerLink='/cadastrar-produto'>Cadastrar Produto</a>
-                    <a class="dropdown-item font-weight-bold" href="#">Carrinho</a>
+                    <a class="dropdown-item font-weight-bold" routerLink='/consultar-produto'>Consulta</a>
                     <div class="dropdown-divider"></div>
-                    <a (click)= sair() class="dropdown-item font-weight-bold" href="#"> Sair <i class="fa fa-sign-out"
+                    <a (click)= sair() class="dropdown-item font-weight-bold" routerLink='/inicio'> Sair <i class="fa fa-sign-out"
                             aria-hidden="true"></i></a>
                 </div>
             </li>
