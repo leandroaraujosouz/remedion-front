@@ -17,6 +17,7 @@ import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.com
 import { CategoriaComponent } from './categoria/categoria.component';
 import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
 import { ConsultaProdutoComponent } from './consulta-produto/consulta-produto.component';
+import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component';
 
 
 
@@ -34,7 +35,8 @@ import { ConsultaProdutoComponent } from './consulta-produto/consulta-produto.co
     CategoriaEditComponent,
     CategoriaComponent,
     CategoriaDeleteComponent,
-    ConsultaProdutoComponent
+    ConsultaProdutoComponent,
+    ProdutoEditComponent
   ],
   imports: [
     BrowserModule,
