@@ -1,3 +1,9 @@
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
+import { ProdutoService } from './../service/produto.service';
+import { CategoriaService } from 'src/app/service/categoria.service';
+import { Categoria } from 'src/app/model/Categoria';
+import { Produto } from './../model/Produto';
 import { LiteralMapEntry } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,23 +16,73 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class PesquisaComponent implements OnInit {
+  fundo: any
 
+  produto: Produto = new Produto()
+  listaProdutos: Produto[]
 
-  constructor() {
-
-  }
-
-  ngOnInit() {
-    this.pesquisa()
-    this.limpa()
-  }
+  categoria: Categoria = new Categoria()
+  listaCategorias: Categoria[]
+  idCategoria: number
 
   service: google.maps.places.PlacesService;
   infowindow: google.maps.InfoWindow;
   request = {
-    query:  "São Paulo",
-    fields: ["name", "geometry"],
+    query:  "",
+    fields: ["name", "formatted_address", "place_id", "geometry"],
   };
+  constructor(
+    private router: Router,
+    private categoriaService: CategoriaService,
+    private produtoService: ProdutoService
+  ) { }
+
+  ngOnInit() {
+    window.scroll(0,0)
+    /* if(environment.token == '') {
+      this.router.navigate(['/entrar'])
+    } */
+    this.pesquisa("upa Perus")
+    this.limpa()
+    this.fundo = window.document.querySelector('#fundo')
+    this.mudar()
+    this.findAllCategorias()
+    this.findAllProdutos()
+  }
+  mudar(){
+    this.fundo.style.backgroundImage = "url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg')"
+  }
+
+  findAllProdutos(){
+    this.produtoService.getAllProdutos().subscribe((resp: Produto[])=>{
+      this.listaProdutos = resp
+    })
+  }
+
+  findByIdCategoria(){
+    this.categoriaService.getByIdCategoria(this.idCategoria).subscribe((resp: Categoria)=>{
+      this.categoria = resp
+    })
+  }
+
+  findAllCategorias(){
+    this.categoriaService.getAllCategoria().subscribe((resp: Categoria[])=>{
+      this.listaCategorias = resp
+    })
+  }
+
+  cadastrarProduto(){
+    this.produto.categoria = this.categoria
+    this.produto.ativo = true
+    this.produtoService.postProduto(this.produto).subscribe((resp: Produto)=>{
+      this.produto = resp
+      alert('Produto cadastrado com sucesso!')
+      this.produto = new Produto()
+      this.findAllProdutos()
+    })
+  }
+
+
 
   limpa(){
     this.request.query=""
@@ -48,8 +104,9 @@ export class PesquisaComponent implements OnInit {
     });
   }
 
-  pesquisa() {
 
+  pesquisa(endereco: string) {
+    this.request.query = endereco
   let map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
       center: { lat: -34.397, lng: 150.644 },
       zoom: 18,
