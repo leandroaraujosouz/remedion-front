@@ -16,6 +16,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
+import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
 
 
 
@@ -32,7 +33,8 @@ import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-de
     PesquisaComponent,
     CategoriaEditComponent,
     CategoriaComponent,
-    CategoriaDeleteComponent
+    CategoriaDeleteComponent,
+    ProdutoDeleteComponent
   ],
   imports: [
     BrowserModule,
