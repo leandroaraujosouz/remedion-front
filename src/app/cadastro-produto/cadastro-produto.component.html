@@ -1,84 +1,93 @@
-  <div class="container-fluid height-100">
-    <form>
-      <div class="row">
+<div class="container-fluid height-100">
+  <form>
+    <div class="row">
 
-        <div class="col-md-6 molde height-100 m-auto">
+      <div class="col-md-6 molde height-100 m-auto">
 
-          <div class="row  justify-content-center">
+        <div class="row  justify-content-center">
 
-            <span><img id='logo' src="https://imgur.com/mKM8ufz.jpg" alt="logo Remedion"></span>
-            <span>
-              <h1 class="titulo">Cadastro de remédios</h1>
-            </span>
-            <div class="col-md-6 border-r text-left">
+          <span><img id='logo' src="https://imgur.com/mKM8ufz.jpg" alt="logo Remedion"></span>
+          <span>
+            <h1 class="titulo">Cadastro de remédios</h1>
+          </span>
+          <div class="col-md-6 border-r text-left">
 
-              <div class="form-group">
-                <label for="categoria">Categoria</label>
-                <input class="form-control campos" type="text" name="categoria" id="categoria">
-              </div>
-
-              <div class="form-group">
-                <label for="descricao">Descrição</label>
-                <input class="form-control campos" type="text" name="descricao" id="descricao">
-              </div>
-
-              <div class="form-group">
-                <label for="estoque">Estoque</label>
-                <input class="form-control campos" type="text" name="estoque" id="estoque">
-              </div>
-
-              <div class="form-group">
-                <label for="classificacao">Classificação</label>
-                <input class="form-control campos" type="text" name="classificacao" id="classificacao">
-              </div>
-
+            <div class="form-group">
+              <label for="descricao">Descrição</label>
+              <input [(ngModel)]='produto.nome' class="form-control campos" type="text" name="descricao" id="descricao">
             </div>
 
-            <div class="col-md-6 text-left">
-
-              <div class="form-group">
-                <label for="posto">Posto</label>
-                <input class="form-control campos" type="text" name="posto" id="posto">
-              </div>
-
-              <div class="form-group">
-                <label for="cidade">Municipio/Cidade</label>
-                <input class="form-control campos" type="text" name="cidade" id="cidade">
-              </div>
-
-              <div class="form-group">
-                <label for="zona">Zona</label>
-                <input class="form-control campos" type="text" name="zona" id="zona">
-              </div>
-
-              <div class="form-group">
-                <label for="endereco">Endereço</label>
-                <input class="form-control campos" type="text" name="endereco" id="endereco">
-              </div>
+            <div class="form-group">
+              <label for="estoque">Estoque</label>
+              <input [(ngModel)]='produto.estoque' class="form-control campos" type="text" name="estoque" id="estoque">
             </div>
-          </div>
-          <div class="row d-flex justify-content-left">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="texto">Escolha uma categoria ou <a routerLink="/categoria" >cadastre uma nova</a> </label>
-                <select name="tema" id="tema" class="form-control campos">
-                  <option value="">Temas</option>
-                </select>
-              </div>
+
+            <div class="form-group">
+              <label for="classificacao">Classificação</label>
+              <input [(ngModel)]='produto.classificacao' class="form-control campos" type="text" name="classificacao"
+                id="classificacao">
             </div>
+
+            <div class="form-group">
+              <label for="texto">Escolha uma categoria ou <a routerLink="/categoria">cadastre uma nova</a> </label>
+              <select name="tema" id="tema" class="form-control campos" [(ngModel)]='idCategoria'
+                (change)='findByIdCategoria()'>
+                <option *ngFor='let item of listaCategorias' value="{{item.id}}">{{item.tipo}}</option>
+              </select>
+            </div>
+
           </div>
 
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <button type="submit" class="btn btn-danger mt-3 mr-2" routerLink='/inicio'>Cancelar</button>
-              <button type="submit" class="btn btn-success mt-3">Cadastrar</button>
+          <div class="col-md-6 text-left">
+
+            <div class="form-group">
+              <label for="posto">Posto</label>
+              <input [(ngModel)]='produto.posto' class="form-control campos" type="text" name="posto" id="posto">
+            </div>
+
+            <div class="form-group">
+              <label for="cidade">Municipio/Cidade</label>
+              <input [(ngModel)]='produto.municipioCidade' class="form-control campos" type="text" name="cidade"
+                id="cidade">
+            </div>
+
+            <div class="form-group">
+              <label for="zona">ZONA</label>
+              <select name="zona" id="zona" class="form-control campos" [(ngModel)]='produto.zona'>
+                <option value="CENTRO">CENTRO</option>
+                <option value="CENTRO-SUL">CENTRO-SUL</option>
+                <option value="LESTE">LESTE</option>
+                <option value="NORDESTE">NORDESTE</option>
+                <option value="NOROESTE">NOROESTE</option>
+                <option value="NORTE">NORTE</option>
+                <option value="OESTE">OESTE</option>
+                <option value="SUDESTE">SUDESTE</option>
+                <option value="SUL">SUL</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="endereco">Endereço</label>
+              <input [(ngModel)]='produto.endereco' class="form-control campos" type="text" name="endereco"
+                id="endereco">
             </div>
           </div>
+        </div>
+        <div class="row d-flex justify-content-left">
+          <div class="col-md-12">
 
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-danger mt-3 mr-2" routerLink='/inicio'>Cancelar</button>
+            <button type="submit" class="btn btn-success mt-3" (click)="cadastrarProduto()">Cadastrar</button>
+          </div>
         </div>
 
       </div>
 
-    </form>
-  </div>
-
+    </div>
+  </form>
+</div>
