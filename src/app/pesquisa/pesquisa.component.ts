@@ -42,12 +42,12 @@ export class PesquisaComponent implements OnInit {
     /* if(environment.token == '') {
       this.router.navigate(['/entrar'])
     } */
-    this.pesquisa("upa Perus")
     this.limpa()
     this.fundo = window.document.querySelector('#fundo')
     this.mudar()
     this.findAllCategorias()
     this.findAllProdutos()
+
   }
   mudar(){
     this.fundo.style.backgroundImage = "url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg')"
@@ -107,6 +107,7 @@ export class PesquisaComponent implements OnInit {
 
   pesquisa(endereco: string) {
     this.request.query = endereco
+
   let map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
       center: { lat: -34.397, lng: 150.644 },
       zoom: 18,

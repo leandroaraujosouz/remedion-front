@@ -34,9 +34,9 @@
   <div class="row">
     <div class="col-md-6">
       <div *ngFor='let itens of listaProdutos' class="border bg-light p-2 mb-2">
-        <h3 (click)="pesquisa('{{itens.endereco}}')">{{itens.posto}}</h3>
+        <h3 (click)="pesquisa(itens.endereco)">{{itens.posto}}</h3>
         <p class="mb-0">Endereço: {{itens.endereco}}</p>
-
+        <input type="hidden" name="endereco" id="endereco" [(ngModel)]='produto.endereco' value={{itens.endereco}}>
       </div>
     </div>
 
