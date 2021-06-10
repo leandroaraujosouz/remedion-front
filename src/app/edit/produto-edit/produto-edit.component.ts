@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from 'src/app/model/Categoria';
 import { Produto } from 'src/app/model/Produto';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { CategoriaService } from 'src/app/service/categoria.service';
 import { ProdutoService } from 'src/app/service/produto.service';
 import { environment } from 'src/environments/environment.prod';
@@ -27,13 +28,15 @@ export class ProdutoEditComponent implements OnInit {
     private router: Router,
     private categoriaService: CategoriaService,
     private produtoService: ProdutoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertasService: AlertasService
   ) { }
 
   ngOnInit() {
     window.scroll(0, 0)
 
     if (environment.token == '') {
+      this.alertasService.showAlertInfo('Sua sessão expirou. Entre novamente!')
       this.router.navigate(['/entrar'])
     }
 
@@ -76,12 +79,25 @@ export class ProdutoEditComponent implements OnInit {
 
   atualizarProduto() {
     this.produto.categoria = this.categoria
-    this.produtoService.putProduto(this.produto).subscribe((resp: Produto) => {
-      this.produto = resp
-      alert('Produto atualizado com sucesso!')
-      this.produto = new Produto()
-      this.router.navigate(['/consultar-produto'])
-    })
+
+    if ((this.produto.nome == null || this.produto.nome == '') ||
+      (this.produto.classificacao == null || this.produto.classificacao == '') ||
+      (this.produto.categoria.id == null) ||
+      (this.produto.posto == null || this.produto.posto == '') ||
+      (this.produto.municipioCidade == null || this.produto.municipioCidade == '') ||
+      (this.produto.zona == null || this.produto.zona == '') ||
+      (this.produto.endereco == null || this.produto.endereco == '')) {
+      this.alertasService.showAlertDanger('Todos os campos devem ser preenchidos')
+    } else if (this.produto.estoque < 0) {
+      this.alertasService.showAlertInfo('O produto não pode ser cadastrado com estoque negativo')
+    } else {
+      this.produtoService.putProduto(this.produto).subscribe((resp: Produto) => {
+        this.produto = resp
+        this.alertasService.showAlertSuccess('Produto atualizado com sucesso!')
+        this.produto = new Produto()
+        this.router.navigate(['/consultar-produto'])
+      })
+    }
 
   }
 

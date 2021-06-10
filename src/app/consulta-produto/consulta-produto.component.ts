@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Categoria } from '../model/Categoria';
 import { Produto } from '../model/Produto';
+import { AlertasService } from '../service/alertas.service';
 import { CategoriaService } from '../service/categoria.service';
 import { ProdutoService } from '../service/produto.service';
 
@@ -24,13 +25,17 @@ export class ConsultaProdutoComponent implements OnInit {
   constructor(
     private router: Router,
     private categoriaService: CategoriaService,
-    private produtoService: ProdutoService
+    private produtoService: ProdutoService,
+    private alertasService: AlertasService
   ) { }
 
   ngOnInit() {
     if(environment.token == '') {
+      this.alertasService.showAlertInfo('Sua sessão expirou. Entre novamente!')
       this.router.navigate(['/entrar'])
     }
+
+    window.scroll(0,0)
     this.fundo = window.document.querySelector('#fundo')
     this.mudar()
     this.findAllCategorias()
@@ -102,6 +107,6 @@ export class ConsultaProdutoComponent implements OnInit {
     (this.produto.zona != "")){
       this.findAllByNomeMunicipioZona()
     }
-    
+
   }
 }
