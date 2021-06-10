@@ -5,6 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { ModalModule} from 'ngx-bootstrap/modal';
+import { OrderModule } from 'ngx-order-pipe';
 
 import { AppComponent } from './app.component';
 import { RodapeComponent } from './rodape/rodape.component';
@@ -19,6 +21,8 @@ import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-de
 import { ConsultaProdutoComponent } from './consulta-produto/consulta-produto.component';
 import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component';
 import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
+import { from } from 'rxjs';
+
 
 
 
@@ -45,7 +49,9 @@ import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.c
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    ModalModule.forRoot(),
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
