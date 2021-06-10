@@ -46,13 +46,37 @@
     </div>
   </div>
 
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <div style="overflow: auto; height: 200px">
+        <div class="row border carrinho mb-3 p-0" *ngFor='let itens of carrinho' >
+
+          <div class="col-md-10 ">
+            <h2 class="ml-4 mb-1 d-block">{{itens.nome}}</h2>
+            <p class="ml-4 mb-1">Posto: {{itens.posto}}</p>
+            <p class="ml-4 mb-1">Endereço: {{itens.endereco}}</p>
+
+          </div>
+
+          <div class="col-md-2 p-0 text-right d-flex justify-content-end align-items-center">
+            <i id="excluir" (click)="removeCarrinho(itens)" class="fa fa-times-circle mr-4" aria-hidden="true" style=""></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <div class="row">
     <div class="col-md-6">
+      <div style="overflow: auto; height: 500px">
       <div *ngFor='let itens of listaProdutos' class="border bg-light p-2 mb-2">
         <h3 (click)="mapa(itens.endereco)">{{itens.posto}}</h3>
         <p class="mb-0">Medicamento: {{itens.nome}}</p>
         <p class="mb-0">Endereço: {{itens.endereco}}</p>
-        </div>
+        <button (click)='reservar(itens)' class="btn btn-success">fazer Reserva</button>
+      </div>
+      </div>
     </div>
 
     <div class="col-md-6">

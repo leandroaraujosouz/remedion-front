@@ -20,6 +20,7 @@ export class PesquisaComponent implements OnInit {
 
   produto: Produto = new Produto()
   listaProdutos: Produto[]
+  carrinho: Produto[] = []
 
   service: google.maps.places.PlacesService;
   infowindow: google.maps.InfoWindow;
@@ -40,6 +41,7 @@ export class PesquisaComponent implements OnInit {
     this.limpa()
     this.fundo = window.document.querySelector('#fundo')
     this.mudar()
+    this.mapa("São paulo")
   }
   mudar(){
     this.fundo.style.backgroundImage = "url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg')"
@@ -67,6 +69,25 @@ export class PesquisaComponent implements OnInit {
     this.produtoService.getAllByNomeMunicipioZona(this.produto.nome, this.produto.municipioCidade, this.produto.zona).subscribe((resp: Produto[]) => {
       this.listaProdutos = resp
     })
+  }
+
+  reservar(produto : Produto){
+    let confirma = true
+    if(this.carrinho.find(element => element == produto) != undefined){
+      alert('item ja cadastrado!')
+    }
+    else{
+      this.carrinho.push(produto)
+    }
+  }
+  removeCarrinho(produto: Produto){
+    let lista: Produto[] = []
+    for(let itens =0; itens < this.carrinho.length; itens++){
+      if(this.carrinho[itens] != produto){
+        lista.push(this.carrinho[itens])
+      }
+    }
+    this.carrinho = lista
   }
 
   pesquisa() {
