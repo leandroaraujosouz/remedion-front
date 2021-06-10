@@ -21,10 +21,6 @@ export class PesquisaComponent implements OnInit {
   produto: Produto = new Produto()
   listaProdutos: Produto[]
 
-  categoria: Categoria = new Categoria()
-  listaCategorias: Categoria[]
-  idCategoria: number
-
   service: google.maps.places.PlacesService;
   infowindow: google.maps.InfoWindow;
   request = {
@@ -33,7 +29,6 @@ export class PesquisaComponent implements OnInit {
   };
   constructor(
     private router: Router,
-    private categoriaService: CategoriaService,
     private produtoService: ProdutoService
   ) { }
 
@@ -45,43 +40,63 @@ export class PesquisaComponent implements OnInit {
     this.limpa()
     this.fundo = window.document.querySelector('#fundo')
     this.mudar()
-    this.findAllCategorias()
-    this.findAllProdutos()
-
   }
   mudar(){
     this.fundo.style.backgroundImage = "url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg')"
   }
 
-  findAllProdutos(){
-    this.produtoService.getAllProdutos().subscribe((resp: Produto[])=>{
+  findAllProdutos() {
+    this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
       this.listaProdutos = resp
     })
   }
 
-  findByIdCategoria(){
-    this.categoriaService.getByIdCategoria(this.idCategoria).subscribe((resp: Categoria)=>{
-      this.categoria = resp
+  findByNomeProduto() {
+    this.produtoService.getByNomeProduto(this.produto.nome).subscribe((resp: Produto[]) => {
+      this.listaProdutos = resp
     })
   }
 
-  findAllCategorias(){
-    this.categoriaService.getAllCategoria().subscribe((resp: Categoria[])=>{
-      this.listaCategorias = resp
+  findAllByNomePosto(){
+    this.produtoService.getAllByNomePosto(this.produto.nome, this.produto.posto).subscribe((resp: Produto[]) => {
+      this.listaProdutos = resp
     })
   }
 
-  cadastrarProduto(){
-    this.produto.categoria = this.categoria
-    this.produto.ativo = true
-    this.produtoService.postProduto(this.produto).subscribe((resp: Produto)=>{
-      this.produto = resp
-      alert('Produto cadastrado com sucesso!')
-      this.produto = new Produto()
+  findAllByNomeMunicipioZona(){
+    this.produtoService.getAllByNomeMunicipioZona(this.produto.nome, this.produto.municipioCidade, this.produto.zona).subscribe((resp: Produto[]) => {
+      this.listaProdutos = resp
+    })
+  }
+
+  pesquisa() {
+    if(
+    (this.produto.nome == null || this.produto.nome == "")&&
+    (this.produto.posto == null || this.produto.posto == "") &&
+    (this.produto.municipioCidade == null || this.produto.municipioCidade == "") &&
+    (this.produto.zona == null || this.produto.zona == "")){
       this.findAllProdutos()
-    })
-  }
+    }
+    else if (this.produto.nome != "" &&
+      (this.produto.posto == null || this.produto.posto == "") &&
+      (this.produto.municipioCidade == null || this.produto.municipioCidade == "") &&
+      (this.produto.zona == null || this.produto.zona == "")) {
+      this.findByNomeProduto()
+    }
+    else if(this.produto.nome != "" && this.produto.posto != "" &&
+    (this.produto.municipioCidade == null || this.produto.municipioCidade == "") &&
+    (this.produto.zona == null || this.produto.zona == "")){
+      this.findAllByNomePosto()
+    }
+    else if(
+    (this.produto.posto == null || this.produto.posto == "") &&
+    (this.produto.nome != "") &&
+    (this.produto.municipioCidade != "") &&
+    (this.produto.zona != "")){
+      this.findAllByNomeMunicipioZona()
+    }
 
+  }
 
 
   limpa(){
@@ -105,7 +120,7 @@ export class PesquisaComponent implements OnInit {
   }
 
 
-  pesquisa(endereco: string) {
+  mapa(endereco: string) {
     this.request.query = endereco
 
   let map = new google.maps.Map(document.getElementById("map") as HTMLElement, {

@@ -1,17 +1,31 @@
-
-
 <div class="container-fluid height-100">
   <div class="row d-flex align-items-end mb-5 border border-dark pb-3">
     <div class="col-md-3">
       <div class="form-group mb-0">
-        <label for="medicamento">MEDICAMENTO:</label>
-        <input type="text" class="form-control campos" id="medicamento" [(ngModel)]='request.query'>
+        <label for="descricao"></label>
+        <input [(ngModel)]="produto.nome" type="text" class="form-control campos" id="descricao"
+          placeholder="Medicamento">
       </div>
     </div>
     <div class="col-md-3">
       <div class="form-group mb-0">
-        <label for="zona">ZONA</label>
-        <select name="zona" id="zona" class="form-control campos">
+        <label for="posto"></label>
+        <input [(ngModel)]="produto.posto" type="text" class="form-control campos" id="posto" placeholder="Posto">
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="form-group mb-0">
+        <label for="municipioCidade"></label>
+        <input [(ngModel)]="produto.municipioCidade" type="text" class="form-control campos" id="municipioCidade"
+          placeholder="Municipio/Cidade">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group mb-0">
+        <label for="zona"></label>
+        <select [(ngModel)]="produto.zona" name="zona" id="zona" class="form-control campos">
+          <option value="">Selecione uma zona..</option>
           <option value="CENTRO">CENTRO</option>
           <option value="CENTRO-SUL">CENTRO-SUL</option>
           <option value="LESTE">LESTE</option>
@@ -24,9 +38,10 @@
         </select>
       </div>
     </div>
-    <div class="col-md-3">
+
+    <div class="col-md-2">
       <div>
-        <button type="submit" class="btn btn-success campos">PESQUISAR</button>
+        <button type="submit" class="btn btn-success campos" (click)="pesquisa()">PESQUISAR</button>
       </div>
     </div>
   </div>
@@ -34,10 +49,10 @@
   <div class="row">
     <div class="col-md-6">
       <div *ngFor='let itens of listaProdutos' class="border bg-light p-2 mb-2">
-        <h3 (click)="pesquisa(itens.endereco)">{{itens.posto}}</h3>
+        <h3 (click)="mapa(itens.endereco)">{{itens.posto}}</h3>
+        <p class="mb-0">Medicamento: {{itens.nome}}</p>
         <p class="mb-0">Endereço: {{itens.endereco}}</p>
-        <input type="hidden" name="endereco" id="endereco" [(ngModel)]='produto.endereco' value={{itens.endereco}}>
-      </div>
+        </div>
     </div>
 
     <div class="col-md-6">
@@ -46,6 +61,3 @@
 
   </div>
 </div>
-
-
-
