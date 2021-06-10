@@ -1,41 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-light cor-menu d-flex fixed-top scroll-min p-0">
-    <a class="navbar-brand ml-2" href="#">
-        <img src="https://imgur.com/mKM8ufz.jpg" alt="Imagem do user" width="200" class="img-fluid w-0 p-0">
-    </a>
+<div id='header'>
+    <nav class="navbar navbar-expand-lg navbar-light fundo d-flex align-items-center">
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
-        aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+        <a class="navbar-brand" routerLink="/pesquisa">
+            <img src="https://imgur.com/mKM8ufz.jpg" width="200" class="img-fluid" />
+        </a>
+       
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-        <ul class="navbar-nav mr-auto d-flex align-items-center">
-            <li class="nav-item pl-3">
-                <a href="">
-                    <p class="text-white fs-16 m-0">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </p>
-                </a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto d-flex align-items-center">
-            <li class="nav-item dropdown">
-
-                <a class="nav-link dropdown-toggle d-flex align-items-center p-1" href="#" id="navbarDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <p class="m-0 font-weight-bold text-dark fs-16"> {{nome}}</p>
-                    <img src="{{foto}}" alt="Imagem do user" width="50px" height="50px"
-                        class="img-fluid rounded-circle  ml-2">
-                </a>
-                <div class="dropdown-menu dropdown-menu-right m-0 text-dark" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item font-weight-bold" routerLink='/pesquisa'>Pesquisa</a>
-                    <a class="dropdown-item font-weight-bold" routerLink='/cadastrar-produto'>Cadastrar Produto</a>
-                    <a class="dropdown-item font-weight-bold" routerLink='/consultar-produto'>Consulta</a>
-                    <div class="dropdown-divider"></div>
-                    <a (click)= sair() class="dropdown-item font-weight-bold" routerLink='/inicio'> Sair <i class="fa fa-sign-out"
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <a class="mt-1 d-flex align-items-center" routerLink="">
+                        <img src="{{foto}}" alt="Imagem do user" width="45px" height="45px" class="rounded-circle">
+                        <p class="ml-3 mt-3"> {{nome}}</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li *ngIf="authService.adm()" class="nav-item">
+                    <a class="nav-link active" routerLink='/pesquisa'>Pesquisa</a>
+                </li>
+                <li *ngIf="authService.adm()" class="nav-item">
+                    <a class="nav-link" routerLink='/consultar-produto'>Área do Adm</a>
+                </li>
+                <li *ngIf="authService.adm()" class="nav-item">
+                    <a class="nav-link" routerLink='/cadastrar-produto'>Cadastrar Produto</a>
+                </li>
+                <li class="nav-item">
+                    <a (click)=sair() class="nav-link" routerLink='/inicio'> Sair <i class="fa fa-sign-out"
                             aria-hidden="true"></i></a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</nav>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
