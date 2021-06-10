@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user';
 import { Router } from '@angular/router';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -16,16 +17,18 @@ export class CadastroUsuarioComponent implements OnInit {
   user: User = new User
   auxSenha: string = ''
   auxTipoUsuario: string = ''
-  fundo: any //variavel que pegar div de fundo
+  fundo: any //variavel que pega div de fundo
+
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private alertasService: AlertasService
   ) { }
 
   ngOnInit() {
+    window.scroll(0,0)
     this.fundo = window.document.querySelector('#fundo')
     this.mudar() //muda o fundo da tela
-    window.scroll(0,0)
   }
 
   mudar(){
@@ -47,12 +50,12 @@ export class CadastroUsuarioComponent implements OnInit {
     this.user.tipoUsuario = this.auxTipoUsuario
 
     if(this.user.senha != this.auxSenha){
-      alert('As senhas não correspodem!')
+      this.alertasService.showAlertDanger('As senhas não correspodem. Tente novamente!')
     } else {
       this.authService.cadastrar(this.user).subscribe((resp: User) => {
         this.user = resp
         this.router.navigate(['/entrar'])
-        alert('Usuário cadastrado com sucesso')
+        this.alertasService.showAlertSuccess('Usuário cadastrado com sucesso. Acesse o RemediOn!')
       })
     }
   }

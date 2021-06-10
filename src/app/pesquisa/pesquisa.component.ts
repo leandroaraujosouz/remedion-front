@@ -6,6 +6,7 @@ import { Categoria } from 'src/app/model/Categoria';
 import { Produto } from './../model/Produto';
 import { LiteralMapEntry } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { AlertasService } from '../service/alertas.service';
 
 
 
@@ -34,12 +35,14 @@ export class PesquisaComponent implements OnInit {
   constructor(
     private router: Router,
     private categoriaService: CategoriaService,
-    private produtoService: ProdutoService
+    private produtoService: ProdutoService,
+    private alertasService: AlertasService
   ) { }
 
   ngOnInit() {
     window.scroll(0,0)
     /* if(environment.token == '') {
+      this.alertasService.showAlertInfo('Sua sessão expirou. Entre novamente!')
       this.router.navigate(['/entrar'])
     } */
     this.limpa()
