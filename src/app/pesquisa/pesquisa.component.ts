@@ -45,6 +45,7 @@ export class PesquisaComponent implements OnInit {
     this.fundo = window.document.querySelector('#fundo')
     this.mudar()
     this.mapa("São paulo")
+    console.log(this.carrinho.length)
   }
   mudar(){
     this.fundo.style.backgroundImage = "url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg')"
@@ -91,6 +92,13 @@ export class PesquisaComponent implements OnInit {
       }
     }
     this.carrinho = lista
+  }
+
+  habilitar(){
+    if(this.carrinho.length != 0){
+      return true
+    }
+    return false
   }
 
   pesquisa() {
