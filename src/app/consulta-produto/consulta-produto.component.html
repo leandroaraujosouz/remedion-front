@@ -87,7 +87,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor='let itens of listaProdutos'>
+                        <tr *ngFor='let itens of listaProdutos | orderBy : key : reverse'>
                             <th scope="row">{{itens.id}}</th>
                             <td>{{itens.nome}}</td>
                             <td>{{itens.estoque}}</td>

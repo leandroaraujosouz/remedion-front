@@ -15,6 +15,9 @@ import { ProdutoService } from '../service/produto.service';
 export class ConsultaProdutoComponent implements OnInit {
   fundo: any
 
+  key = 'nome'
+  reverse = false
+
   produto: Produto = new Produto()
   listaProdutos: Produto[]
 

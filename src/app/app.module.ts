@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { OrderModule } from 'ngx-order-pipe';
 
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { AppComponent } from './app.component';
@@ -21,6 +22,8 @@ import { ConsultaProdutoComponent } from './consulta-produto/consulta-produto.co
 import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component';
 import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
 import { AlertasComponent } from './alertas/alertas.component';
+import { from } from 'rxjs';
+
 
 
 
@@ -49,7 +52,8 @@ import { AlertasComponent } from './alertas/alertas.component';
     HttpClientModule,
     FormsModule,
     GoogleMapsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
