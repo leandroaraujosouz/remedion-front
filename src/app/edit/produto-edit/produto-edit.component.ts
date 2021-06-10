@@ -72,6 +72,7 @@ export class ProdutoEditComponent implements OnInit {
     this.categoriaService.getAllCategoria().subscribe((resp: Categoria[]) => {
       this.listaCategorias = resp
     })
+
   }
 
   atualizarProduto() {
