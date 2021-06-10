@@ -58,7 +58,7 @@ export class EntrarComponent implements OnInit {
 
       console.log(environment.tipoUsuario)
 
-      this.router.navigate(['/cadastrar-produto'])
+      this.router.navigate(['/pesquisa'])
     }, erro=>{
       if(erro.status == 500){
         this.alertasService.showAlertDanger('E-mail ou senha estão incorretos. Tente novamente!')

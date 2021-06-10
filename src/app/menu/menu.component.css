@@ -1,4 +1,4 @@
-.fs-16{
+/* .fs-16{
     font-size: 16pt;
 }
 
@@ -8,4 +8,59 @@ a{
 
 .cor-menu{
     background: linear-gradient(to top, rgba(255, 255, 255, 0.316), rgb(255, 255, 255));
+} */
+
+a{
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 750;
+    padding-left: 0;
+    padding-right: 0;
+    color: #26727e;
+}
+li{
+    margin-right: 20px;
+}
+
+#header {
+    width: 100%;
+    transition: background ease-out all 0.2s;
+}
+
+#header.active {
+    position: fixed;
+    z-index: 9999;
+}
+
+#header .nav-link {
+    text-transform: uppercase;
+    font-weight: 750;
+    padding-left: 0;
+    padding-right: 0;
+    color: #26727e;
+    border-bottom: solid 4px transparent;
+}
+
+#header .nav-link:hover {
+    border-bottom: solid 4px var(--primary);
+    color: var(--primary);
+}
+
+#header .nav-button {
+    font-weight: 700;
+    color: white;
+    border-radius: 7px;
+    background-color: var(--primary);
+}
+
+#header .nav-button:hover {
+    color: white;
+    background-color: var(--primary-dark);
+    border-bottom: solid 4px #fff;
+}
+
+.fundo{
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.412), rgb(255, 255, 255));
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
 }
