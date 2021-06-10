@@ -56,7 +56,7 @@ export class EntrarComponent implements OnInit {
 
       console.log(environment.tipoUsuario)
 
-      this.router.navigate(['/cadastrar-produto'])
+      this.router.navigate(['/pesquisa'])
     }, erro=>{
       if(erro.status == 500){
         alert('usuario ou senha estão incorretos!')
