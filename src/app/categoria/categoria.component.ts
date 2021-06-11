@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Categoria } from '../model/Categoria';
+import { AlertasService } from '../service/alertas.service';
 import { CategoriaService } from '../service/categoria.service';
 
 @Component({
@@ -17,14 +18,16 @@ export class CategoriaComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private categoriaService: CategoriaService
+    private categoriaService: CategoriaService,
+    private alertasService: AlertasService
   ) { }
 
   ngOnInit(){
     if(environment.token==''){
+      this.alertasService.showAlertInfo('Sua sessão expirou. Entre novamente!')
       this.router.navigate(['/entrar'])
     }
-    
+    window.scroll(0,0)
     this.fundo = window.document.querySelector('#fundo')
     this.mudar()
     this.findAllCategoria()
@@ -41,12 +44,15 @@ export class CategoriaComponent implements OnInit {
   }
 
   cadastrar(){
+    if(this.categoria.tipo == null) {
+      this.alertasService.showAlertDanger('O campo deve ser preenchido!')
+    } else {
     this.categoriaService.postCategoria(this.categoria).subscribe((resp:Categoria)=>{
       this.categoria = resp
-      alert('Categoria cadastrada com sucesso!')
+      this.alertasService.showAlertSuccess('Categoria cadastrada com sucesso!')
       this.findAllCategoria()
       this.categoria = new Categoria()
-    })
+    })}
   }
 
 
