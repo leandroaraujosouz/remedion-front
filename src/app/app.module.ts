@@ -24,6 +24,7 @@ import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.c
 import { AlertasComponent } from './alertas/alertas.component';
 import { from } from 'rxjs';
 import { ReservasComponent } from './reservas/reservas.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 
 
@@ -46,7 +47,9 @@ import { ReservasComponent } from './reservas/reservas.component';
     ProdutoEditComponent,
     ProdutoDeleteComponent,
     AlertasComponent,
-    ReservasComponent
+    ReservasComponent,
+    UserEditComponent,
+    AlertasComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ import { ConsultaProdutoComponent } from './consulta-produto/consulta-produto.co
 import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component';
 import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
 import { ReservasComponent } from './reservas/reservas.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 const routes: Routes = [
 
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'consultar-produto', component: ConsultaProdutoComponent},
   {path: 'produto-edit/:id', component: ProdutoEditComponent},
   {path: 'produto-delete/:id', component: ProdutoDeleteComponent},
-  {path: 'reservas', component: ReservasComponent}
+  {path: 'reservas', component: ReservasComponent},
+  {path: 'user-edit/:id', component: UserEditComponent}
 ];
 
 @NgModule({
