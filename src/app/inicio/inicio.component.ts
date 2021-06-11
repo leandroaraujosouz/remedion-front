@@ -9,9 +9,6 @@ declare var $: any;
 })
 export class InicioComponent implements OnInit {
 
-  email: string = ''
-  txtEmail = document.querySelector('#txtEmail')
-
   fundo: any
   constructor() { }
 
@@ -32,24 +29,5 @@ export class InicioComponent implements OnInit {
 
   mudar() {
     this.fundo.style.backgroundImage = "url('https://imgur.com/i3WmNDn.jpg')"
-  }
-
-  pegaEmail(event: any) {
-    this.email = event.target.value
-  }
-
-  validaEmail() {
-    if (this.email.indexOf('@') == -1 || this.email.indexOf('.') == -1) {
-      /* this.txtEmail.innerHTML = 'E-mail inválido' */
-      /* txtEmail.style.color = 'red' */
-      $("#email_input").addClass("is-invalid")
-      $("#email_input").remove("is-valid")
-    }
-    else {
-      /* txtEmail.innerHTML = 'E-mail Válido' */
-      /* txtEmail.style.color = 'green' */
-      $("#email_input").addClass("is-valid")
-      $("#email_input").removeClass("is-invalid")
-    }
   }
 }
