@@ -1,6 +1,6 @@
 <div class="border molde ml-5 mr-5" style="border-radius: 50px 50px 0px 0px; margin-top: 100px; ">
     <div class="container-fluid">
-        <div class="row mb-5">
+        <div class="row mb-2">
             <div class="col-md-12">
                 <h1 class="text-center text-secondary">Consultar Remédios</h1>
             </div>
@@ -9,14 +9,14 @@
         <!-- pesquisa -->
         <div class="row d-flex align-items-end justify-content-left mb-2">
 
-            <div class="col-md-3">
+            <div class="col-lg-3">
                 <div class="form-group mb-0">
                     <label for="descricao"></label>
                     <input [(ngModel)]="produto.nome" type="text" class="form-control campos" id="descricao"
                         placeholder="Medicamento">
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-3">
                 <div class="form-group mb-0">
                     <label for="posto"></label>
                     <input [(ngModel)]="produto.posto" type="text" class="form-control campos" id="posto"
@@ -24,14 +24,14 @@
                 </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-lg-2">
                 <div class="form-group mb-0">
                     <label for="municipioCidade"></label>
                     <input [(ngModel)]="produto.municipioCidade" type="text" class="form-control campos"
                         id="municipioCidade" placeholder="Municipio/Cidade">
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-lg-2">
                 <div class="form-group mb-0">
                     <label for="zona"></label>
                     <select [(ngModel)]="produto.zona" name="zona" id="zona" class="form-control campos">
@@ -49,7 +49,7 @@
                 </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-lg-2 md mt-3 text-center">
                 <div>
                     <button type="submit" class="btn btn-success campos" (click)="pesquisa()">PESQUISAR</button>
                 </div>
@@ -72,51 +72,46 @@
 </div>
 
 <!-- listaRemedios  -->
-<div class="border molde ml-5 mr-5 mb-3" style="overflow:auto; height: 500px; border-radius: 0px 0px 0px 50px ;">
-    <div class="container-fluid ">
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Descrição</th>
-                            <th scope="col">Estoque</th>
-                            <th scope="col">Classificação</th>
-                            <th scope="col">Categoria</th>
-                            <th scope="col">Posto</th>
-                            <th scope="col">Endereço</th>
-                            <th scope="col">Municipio/Cidade</th>
-                            <th scope="col">Zona</th>
-                            <th scope="col">Ativo</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor='let itens of listaProdutos | orderBy : key : reverse'>
-                            <th scope="row">{{itens.id}}</th>
-                            <td>{{itens.nome}}</td>
-                            <td>{{itens.estoque}}</td>
-                            <td>{{itens.classificacao}}</td>
-                            <td>{{itens.categoria.tipo}}</td>
-                            <td>{{itens.posto}}</td>
-                            <td>{{itens.endereco}}</td>
-                            <td>{{itens.municipioCidade}}</td>
-                            <td>{{itens.zona}}</td>
-                            <td>{{itens.ativo}}</td>
-                            <td>
-                                <button class="btn btn-info" [routerLink]="['/produto-edit',itens.id]">Editar</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-danger"
-                                    [routerLink]="['/produto-delete',itens.id]">Deletar</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div class="border molde ml-5 mr-5 mb-3" style="border-radius: 0px 0px 50px 50px ;"> 
+    <div class="container">
+        <div class="table-responsive" style="overflow: auto; height: 500px; ">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Estoque</th>
+                        <th scope="col">Classificação</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Posto</th>
+                        <th scope="col">Endereço</th>
+                        <th scope="col">Municipio/Cidade</th>
+                        <th scope="col">Zona</th>
+                        <th scope="col">Ativo</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let itens of listaProdutos | orderBy : key : reverse'>
+                        <td class="d-inline-block text-truncate">{{itens.nome}}</td>
+                        <td>{{itens.estoque}}</td>
+                        <td>{{itens.classificacao}}</td>
+                        <td>{{itens.categoria.tipo}}</td>
+                        <td>{{itens.posto}}</td>
+                        <td class="d-inline-block text-truncate">{{itens.endereco}}</td>
+                        <td>{{itens.municipioCidade}}</td>
+                        <td>{{itens.zona}}</td>
+                        <td>{{itens.ativo}}</td>
+                        <td>
+                            <button class="btn btn-info" [routerLink]="['/produto-edit',itens.id]">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" [routerLink]="['/produto-delete',itens.id]">Deletar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
     </div>
 </div>
 <!-- /listaRemedios  -->

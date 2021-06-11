@@ -4,3 +4,12 @@
   
   font-weight: 600;
 }
+
+@media(max-width: 598.00px){
+  h1{
+    font-size: 20px; 
+  }
+  p{
+    font-size: 15px;
+  }
+}
