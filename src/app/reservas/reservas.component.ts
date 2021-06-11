@@ -84,7 +84,6 @@ export class ReservasComponent implements OnInit {
       })
     }
     localStorage.setItem('listaReservas', JSON.stringify(this.listaReservas))
-  
   }
 
 delete (id: number) {
