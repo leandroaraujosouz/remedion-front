@@ -30,6 +30,9 @@
                 <li *ngIf="authService.adm()" class="nav-item">
                     <a class="nav-link" routerLink='/cadastrar-produto'>Cadastrar Produto</a>
                 </li>
+                <li *ngIf="authService.adm()" class="nav-item">
+                    <a class="nav-link active" routerLink='/reservas'>Reservas</a>
+                </li>
                 <li class="nav-item">
                     <a (click)=sair() class="nav-link" routerLink='/inicio'> Sair <i class="fa fa-sign-out"
                             aria-hidden="true"></i></a>

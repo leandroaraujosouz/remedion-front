@@ -79,7 +79,7 @@
           <h3 (click)="mapa(itens.endereco)">{{itens.posto}}</h3>
           <p class="mb-0">Medicamento: {{itens.nome}}</p>
           <p class="mb-0">Endereço: {{itens.endereco}}</p>
-          <button (click)='reservar(itens)' class="btn btn-success">fazer Reserva</button>
+          <button (click)='listaReserva(itens)' class="btn btn-success">fazer Reserva</button>
         </div>
       </div>
     </div>
@@ -114,7 +114,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Fazer Reserva</button>
+        <button (click)='reservar()' type="button" class="btn btn-primary" data-dismiss="modal">Fazer Reserva</button>
       </div>
     </div>
   </div>
