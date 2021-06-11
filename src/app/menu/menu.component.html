@@ -18,7 +18,19 @@
                         <img src="{{foto}}" alt="Imagem do user" width="45px" height="45px" class="rounded-circle">
                         <p class="ml-3 mt-3"> {{nome}}</p>
                     </a>
-                </li>
+                    </li>
+                        <li>
+                            <a [routerLink]= "['/user-edit', id]">
+                                <p class="text-body fs-16 m-0 mt-3">
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                </p>
+                            
+                            </a>
+                        </li> 
+                        
+
+                    
+                
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li *ngIf="authService.adm()" class="nav-item">

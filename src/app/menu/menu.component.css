@@ -64,3 +64,11 @@ li{
     background: linear-gradient(to top, rgba(255, 255, 255, 0.412), rgb(255, 255, 255));
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
 }
+
+.margem{
+    margin-top: 3.5;
+}
+
+.cor{
+    color: #26727e;
+}

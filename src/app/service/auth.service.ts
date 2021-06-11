@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   atualizarUsuario(user: User): Observable<User>{
-    return this.http.put<User>(`${environment.server}/usuarios`, user)
+    return this.http.put<User>(`${environment.server}/usuarios/cadastrar`, user)
   }
 
   getByIdUser(id: number): Observable<User>{
