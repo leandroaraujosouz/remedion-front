@@ -9,10 +9,10 @@ import { AlertasService } from '../service/alertas.service';
 })
 export class ReservasComponent implements OnInit {
 
-  listaReservas = JSON.parse(localStorage.getItem('listaReservas') || '[]')
+
   listaPedidos = [{
     ativo: true,
-    categoria: { id: '', tipo: '' },
+    categoria: { id: 0, tipo: '' },
     classificacao: "",
     endereco: "",
     estoque: 1,
@@ -22,15 +22,27 @@ export class ReservasComponent implements OnInit {
     posto: "",
     zona: ""
   }]
+  User = {
+    nomeCompleto: '',
+    email: '',
+    id: 0
+  }
+  listaReservas = [{
+    id: 0,
+    usuarioCad: this.User,
+    listaPedidos: this.listaPedidos
+  }]
+
   usuario: string
-  idReservas: number
+  indice: number
 
 
   constructor(
     private alertasService: AlertasService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.listaReservas = JSON.parse(localStorage.getItem('listaReservas') || '[]')
   }
 
   pesquisa() {
@@ -38,17 +50,17 @@ export class ReservasComponent implements OnInit {
   }
 
   selecionaUsuario(id: number) {
-    console.log(id)
-    console.log(this.listaReservas)
-    this.usuario = this.listaReservas[id].usuarioCad.nomeCompleto
-    this.idReservas = this.listaReservas[id].id
-    this.listaPedidos = []
-    for (let i = 0; i < this.listaReservas[id].listaPedido.length; i++) {
-      this.listaPedidos.push(this.listaReservas[id].listaPedido[i])
-    }
+   for(let i=0; i < this.listaReservas.length; i++) {
+      if (this.listaReservas[i].id == id) {
+        this.usuario = this.listaReservas[i].usuarioCad.nomeCompleto
+        this.indice = i
+        this.listaPedidos = this.listaReservas[i].listaPedidos
+        i = this.listaReservas.length
+      }
+   }
   }
 
-  finalizar(id: number) {
+  finalizar(id:number) {
     let lista = this.listaPedidos
     this.listaPedidos = []
     lista.forEach((item) => {
@@ -56,23 +68,26 @@ export class ReservasComponent implements OnInit {
         this.listaPedidos.push(item)
       }
     })
-    this.listaReservas[this.idReservas].listaPedido = []
-    this.listaReservas[this.idReservas].listaPedido = this.listaPedidos
-    if (this.listaReservas[this.idReservas].listaPedido.length == 0) {
+    console.log(this.indice)
+    this.listaReservas[this.indice].listaPedidos = []
+         
+      this.listaPedidos.forEach((item) => {
+      this.listaReservas[this.indice].listaPedidos.push(item)
+    })
+    if (this.listaPedidos.length == 0) {
       let listaR = this.listaReservas
       this.listaReservas = []
-      for (let i = 0; i < listaR.length; i++) {
-        if (listaR[i].id != this.idReservas) {
-          this.listaReservas.push(listaR[i])
+      listaR.forEach((item) => {
+        if (item.id != listaR[this.indice].id) {
+          this.listaReservas.push(item)
         }
-      }
+      })
     }
     localStorage.setItem('listaReservas', JSON.stringify(this.listaReservas))
-    this.alertasService.showAlertSuccess('Pedido Finalizado com sucesso!')
-
+  
   }
 
-  delete(id: number) {
+delete (id: number) {
 
-  }
+}
 }
