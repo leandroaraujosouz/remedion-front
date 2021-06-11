@@ -48,75 +48,6 @@
     text-transform: uppercase;
 }
 
-#clientes a.link-cliente {
-    padding: 0 15px;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px var(--light);
-    height: 100px;
-    transition: ease-out all 0.2s;
-}
-
-#clientes a.link-cliente:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
-}
-
-#clientes a.link-cliente img {
-    filter: grayscale(100%);
-    max-height: 70px;
-    width: 100%;
-    opacity: 0.6;
-}
-
-#clientes a.link-cliente:hover img {
-    filter: none;
-    opacity: 1;
-}
-
-#clientes .cliente-texto {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 30px;
-    background-color: var(--light);
-    border-radius: 5px;
-}
-
-#clientes .cliente-texto .imagem {
-    padding: 60px 0;
-    display: flex;
-    align-items: center;
-    margin-left: -70px;
-    color: #b4b4b4;
-    font-size: 24px;
-    line-height: 26px;
-}
-
-#clientes .cliente-texto .imagem span {
-    color: var(--primary);
-    font-size: 110px;
-    line-height: 110px;
-    letter-spacing: -10px;
-    font-weight: 900;
-    display: block;
-}
-
-#clientes .cliente-texto .telefone {
-    display: flex;
-    font-size: 14px;
-    color: #b4b4b4;
-}
-
-#clientes .cliente-texto .telefone span {
-    font-size: 25px;
-    color: #797979;
-    font-weight: 900;
-    display: block;
-}
-
 #depoimentos .depoimento {
     background-color: var(--light);
     border-radius: 5px;
@@ -126,6 +57,10 @@
 
 #depoimentos .depoimento img {
     max-height: 110px;
+}
+
+#depoimentos .depoimento .fp{
+    border-radius: 50%;
 }
 
 #depoimentos .depoimento .quote {
@@ -217,6 +152,36 @@
 
 #perfis .destaque ul li:first-child {
     margin-top: -1px;
+}
+
+
+#tecnologias a.link-tecnologias {
+    padding: 0 15px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: solid 1px var(--light);
+    height: 150px;
+    transition: ease-out all 0.2s;
+}
+
+#tecnologias a.link-tecnologias:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+#tecnologias a.link-tecnologias img {
+    filter: grayscale(100%);
+    max-height: 120px;
+    width: 100%;
+    opacity: 0.6;
+}
+
+#tecnologias a.link-tecnologias:hover img {
+    filter: none;
+    opacity: 1;
 }
 
 #contato .email {
