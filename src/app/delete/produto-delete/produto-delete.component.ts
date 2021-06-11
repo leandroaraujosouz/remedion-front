@@ -42,7 +42,7 @@ export class ProdutoDeleteComponent implements OnInit {
   }
 
   mudar(){
-    this.fundo.style.backgroundImage = "url('') "
+    this.fundo.style.backgroundImage = "url('https://i.imgur.com/FIBWP0c.jpg') "
   }
 
   findByIdProduto(id: number){

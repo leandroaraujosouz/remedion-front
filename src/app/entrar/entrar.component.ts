@@ -22,7 +22,7 @@ export class EntrarComponent implements OnInit {
 
   ngOnInit() {
     environment.token = ''
-    
+
     window.scroll(0,0)
 
     this.fundo = window.document.querySelector('#fundo')

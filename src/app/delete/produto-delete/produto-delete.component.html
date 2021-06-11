@@ -1,39 +1,41 @@
-<div class="container mb-5 mt-5 molde">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="text-center text-secondary">Apagar Produto</h1>
-      </div>
-    </div>
+<div class="container">
+  <div class="row d-flex justify-content-center height-100">
+    <div class="col-md-8 molde">
+      <h1 class="text-center form-font">Apagar Remédio</h1>
 
-    <div class="row">
-      <div class="col-md-12">
-        <h4 class="text-center text-secondary">Você tem certeza que deseja apagar esse produto?</h4>
-      </div>
-    </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-8">
+          <h5 class="text-center roboto-font mt-3">Você tem certeza que deseja apagar esse remédio?</h5>
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card text-center" style="background-color: transparent;">
-          <div class="card-body">
-            <h5 class="card-title m-0">Descrição: {{produto.nome}}</h5>
-            <small class="text-muted">Categoria: {{produto.categoria.tipo}}</small>
-            <p class="card-text mt-3">Estoque: {{produto.estoque}}</p>
-            <p class="card-text mt-3">Classificação: {{produto.classificacao}}</p>
-            <p class="card-text mt-3">Posto: {{produto.posto}}</p>
-            <p class="card-text mt-3">Municipio/Cidade: {{produto.municipioCidade}}</p>
-            <p class="card-text mt-3">Zona: {{produto.zona}}</p>
-            <p class="card-text mt-3">Endereço: {{produto.endereco}}</p>
-            <p class="card-text mt-3">Ativo: {{produto.ativo}}</p>
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+              <div class="card border-dark mt-1" style="background-color: transparent;">
+                <div class="card-body roboto-font">
+                  <h5 class="card-title text-center m-0">{{produto.nome}}</h5>
+                  <p class="text-center"><small class="text-muted text-center">Categoria:
+                      {{produto.categoria.tipo}}</small></p>
+                  <p class="card-text mt-3 mb-0"><strong>Quant. em estoque:</strong> {{produto.estoque}}</p>
+                  <p class="card-text m-0"><strong>Classificação:</strong> {{produto.classificacao}}</p>
+                  <p class="card-text mb-0"><strong>Posto:</strong> {{produto.posto}}</p>
+                  <p class="card-text mb-0"><strong>Município/Cidade:</strong> {{produto.municipioCidade}}</p>
+                  <p class="card-text mb-0"><strong>Zona:</strong> {{produto.zona}}</p>
+                  <p class="card-text mb-0"><strong>Endereço:</strong> {{produto.endereco}}</p>
+                  <p class="card-text mb-0"><strong>Ativo:</strong> {{produto.ativo}}</p>
 
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center form-font mt-4">
+                <button class="btn btn-danger mr-4" routerLink='/consultar-produto'>Não</button>
+                <button class="btn btn-success" (click)="apagar()">Sim</button>
+              </div>
+
+
+            </div>
           </div>
+
         </div>
       </div>
     </div>
-
-    <div class="row mt-5">
-      <div class="col-md-12 d-flex justify-content-center">
-        <button class="btn btn-danger mr-4" routerLink='/consultar-produto'>Não</button>
-        <button class="btn btn-success" (click)="apagar()">Sim</button>
-      </div>
-    </div>
   </div>
+</div>

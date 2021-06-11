@@ -17,23 +17,23 @@
           <div class="col-md-6 border-r text-left roboto-font">
 
             <div class="form-group">
-              <label for="descricao">Descrição</label>
+              <label class="ml-3 mb-0" for="descricao">Descrição</label>
               <input [(ngModel)]='produto.nome' class="form-control campos" type="text" name="descricao" id="descricao">
             </div>
 
             <div class="form-group">
-              <label for="estoque">Quantidade em Estoque</label>
+              <label class="ml-3 mb-0" for="estoque">Quantidade em Estoque</label>
               <input [(ngModel)]='produto.estoque' class="form-control campos" type="text" name="estoque" id="estoque">
             </div>
 
             <div class="form-group">
-              <label for="classificacao">Classificação</label>
+              <label class="ml-3 mb-0" for="classificacao">Classificação</label>
               <input [(ngModel)]='produto.classificacao' class="form-control campos" type="text" name="classificacao"
                 id="classificacao">
             </div>
 
             <div class="form-group">
-              <label for="texto">Escolha uma categoria</label>
+              <label class="ml-3 mb-0" for="texto">Escolha uma categoria</label>
               <select name="tema" id="tema" class="form-control campos" [(ngModel)]='idCategoria'
                 (change)='findByIdCategoria()'>
                 <option *ngFor='let item of listaCategorias' value="{{item.id}}">{{item.tipo}}</option>
@@ -41,7 +41,7 @@
             </div>
 
             <div class="form-group">
-              <label for="ativo">Ativo</label>
+              <label class="ml-3 mb-0" for="ativo">Ativo</label>
               <select name="ativo" id="ativo" class="form-control campos" [(ngModel)]='produto.ativo'>
                 <option value="true">Sim</option>
                 <option value="false">Não</option>
@@ -53,33 +53,29 @@
           <div class="col-md-6 text-left roboto-font">
 
             <div class="form-group">
-              <label for="posto">Posto</label>
+              <label class="ml-3 mb-0" for="posto">Posto</label>
               <input [(ngModel)]='produto.posto' class="form-control campos" type="text" name="posto" id="posto">
             </div>
 
             <div class="form-group">
-              <label for="cidade">Município/Cidade</label>
+              <label class="ml-3 mb-0" for="cidade">Município/Cidade</label>
               <input [(ngModel)]='produto.municipioCidade' class="form-control campos" type="text" name="cidade"
                 id="cidade">
             </div>
 
             <div class="form-group">
-              <label for="zona">Zona</label>
+              <label class="ml-3 mb-0" for="zona">Zona</label>
               <select name="zona" id="zona" class="form-control campos" [(ngModel)]='produto.zona'>
-                <option value="CENTRO">CENTRO</option>
-                <option value="CENTRO-SUL">CENTRO-SUL</option>
-                <option value="LESTE">LESTE</option>
-                <option value="NORDESTE">NORDESTE</option>
-                <option value="NOROESTE">NOROESTE</option>
-                <option value="NORTE">NORTE</option>
-                <option value="OESTE">OESTE</option>
-                <option value="SUDESTE">SUDESTE</option>
-                <option value="SUL">SUL</option>
+                <option value="Centro">Centro</option>
+                <option value="Leste">Leste</option>
+                <option value="Norte">Norte</option>
+                <option value="Oeste">Oeste</option>
+                <option value="Sul">Sul</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="endereco">Endereço</label>
+              <label class="ml-3 mb-0" for="endereco">Endereço</label>
               <input [(ngModel)]='produto.endereco' class="form-control campos" type="text" name="endereco"
                 id="endereco">
             </div>
