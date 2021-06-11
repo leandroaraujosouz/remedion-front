@@ -30,7 +30,7 @@ export class EntrarComponent implements OnInit {
   }
 
   mudar(){
-    this.fundo.style.backgroundImage = "url('https://i.imgur.com/TLGOmuJ.jpg')"
+    this.fundo.style.backgroundImage = "url('https://i.imgur.com/fUjrW1b.jpg')"
   }
 
   entrar(){
@@ -44,21 +44,6 @@ export class EntrarComponent implements OnInit {
       environment.foto = this.userLogin.foto
       environment.token = this.userLogin.token
       environment.tipoUsuario = this.userLogin.tipoUsuario
-
-
-      console.log(environment.senha)
-
-      console.log(environment.email)
-
-      console.log(environment.id)
-
-      console.log(environment.nomeCompleto)
-
-      console.log(environment.foto)
-
-      console.log(environment.token)
-
-      console.log(environment.tipoUsuario)
 
       this.router.navigate(['/pesquisa'])
     }, erro=>{

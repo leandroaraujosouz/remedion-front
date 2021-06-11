@@ -7,6 +7,8 @@ import { Produto } from './../model/Produto';
 import { LiteralMapEntry } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { AlertasService } from '../service/alertas.service';
+import { getLocaleExtraDayPeriodRules } from '@angular/common';
+import { User } from '../model/user';
 
 
 
@@ -22,6 +24,10 @@ export class PesquisaComponent implements OnInit {
   produto: Produto = new Produto()
   listaProdutos: Produto[]
   carrinho: Produto[] = []
+
+  listaReservas = JSON.parse(localStorage.getItem('listaReservas') || '[]')
+
+  usuario: User = new User()
 
   service: google.maps.places.PlacesService;
   infowindow: google.maps.InfoWindow;
@@ -75,8 +81,9 @@ export class PesquisaComponent implements OnInit {
     })
   }
 
-  reservar(produto : Produto){
+  listaReserva(produto : Produto){
     let confirma = true
+    produto.estoque = 1
     if(this.carrinho.find(element => element == produto) != undefined){
       alert('item ja cadastrado!')
     }
@@ -92,6 +99,22 @@ export class PesquisaComponent implements OnInit {
       }
     }
     this.carrinho = lista
+  }
+
+  reservar(){
+      this.usuario.email = environment.email
+      this.usuario.nomeCompleto = environment.nomeCompleto
+      this.usuario.id = environment.id
+      this.listaReservas.push(
+        {
+          id: this.listaReservas.length,
+          usuarioCad: this.usuario,
+          listaPedido: this.carrinho
+        })
+        this.carrinho =[]
+        localStorage.setItem('listaReservas',JSON.stringify(this.listaReservas))
+        alert('cadastrado com sucesso!') 
+        
   }
 
   habilitar(){

@@ -23,6 +23,8 @@ import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component
 import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { from } from 'rxjs';
+import { ReservasComponent } from './reservas/reservas.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 
 
@@ -44,6 +46,9 @@ import { from } from 'rxjs';
     ConsultaProdutoComponent,
     ProdutoEditComponent,
     ProdutoDeleteComponent,
+    AlertasComponent,
+    ReservasComponent,
+    UserEditComponent,
     AlertasComponent
   ],
   imports: [

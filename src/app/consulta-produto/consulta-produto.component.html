@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row mb-5">
             <div class="col-md-12">
-                <h1 class="text-center text-secondary">Consultar Remédios</h1>
+                <h1 class="text-center form-font">Consulta de Remédios</h1>
             </div>
         </div>
 
@@ -10,14 +10,14 @@
         <div class="row d-flex align-items-end justify-content-left mb-2">
 
             <div class="col-md-3">
-                <div class="form-group mb-0">
+                <div class="form-group mb-0 roboto-font">
                     <label for="descricao"></label>
                     <input [(ngModel)]="produto.nome" type="text" class="form-control campos" id="descricao"
                         placeholder="Medicamento">
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="form-group mb-0">
+                <div class="form-group mb-0 roboto-font">
                     <label for="posto"></label>
                     <input [(ngModel)]="produto.posto" type="text" class="form-control campos" id="posto"
                         placeholder="Posto">
@@ -25,33 +25,29 @@
             </div>
 
             <div class="col-md-2">
-                <div class="form-group mb-0">
+                <div class="form-group mb-0 roboto-font">
                     <label for="municipioCidade"></label>
                     <input [(ngModel)]="produto.municipioCidade" type="text" class="form-control campos"
-                        id="municipioCidade" placeholder="Municipio/Cidade">
+                        id="municipioCidade" placeholder="Município/Cidade">
                 </div>
             </div>
             <div class="col-md-2">
-                <div class="form-group mb-0">
+                <div class="form-group mb-0 roboto-font">
                     <label for="zona"></label>
                     <select [(ngModel)]="produto.zona" name="zona" id="zona" class="form-control campos">
-                        <option value="">Selecione uma zona..</option>
-                        <option value="CENTRO">CENTRO</option>
-                        <option value="CENTRO-SUL">CENTRO-SUL</option>
-                        <option value="LESTE">LESTE</option>
-                        <option value="NORDESTE">NORDESTE</option>
-                        <option value="NOROESTE">NOROESTE</option>
-                        <option value="NORTE">NORTE</option>
-                        <option value="OESTE">OESTE</option>
-                        <option value="SUDESTE">SUDESTE</option>
-                        <option value="SUL">SUL</option>
+                        <option value="">Zona</option>
+                        <option value="Centro">Centro</option>
+                        <option value="Leste">Leste</option>
+                        <option value="Norte">Norte</option>
+                        <option value="Oeste">Oeste</option>
+                        <option value="Sul">Sul</option>
                     </select>
                 </div>
             </div>
 
             <div class="col-md-2">
                 <div>
-                    <button type="submit" class="btn btn-success campos" (click)="pesquisa()">PESQUISAR</button>
+                    <button type="submit" class="btn btn-success form-font" (click)="pesquisa()">Consultar</button>
                 </div>
             </div>
 
@@ -60,8 +56,8 @@
         <div class="row text-center mt-5">
             <div class="col-md-12">
 
-                <p class="text-center">
-                    Deseja Cadastrar um novo produto? <a routerLink='/cadastrar-produto'>Cadastre aqui</a>
+                <p class="text-center roboto-font">
+                    Deseja cadastrar um novo medicamento? <a routerLink='/cadastrar-produto'>Cadastre aqui</a>
                 </p>
             </div>
         </div>
@@ -76,17 +72,17 @@
     <div class="container-fluid ">
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-hover">
+                <table class="table table-hover roboto-font">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <!--<th scope="col">#</th>-->
                             <th scope="col">Descrição</th>
                             <th scope="col">Estoque</th>
                             <th scope="col">Classificação</th>
                             <th scope="col">Categoria</th>
                             <th scope="col">Posto</th>
                             <th scope="col">Endereço</th>
-                            <th scope="col">Municipio/Cidade</th>
+                            <th scope="col">Município</th>
                             <th scope="col">Zona</th>
                             <th scope="col">Ativo</th>
                             <th scope="col"></th>
@@ -95,7 +91,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor='let itens of listaProdutos | orderBy : key : reverse'>
-                            <th scope="row">{{itens.id}}</th>
+                            <!--<th scope="row">{{itens.id}}</th>-->
                             <td>{{itens.nome}}</td>
                             <td>{{itens.estoque}}</td>
                             <td>{{itens.classificacao}}</td>
@@ -106,10 +102,10 @@
                             <td>{{itens.zona}}</td>
                             <td>{{itens.ativo}}</td>
                             <td>
-                                <button class="btn btn-info" [routerLink]="['/produto-edit',itens.id]">Editar</button>
+                                <button class="btn btn-info form-font" [routerLink]="['/produto-edit',itens.id]">Editar</button>
                             </td>
                             <td>
-                                <button class="btn btn-danger"
+                                <button class="btn btn-danger form-font"
                                     [routerLink]="['/produto-delete',itens.id]">Deletar</button>
                             </td>
                         </tr>

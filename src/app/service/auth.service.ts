@@ -30,6 +30,14 @@ export class AuthService {
     return ok 
   }
 
+  atualizarUsuario(user: User): Observable<User>{
+    return this.http.put<User>(`${environment.server}/usuarios/cadastrar`, user)
+  }
+
+  getByIdUser(id: number): Observable<User>{
+    return this.http.get<User>(`${environment.server}/usuarios/${id}`)
+  }
+  
   adm(){
     let ok = false
     if (environment.tipoUsuario == 'adm'){

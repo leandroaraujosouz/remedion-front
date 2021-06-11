@@ -44,7 +44,7 @@ export class CategoriaComponent implements OnInit {
   }
 
   cadastrar(){
-    if(this.categoria.tipo == null) {
+    if(this.categoria.tipo == null || this.categoria.tipo == '') {
       this.alertasService.showAlertDanger('O campo deve ser preenchido!')
     } else {
     this.categoriaService.postCategoria(this.categoria).subscribe((resp:Categoria)=>{

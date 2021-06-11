@@ -1,0 +1,94 @@
+<div class="border molde ml-5 mr-5" style="border-radius: 50px 50px 0px 0px; margin-top: 100px; ">
+    <div class="container-fluid">
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h1 class="text-center text-secondary">Consultar Rerservas</h1>
+            </div>
+        </div>
+
+        <!-- pesquisa -->
+        <div class="row d-flex align-items-end justify-content-left mb-2">
+
+            <div class="col-md-3">
+                <div class="form-group mb-0">
+                    <input [(ngModel)]="usuario" type="text" class="form-control campos" id="nomeUsuario"
+                        placeholder="Nome usuário">
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div>
+                    <button type="submit" class="btn btn-success campos" (click)="pesquisa()">PESQUISAR</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- /pesquisa -->
+    </div>
+</div>
+
+<!-- listaRemedios  -->
+<div class="border molde ml-5 mr-5 mb-3" style="overflow:auto; height: 500px; border-radius: 0px 0px 0px 50px ;">
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="text-center">Usuarios</h3>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome Usuario</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let itens of listaReservas'>
+                            <th scope="row">{{itens.id}}</th>
+                            <td>{{itens.usuarioCad.nomeCompleto}}</td>
+                            <td>{{itens.usuarioCad.email}}</td>                          
+                            <td>
+                                <button (click)='selecionaUsuario(itens.id)' class="btn btn-info">Pedidos</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-6">
+                <h3 class="text-center">Pedidos do Usuario</h3>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Medicamento</th>
+                            <th scope="col">Posto</th>
+                            <th scope="col">Endereço</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let itens of listaPedidos'>
+                            <th scope="row">{{usuario}}</th>
+                            <td>{{itens.nome}}</td>
+                            <td>{{itens.posto}}</td>
+                            <td>{{itens.endereco}}</td>                           
+                            <td>
+                                <button (click)="finalizar(itens.id)" class="btn btn-success">Finalizar</button>
+                            </td>
+                            <td>
+                                <button (click)="delete(itens.id)" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /listaRemedios  -->
