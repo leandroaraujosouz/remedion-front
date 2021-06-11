@@ -42,7 +42,7 @@ export class CadastroProdutoComponent implements OnInit {
     this.findAllProdutos()
   }
   mudar() {
-    this.fundo.style.backgroundImage = "url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg')"
+    this.fundo.style.backgroundImage = "url('https://i.imgur.com/Yqziiaz.jpg')"
   }
 
   findAllProdutos() {
