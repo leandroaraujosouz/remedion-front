@@ -22,6 +22,7 @@ import { ConsultaProdutoComponent } from './consulta-produto/consulta-produto.co
 import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component';
 import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
 import { from } from 'rxjs';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 
 
@@ -42,7 +43,8 @@ import { from } from 'rxjs';
     CategoriaDeleteComponent,
     ConsultaProdutoComponent,
     ProdutoEditComponent,
-    ProdutoDeleteComponent
+    ProdutoDeleteComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
