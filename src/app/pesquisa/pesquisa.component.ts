@@ -24,8 +24,32 @@ export class PesquisaComponent implements OnInit {
   produto: Produto = new Produto()
   listaProdutos: Produto[]
   carrinho: Produto[] = []
+  id: number
 
-  listaReservas = JSON.parse(localStorage.getItem('listaReservas') || '[]')
+  listaPedidos = [{
+    ativo: true,
+    categoria: { id: 0, tipo: '' },
+    classificacao: "",
+    endereco: "",
+    estoque: 1,
+    id: 12,
+    municipioCidade: "",
+    nome: "",
+    posto: "",
+    zona: ""
+  }]
+  User ={
+    nomeCompleto: '',
+    email: '',
+    id: 0
+  }
+  listaReservas =[{
+    id: 0,
+    usuarioCad: this.User,
+    listaPedidos: this.listaPedidos
+  }]
+
+  
 
   usuario: User = new User()
 
@@ -43,15 +67,16 @@ export class PesquisaComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
-    /* if(environment.token == '') {
+    if(environment.token == '') {
       this.alertasService.showAlertInfo('Sua sessão expirou. Entre novamente!')
       this.router.navigate(['/entrar'])
-    } */
+    }
     this.limpa()
     this.fundo = window.document.querySelector('#fundo')
     this.mudar()
     this.mapa("São paulo")
-    console.log(this.carrinho.length)
+    
+    this.listaReservas = JSON.parse(localStorage.getItem('listaReservas') || '[]')
   }
   mudar(){
     this.fundo.style.backgroundImage = "url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg')"
@@ -105,11 +130,21 @@ export class PesquisaComponent implements OnInit {
       this.usuario.email = environment.email
       this.usuario.nomeCompleto = environment.nomeCompleto
       this.usuario.id = environment.id
+      if(this.listaReservas.length == 0){
+        this.id = 1
+      }
+      else{
+        this.id = this.listaReservas[this.listaReservas.length -1].id + 1
+      }
+      this.listaPedidos = []
+      this.carrinho.forEach((item)=>{
+        this.listaPedidos.push(item)
+      })
       this.listaReservas.push(
         {
-          id: this.listaReservas.length,
+          id: this.id,
           usuarioCad: this.usuario,
-          listaPedido: this.carrinho
+          listaPedidos: this.listaPedidos
         })
         this.carrinho =[]
         localStorage.setItem('listaReservas',JSON.stringify(this.listaReservas))
