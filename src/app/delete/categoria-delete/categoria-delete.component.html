@@ -1,28 +1,27 @@
 <div class="container molde height-100">
-    <div class="row mb-5">
+    <div class="row mb-4">
         <div class="col-md-12">
-            <h1 class="text-center text-secondary">Apagar Categoria</h1>
+            <h1 class="text-center form-font">Apagar Categoria</h1>
         </div>
     </div>
 
     <div class="row mb-3">
         <div class="col-md-12">
-            <h4 class="text-center text-secondary">Você tem certeza que deseja apagar essa Categoria? Todos os
-                produtos
-                relacionadas a ela serão igualmente apagadas.</h4>
+            <h5 class="text-center mb-0 open-sans">Você tem certeza que deseja apagar essa categoria? </h5>
+            <h5 class="text-center open-sans">Todos os remédios relacionados a ela serão igualmente apagadas.</h5>
         </div>
     </div>
 
     <div class="row d-flex justify-content-center">
         <div class="col-md-4">
-            <h5 class="text-center">Categoria:{{categoria.tipo}}</h5>
+            <h5 class="text-center">Categoria: {{categoria.tipo}}</h5>
         </div>
     </div>
 
-    <div class="row mt-5">
-        <div class="col-md-12 d-flex justify-content-center">
+    <div class="row mt-4">
+        <div class="col-md-12 d-flex justify-content-center form-font">
             <button class="btn btn-danger text-white mr-4" routerLink='/categoria'>Não</button>
-            <button class="btn text-white" (click)='apagar()'>Sim</button>
+            <button class="btn btn-success text-white" (click)='apagar()'>Sim</button>
         </div>
     </div>
 </div>
