@@ -20,7 +20,7 @@ export class CadastroUsuarioComponent implements OnInit {
   fundo: any //variavel que pega div de fundo
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
     private alertasService: AlertasService
   ) { }
@@ -43,6 +43,15 @@ export class CadastroUsuarioComponent implements OnInit {
   //Método para capturar o tipo de usuário
   tipoUsuario(event: any) {
     this.auxTipoUsuario = event.target.value
+  }
+
+  cancelar(){
+    if(this.authService.logado()){
+      this.router.navigate(['/pesquisa'])
+    }
+    else{
+      this.router.navigate(['/inicio'])
+    }
   }
 
   //Método para cadastrar usuário

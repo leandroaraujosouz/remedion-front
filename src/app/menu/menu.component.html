@@ -33,12 +33,15 @@
                 </li>
                 <li *ngIf="authService.adm()" class="nav-item">
                     <a class="nav-link" routerLink='/consultar-produto'>Área do Adm</a>
+                </li>                
+                <li *ngIf="authService.adm()" class="nav-item">
+                    <a class="nav-link" routerLink='/cadastrar-usuario'>Novo Usuario</a>
                 </li>
                 <li *ngIf="authService.adm()" class="nav-item">
-                    <a class="nav-link" routerLink='/cadastrar-produto'>Cadastrar Produto</a>
+                    <a class="nav-link" routerLink='/cadastrar-produto'>Novo Produto</a>
                 </li>
                 <li *ngIf="authService.adm()" class="nav-item">
-                    <a class="nav-link active" routerLink='/reservas'>Reservas</a>
+                    <a class="nav-link active" routerLink='/reservas'><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
                 </li>
                 <li class="nav-item">
                     <a (click)=sair() class="nav-link" routerLink='/inicio'> Sair <i class="fa fa-sign-out"

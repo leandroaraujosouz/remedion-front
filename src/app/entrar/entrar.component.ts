@@ -22,6 +22,7 @@ export class EntrarComponent implements OnInit {
 
   ngOnInit() {
     environment.token = ''
+    environment.tipoUsuario = ''
 
     window.scroll(0,0)
 

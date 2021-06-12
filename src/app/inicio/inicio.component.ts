@@ -14,6 +14,8 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
     environment.token = ''
+    environment.tipoUsuario = ''
+    
     window.scroll(0, 0)
     window.onscroll = function () {
       if (window.pageYOffset > 140) {

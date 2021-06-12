@@ -31,11 +31,11 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  sair(){
-    this.router.navigate(['/inicio'])
+  sair(){    
     environment.foto=''
     environment.id=0
     environment.nomeCompleto=''
     environment.token=''
+    this.router.navigate(['/inicio'])
   }
 }

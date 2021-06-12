@@ -40,7 +40,7 @@
                 placeholder="Digite novamente sua senha">
             </div>
 
-            <div class="form-group roboto-font">
+            <div *ngIf="authService.adm()" class="form-group roboto-font">
               <label class='ml-3 mb-0' for="tipoUsuario">Usuário</label>
               <select class="form-control campos" name="tipoUsuario" id="tipoUsuario" (change)='tipoUsuario($event)'>
                 <option>Selecione um tipo de usuário</option>
@@ -51,7 +51,7 @@
             </div>
 
           <div class="d-flex justify-content-center form-font">
-            <button type="submit" class="btn btn-danger mt-3 mr-2" routerLink='/inicio'>Cancelar</button>
+            <button type="submit" class="btn btn-danger mt-3 mr-2" (click)='cancelar()'>Cancelar</button>
             <button type="submit" class="btn btn-success mt-3" (click)= 'cadastrar()'>Cadastrar</button>
           </div>
 
