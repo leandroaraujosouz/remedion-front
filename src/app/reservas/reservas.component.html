@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row mb-5">
             <div class="col-md-12">
-                <h1 class="text-center text-secondary">Consultar Rerservas</h1>
+                <h1 class="text-center form-font">Consultar Rerservas</h1>
             </div>
         </div>
 
@@ -12,13 +12,13 @@
             <div class="col-md-3">
                 <div class="form-group mb-0">
                     <input [(ngModel)]="usuario" type="text" class="form-control campos" id="nomeUsuario"
-                        placeholder="Nome usuário">
+                        placeholder="Nome do usuário">
                 </div>
             </div>
 
             <div class="col-md-2">
                 <div>
-                    <button type="submit" class="btn btn-success campos" (click)="pesquisa()">PESQUISAR</button>
+                    <button type="submit" class="btn btn-success form-font" (click)="pesquisa()">Pesquisar</button>
                 </div>
             </div>
 
@@ -32,12 +32,12 @@
     <div class="container-fluid ">
         <div class="row">
             <div class="col-md-6">
-                <h3 class="text-center">Usuarios</h3>
+                <h3 class="text-center form-font">Usuários</h3>
                 <table class="table table-hover">
                     <thead>
-                        <tr>
+                        <tr class="roboto-font">
                             <th scope="col">#</th>
-                            <th scope="col">Nome Usuario</th>
+                            <th scope="col">Nome</th>
                             <th scope="col">E-mail</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
@@ -45,14 +45,14 @@
                     </thead>
                     <tbody>
                         <tr *ngFor='let itens of listaReservas'>
-                            <th scope="row">{{itens.id}}</th>
-                            <td>{{itens.usuarioCad.nomeCompleto}}</td>
-                            <td>{{itens.usuarioCad.email}}</td>                          
-                            <td>
+                            <th class= "roboto-font" scope="row">{{itens.id}}</th>
+                            <td class= "roboto-font">{{itens.usuarioCad.nomeCompleto}}</td>
+                            <td class= "roboto-font">{{itens.usuarioCad.email}}</td>
+                            <td class="form-font">
                                 <button (click)='selecionaUsuario(itens.id)' class="btn btn-info">Pedidos</button>
                             </td>
-                            <td>
-                                <button class="btn btn-danger">Delete</button>
+                            <td class="form-font">
+                                <button class="btn btn-danger">Apagar</button>
                             </td>
                         </tr>
                     </tbody>
@@ -60,11 +60,11 @@
             </div>
 
             <div class="col-md-6">
-                <h3 class="text-center">Pedidos do Usuario</h3>
+                <h3 class="text-center form-font">Pedidos</h3>
                 <table class="table table-hover">
                     <thead>
-                        <tr>
-                            <th scope="col">Usuario</th>
+                        <tr class= "roboto-font">
+                            <th scope="col">Usuário</th>
                             <th scope="col">Medicamento</th>
                             <th scope="col">Posto</th>
                             <th scope="col">Endereço</th>
@@ -74,15 +74,15 @@
                     </thead>
                     <tbody>
                         <tr *ngFor='let itens of listaPedidos'>
-                            <th scope="row">{{usuario}}</th>
-                            <td>{{itens.nome}}</td>
-                            <td>{{itens.posto}}</td>
-                            <td>{{itens.endereco}}</td>                           
+                            <th class= "roboto-font" scope="row">{{usuario}}</th>
+                            <td class= "roboto-font">{{itens.nome}}</td>
+                            <td class= "roboto-font">{{itens.posto}}</td>
+                            <td class= "roboto-font">{{itens.endereco}}</td>
                             <td>
-                                <button (click)="finalizar(itens.id)" class="btn btn-success">Finalizar</button>
+                                <button (click)="finalizar(itens.id)" class="btn btn-success form-font">Finalizar</button>
                             </td>
                             <td>
-                                <button (click)="delete(itens.id)" class="btn btn-danger">Delete</button>
+                                <button (click)="delete(itens.id)" class="btn btn-danger form-font">Apagar</button>
                             </td>
                         </tr>
                     </tbody>

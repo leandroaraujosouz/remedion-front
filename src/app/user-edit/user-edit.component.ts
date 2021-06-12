@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { AuthService } from 'src/app/service/auth.service';
 import { environment } from 'src/environments/environment.prod';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -20,7 +21,8 @@ export class UserEditComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertasService: AlertasService
   ) { }
 
   ngOnInit() {
@@ -46,11 +48,11 @@ export class UserEditComponent implements OnInit {
     this.user.tipoUsuario = this.auxTipoUsuario
 
     if(this.user.senha != this.auxSenha){
-      alert('As senhas não correspodem!')
+      this.alertasService.showAlertDanger('As senhas não correspodem!')
     } else {
       this.authService.atualizarUsuario(this.user).subscribe((resp: User) => {
         this.user = resp
-        alert('Usuário atualizado com sucesso! Faça o login novamente.')
+        this.alertasService.showAlertSuccess('Usuário atualizado com sucesso! Faça o login novamente.')
         environment.token = ''
         environment.nomeCompleto = ''
         environment.foto = ''

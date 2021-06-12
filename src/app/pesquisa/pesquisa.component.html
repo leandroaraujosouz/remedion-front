@@ -3,45 +3,41 @@
     <div class="col-md-3">
       <div class="form-group mb-0">
         <label for="descricao"></label>
-        <input [(ngModel)]="produto.nome" type="text" class="form-control campos" id="descricao"
+        <input [(ngModel)]="produto.nome" type="text" class="form-control campos roboto-font" id="descricao"
           placeholder="Medicamento">
       </div>
     </div>
     <div class="col-md-3">
       <div class="form-group mb-0">
         <label for="posto"></label>
-        <input [(ngModel)]="produto.posto" type="text" class="form-control campos" id="posto" placeholder="Posto">
+        <input [(ngModel)]="produto.posto" type="text" class="form-control campos roboto-font" id="posto" placeholder="Posto">
       </div>
     </div>
 
     <div class="col-md-2">
       <div class="form-group mb-0">
         <label for="municipioCidade"></label>
-        <input [(ngModel)]="produto.municipioCidade" type="text" class="form-control campos" id="municipioCidade"
-          placeholder="Municipio/Cidade">
+        <input [(ngModel)]="produto.municipioCidade" type="text" class="form-control campos roboto-font" id="municipioCidade"
+          placeholder="Município/Cidade">
       </div>
     </div>
     <div class="col-md-2">
-      <div class="form-group mb-0">
+      <div class="form-group mb-0 roboto-font">
         <label for="zona"></label>
         <select [(ngModel)]="produto.zona" name="zona" id="zona" class="form-control campos">
           <option value="">Selecione uma zona..</option>
-          <option value="CENTRO">CENTRO</option>
-          <option value="CENTRO-SUL">CENTRO-SUL</option>
-          <option value="LESTE">LESTE</option>
-          <option value="NORDESTE">NORDESTE</option>
-          <option value="NOROESTE">NOROESTE</option>
-          <option value="NORTE">NORTE</option>
-          <option value="OESTE">OESTE</option>
-          <option value="SUDESTE">SUDESTE</option>
-          <option value="SUL">SUL</option>
+          <option value="Centro">Centro</option>
+          <option value="Leste">Leste</option>
+          <option value="Norte">Norte</option>
+          <option value="Oeste">Oeste</option>
+          <option value="Sul">Sul</option>
         </select>
       </div>
     </div>
 
     <div class="col-md-2">
       <div>
-        <button type="submit" class="btn btn-success campos" (click)="pesquisa()">PESQUISAR</button>
+        <button type="submit" class="btn btn-success form-font" (click)="pesquisa()">Pesquisar</button>
       </div>
     </div>
   </div>
@@ -51,9 +47,9 @@
       <div  style="overflow: auto; height: 200px">
         <div class="row border carrinho m-1 p-0" *ngFor='let itens of carrinho'>
           <div class="col-md-10 ">
-            <h3 class=" d-block">{{itens.nome}}</h3>
-            <p class="">Posto: {{itens.posto}}</p>
-            <p class="">Endereço: {{itens.endereco}}</p>
+            <h4 class=" d-block form-font">{{itens.nome}}</h4>
+            <p class="roboto-font">Posto: {{itens.posto}}</p>
+            <p class="roboto-font">Endereço: {{itens.endereco}}</p>
           </div>
 
           <div class="col-md-2 p-0 text-right d-flex justify-content-end align-items-center">
@@ -64,9 +60,9 @@
     </div>
     <div class="col-md-6">
       <!-- Botão para acionar modal -->
-      <button *ngIf="habilitar()" type="button" class="btn btn-primary" data-toggle="modal"
+      <button *ngIf="habilitar()" type="button" class="btn btn-primary form-font" data-toggle="modal"
         data-target="#ExemploModalCentralizado">
-        Abrir modal de demonstração
+        Lista de Reservas
       </button>
     </div>
   </div>
@@ -76,10 +72,10 @@
     <div class="col-md-6">
       <div style="overflow: auto; height: 500px">
         <div *ngFor='let itens of listaProdutos' class="border carrinho bg-light p-2 mb-2">
-          <h3 (click)="mapa(itens.endereco)">{{itens.posto}}</h3>
-          <p class="mb-0">Medicamento: {{itens.nome}}</p>
-          <p class="mb-0">Endereço: {{itens.endereco}}</p>
-          <button (click)='listaReserva(itens)' class="btn btn-success">fazer Reserva</button>
+          <h3 class="form-font" (click)="mapa(itens.endereco)">{{itens.posto}}</h3>
+          <p class="mb-0 roboto-font">Medicamento: {{itens.nome}}</p>
+          <p class="mb-0 roboto-font">Endereço: {{itens.endereco}}</p>
+          <button (click)='listaReserva(itens)' class="btn btn-success form-font">Reservar</button>
         </div>
       </div>
     </div>
@@ -98,7 +94,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">Lista de Reservas</h5>
+        <h5 class="modal-title form-font" id="TituloModalCentralizado">Lista de Reservas</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -106,15 +102,15 @@
       <div class="modal-body">
         <div style="overflow: auto; height: 500px">
           <div *ngFor='let itens of carrinho' class="border bg-light p-2 mb-2">
-            <h3 (click)="mapa(itens.endereco)">{{itens.posto}}</h3>
-            <p class="mb-0">Medicamento: {{itens.nome}}</p>
-            <p class="mb-0">Endereço: {{itens.endereco}}</p>
+            <h3 class="form-font" (click)="mapa(itens.endereco)">{{itens.posto}}</h3>
+            <p class="mb-0 roboto-font">Medicamento: {{itens.nome}}</p>
+            <p class="mb-0 roboto-font">Endereço: {{itens.endereco}}</p>
           </div>
         </div>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer form-font">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button (click)='reservar()' type="button" class="btn btn-primary" data-dismiss="modal">Fazer Reserva</button>
+        <button (click)='reservar()' type="button" class="btn btn-success" data-dismiss="modal">Confirmar Reserva</button>
       </div>
     </div>
   </div>

@@ -49,7 +49,7 @@ export class PesquisaComponent implements OnInit {
     listaPedidos: this.listaPedidos
   }]
 
-  
+
 
   usuario: User = new User()
 
@@ -75,7 +75,7 @@ export class PesquisaComponent implements OnInit {
     this.fundo = window.document.querySelector('#fundo')
     this.mudar()
     this.mapa("São paulo")
-    
+
     this.listaReservas = JSON.parse(localStorage.getItem('listaReservas') || '[]')
   }
   mudar(){
@@ -110,7 +110,7 @@ export class PesquisaComponent implements OnInit {
     let confirma = true
     produto.estoque = 1
     if(this.carrinho.find(element => element == produto) != undefined){
-      alert('item ja cadastrado!')
+      this.alertasService.showAlertInfo('Medicamento já reservado!')
     }
     else{
       this.carrinho.push(produto)
@@ -148,8 +148,8 @@ export class PesquisaComponent implements OnInit {
         })
         this.carrinho =[]
         localStorage.setItem('listaReservas',JSON.stringify(this.listaReservas))
-        alert('cadastrado com sucesso!') 
-        
+        this.alertasService.showAlertSuccess('Pedido reservado com sucesso!')
+
   }
 
   habilitar(){

@@ -72,3 +72,7 @@ li{
 .cor{
     color: #26727e;
 }
+
+#default {
+  cursor: default;
+}
