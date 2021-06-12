@@ -4,7 +4,7 @@ export const environment = {
   fundo : 'https://i.imgur.com/CnzlKp0.jpg',
   senha: '',
   email: '',
-  token: 'Basic anVsbHlhbmU6MTIzNDU2',
+  token: '',
   id: 0,
   nomeCompleto: '',
   foto: '',
