@@ -9,6 +9,35 @@
     font-size: 20px; 
   }
   p{
+    font-size: 12px;
+  }
+
+  #listaRemedios{
     font-size: 15px;
+  }
+
+  #pesquisa input{
+    font-size: 12px;
+  }
+
+  #pesquisa button{
+    font-size: 12px;
+  }
+
+  #principal{
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  #principal .container{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #listaRemedios{
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
