@@ -20,16 +20,7 @@ export class MenuComponent implements OnInit {
     public authService: AuthService
   ) { }
 
-  ngOnInit(){
-    window.onscroll = function () {
-      if (window.pageYOffset > 140) {
-        $("#header").addClass("active");
-        $("#header").addClass("fixed-top");
-      } else {
-        $("#header").removeClass("active");
-      }
-    }
-  }
+  ngOnInit(){ }
 
   sair(){
     this.router.navigate(['/inicio'])

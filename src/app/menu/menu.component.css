@@ -28,11 +28,6 @@ li{
     transition: background ease-out all 0.2s;
 }
 
-#header.active {
-    position: fixed;
-    z-index: 9999;
-}
-
 #header .nav-link {
     text-transform: uppercase;
     font-weight: 750;
