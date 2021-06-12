@@ -91,7 +91,7 @@ export class ProdutoEditComponent implements OnInit {
       this.alertasService.showAlertDanger('Todos os campos devem ser preenchidos')
     } else if (this.produto.estoque < 0) {
       this.alertasService.showAlertInfo('O produto não pode ser cadastrado com estoque negativo')
-    } else {
+    } else if(this.validaNumero(this.produto.estoque.toString())) {
       this.produtoService.putProduto(this.produto).subscribe((resp: Produto) => {
         this.produto = resp
         this.alertasService.showAlertSuccess('Produto atualizado com sucesso!')
@@ -99,7 +99,25 @@ export class ProdutoEditComponent implements OnInit {
         this.router.navigate(['/consultar-produto'])
       })
     }
+    else{
+      this.alertasService.showAlertInfo('O valor do estoque precisa ser um numero inteiro!')
+    }
 
+  }
+
+  validaNumero(numero: string)
+  {
+    let confirma = false
+    for(let i=0; i < numero.length; i++)
+    {
+        if(Number.isInteger(parseInt(numero.charAt(i),10)))
+        {
+          confirma = true
+        }else{
+          return false
+        }
+    }
+    return confirma
   }
 
 }
