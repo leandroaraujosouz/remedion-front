@@ -1,50 +1,25 @@
-ul.social-network{
-    list-style: none;
-    padding: 0;
-}
-ul.social-network li{
-    display: inline;
+
+#contato ul {
     margin: 0;
-    padding: 5px;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.fa{
-    font-size: 35pt;
-    color:white;
-    padding: 10px;
+#contato ul li {
+    display: flex;
+    list-style-type: none;
+    margin-left: 25px;
 }
 
-.fa-facebook-official:hover{
-    color:#3b5998;
+#contato ul li:first-child {
+    margin-left: 0;
 }
 
-.fa-instagram:hover{
-    color:#c13584;
+#contato ul li a {
+    text-decoration: none;
 }
 
-.fa-linkedin-square:hover{
-    color:#0072b1;
-}
-.border-r {
-    border-right: 1px solid #dee2e6 !important;
-  }
-
-  #rodape{
-    background: linear-gradient(to top, rgba(9, 228, 118, 0.376), rgba(4, 50, 255, 0.397));
-  }
-  *{
-      padding: 0;
-  }
-
-  .fonte-teste{
-    text-transform: uppercase;
-    font-weight: 200;
-    padding-left: 0;
-    padding-right: 0;
-    color: rgb(39, 38, 38);
-    border-bottom: solid 4px transparent;
-}
-
-.marge{
-    margin-left: center;
+#contato ul li img {
+    max-height: 20px;
 }
