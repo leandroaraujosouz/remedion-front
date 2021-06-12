@@ -1,15 +1,3 @@
-/* .fs-16{
-    font-size: 16pt;
-}
-
-a{
-    cursor: pointer;
-}
-
-.cor-menu{
-    background: linear-gradient(to top, rgba(255, 255, 255, 0.316), rgb(255, 255, 255));
-} */
-
 a{
     cursor: pointer;
     text-decoration: none;
@@ -26,6 +14,11 @@ li{
 #header {
     width: 100%;
     transition: background ease-out all 0.2s;
+}
+
+#header.active {
+    position: fixed;
+    z-index: 9999;
 }
 
 #header .nav-link {
