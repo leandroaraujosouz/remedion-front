@@ -27,8 +27,8 @@
   #principal{
     padding-left: 0px;
     padding-right: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   #principal .container{
@@ -39,5 +39,12 @@
   #listaRemedios{
     padding-left: 0px;
     padding-right: 0px;
+  }
+}
+
+@media(min-width: 598.00px){
+  #principal{
+    margin-left: 48px;
+    margin-right: 48px;
   }
 }

@@ -19,7 +19,7 @@ export class UserEditComponent implements OnInit {
 
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
     private alertasService: AlertasService

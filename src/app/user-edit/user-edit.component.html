@@ -40,7 +40,7 @@
                 placeholder="Digite novamente sua senha">
             </div>
 
-            <div class="form-group roboto-font">
+            <div *ngIf='authService.adm()' class="form-group roboto-font">
               <label class="ml-3 mb-0" for="tipoUsuario">Usuário</label>
               <select class="form-control campos" name="tipoUsuario" id="tipoUsuario" (change)='tipoUsuario($event)'>
                 <option>Selecione um tipo de usuário</option>
