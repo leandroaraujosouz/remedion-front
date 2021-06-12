@@ -38,12 +38,12 @@ export class PesquisaComponent implements OnInit {
     posto: "",
     zona: ""
   }]
-  User ={
+  User = {
     nomeCompleto: '',
     email: '',
     id: 0
   }
-  listaReservas =[{
+  listaReservas = [{
     id: 0,
     usuarioCad: this.User,
     listaPedidos: this.listaPedidos
@@ -56,7 +56,7 @@ export class PesquisaComponent implements OnInit {
   service: google.maps.places.PlacesService;
   infowindow: google.maps.InfoWindow;
   request = {
-    query:  "",
+    query: "",
     fields: ["name", "formatted_address", "place_id", "geometry"],
   };
   constructor(
@@ -66,8 +66,8 @@ export class PesquisaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
-    if(environment.token == '') {
+    window.scroll(0, 0)
+    if (environment.token == '') {
       this.alertasService.showAlertInfo('Sua sessão expirou. Entre novamente!')
       this.router.navigate(['/entrar'])
     }
@@ -78,7 +78,7 @@ export class PesquisaComponent implements OnInit {
 
     this.listaReservas = JSON.parse(localStorage.getItem('listaReservas') || '[]')
   }
-  mudar(){
+  mudar() {
     this.fundo.style.backgroundImage = "url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg')"
   }
 
@@ -94,77 +94,91 @@ export class PesquisaComponent implements OnInit {
     })
   }
 
-  findAllByNomePosto(){
+  findAllByNomePosto() {
     this.produtoService.getAllByNomePosto(this.produto.nome, this.produto.posto).subscribe((resp: Produto[]) => {
       this.listaProdutos = resp
     })
   }
 
-  findAllByNomeMunicipioZona(){
+  findAllByNomeMunicipioZona() {
     this.produtoService.getAllByNomeMunicipioZona(this.produto.nome, this.produto.municipioCidade, this.produto.zona).subscribe((resp: Produto[]) => {
       this.listaProdutos = resp
     })
   }
 
-  listaReserva(produto : Produto){
+
+
+  listaReserva(produto: Produto) {
     let confirma = true
     produto.estoque = 1
-    if(this.carrinho.find(element => element == produto) != undefined){
+    if (this.carrinho.find(element => element == produto) != undefined) {
       this.alertasService.showAlertInfo('Medicamento já reservado!')
     }
-    else{
+    else {
       this.carrinho.push(produto)
     }
   }
-  removeCarrinho(produto: Produto){
+
+  removeCarrinho(produto: Produto) {
     let lista: Produto[] = []
-    for(let itens =0; itens < this.carrinho.length; itens++){
-      if(this.carrinho[itens] != produto){
+    for (let itens = 0; itens < this.carrinho.length; itens++) {
+      if (this.carrinho[itens] != produto) {
         lista.push(this.carrinho[itens])
       }
     }
     this.carrinho = lista
   }
 
-  reservar(){
-      this.usuario.email = environment.email
-      this.usuario.nomeCompleto = environment.nomeCompleto
-      this.usuario.id = environment.id
-      if(this.listaReservas.length == 0){
-        this.id = 1
-      }
-      else{
-        this.id = this.listaReservas[this.listaReservas.length -1].id + 1
-      }
-      this.listaPedidos = []
-      this.carrinho.forEach((item)=>{
-        this.listaPedidos.push(item)
-      })
-      this.listaReservas.push(
-        {
-          id: this.id,
-          usuarioCad: this.usuario,
-          listaPedidos: this.listaPedidos
+  reservar() {
+    this.usuario.email = environment.email
+    this.usuario.nomeCompleto = environment.nomeCompleto
+    this.usuario.id = environment.id
+    if (this.listaReservas.length == 0) {
+      this.id = 1
+    }
+    else {
+      this.id = this.listaReservas[this.listaReservas.length - 1].id + 1
+    }
+    this.listaPedidos = []
+    this.carrinho.forEach((item) => {
+      this.listaPedidos.push(item)
+    })
+
+    this.carrinho.forEach((item) => {
+      this.produtoService.getByIdProduto(item.id).subscribe((resp: Produto) => {
+        this.produto = resp
+        this.produto.estoque -= item.estoque
+        this.produtoService.putProduto(this.produto).subscribe((resp: Produto) => {
+          this.produto = resp
         })
-        this.carrinho =[]
-        localStorage.setItem('listaReservas',JSON.stringify(this.listaReservas))
-        this.alertasService.showAlertSuccess('Pedido reservado com sucesso!')
+      })
+    })
+
+    this.listaReservas.push(
+      {
+        id: this.id,
+        usuarioCad: this.usuario,
+        listaPedidos: this.listaPedidos
+      })
+    this.carrinho = []
+    localStorage.setItem('listaReservas', JSON.stringify(this.listaReservas))
+    this.alertasService.showAlertSuccess('Pedido reservado com sucesso!')
 
   }
 
-  habilitar(){
-    if(this.carrinho.length != 0){
+  habilitar() {
+    if (this.carrinho.length != 0) {
       return true
     }
     return false
   }
 
   pesquisa() {
-    if(
-    (this.produto.nome == null || this.produto.nome == "")&&
-    (this.produto.posto == null || this.produto.posto == "") &&
-    (this.produto.municipioCidade == null || this.produto.municipioCidade == "") &&
-    (this.produto.zona == null || this.produto.zona == "")){
+    if (
+      (this.produto.nome == null || this.produto.nome == "") &&
+      (this.produto.posto == null || this.produto.posto == "") &&
+      (this.produto.municipioCidade == null || this.produto.municipioCidade == "") &&
+      (this.produto.zona == null || this.produto.zona == "")) {
       this.findAllProdutos()
     }
     else if (this.produto.nome != "" &&
@@ -173,24 +187,24 @@ export class PesquisaComponent implements OnInit {
       (this.produto.zona == null || this.produto.zona == "")) {
       this.findByNomeProduto()
     }
-    else if(this.produto.nome != "" && this.produto.posto != "" &&
-    (this.produto.municipioCidade == null || this.produto.municipioCidade == "") &&
-    (this.produto.zona == null || this.produto.zona == "")){
+    else if (this.produto.nome != "" && this.produto.posto != "" &&
+      (this.produto.municipioCidade == null || this.produto.municipioCidade == "") &&
+      (this.produto.zona == null || this.produto.zona == "")) {
       this.findAllByNomePosto()
     }
-    else if(
-    (this.produto.posto == null || this.produto.posto == "") &&
-    (this.produto.nome != "") &&
-    (this.produto.municipioCidade != "") &&
-    (this.produto.zona != "")){
+    else if (
+      (this.produto.posto == null || this.produto.posto == "") &&
+      (this.produto.nome != "") &&
+      (this.produto.municipioCidade != "") &&
+      (this.produto.zona != "")) {
       this.findAllByNomeMunicipioZona()
     }
 
   }
 
 
-  limpa(){
-    this.request.query=""
+  limpa() {
+    this.request.query = ""
   }
 
   createMarker(place: google.maps.places.PlaceResult) {
@@ -199,7 +213,7 @@ export class PesquisaComponent implements OnInit {
     if (!place.geometry || !place.geometry.location) return;
 
     const marker = new google.maps.Marker({
-     // map,
+      // map,
       position: place.geometry.location,
     });
 
@@ -213,7 +227,7 @@ export class PesquisaComponent implements OnInit {
   mapa(endereco: string) {
     this.request.query = endereco
 
-  let map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+    let map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
       center: { lat: -34.397, lng: 150.644 },
       zoom: 18,
     });

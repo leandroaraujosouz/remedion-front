@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Produto } from '../model/Produto';
 import { User } from '../model/user';
 import { AlertasService } from '../service/alertas.service';
+import { ProdutoService } from '../service/produto.service';
 
 @Component({
   selector: 'app-reservas',
@@ -35,9 +38,13 @@ export class ReservasComponent implements OnInit {
 
   usuario: string
   indice: number
+  idReserva: number
 
+  produto: Produto
 
   constructor(
+    private router: Router,
+    private produtoService: ProdutoService,
     private alertasService: AlertasService
   ) { }
 
@@ -49,18 +56,22 @@ export class ReservasComponent implements OnInit {
 
   }
 
-  selecionaUsuario(id: number) {
-   for(let i=0; i < this.listaReservas.length; i++) {
+  selectIdReserva(id: number){
+    this.idReserva = id
+  }
+
+  selecionaReserva(id: number) {
+      for (let i = 0; i < this.listaReservas.length; i++) {
       if (this.listaReservas[i].id == id) {
         this.usuario = this.listaReservas[i].usuarioCad.nomeCompleto
         this.indice = i
         this.listaPedidos = this.listaReservas[i].listaPedidos
         i = this.listaReservas.length
       }
-   }
+    }
   }
 
-  finalizar(id:number) {
+  finalizar(id: number) {
     let lista = this.listaPedidos
     this.listaPedidos = []
     lista.forEach((item) => {
@@ -68,10 +79,9 @@ export class ReservasComponent implements OnInit {
         this.listaPedidos.push(item)
       }
     })
-    console.log(this.indice)
     this.listaReservas[this.indice].listaPedidos = []
-         
-      this.listaPedidos.forEach((item) => {
+
+    this.listaPedidos.forEach((item) => {
       this.listaReservas[this.indice].listaPedidos.push(item)
     })
     if (this.listaPedidos.length == 0) {
@@ -86,7 +96,27 @@ export class ReservasComponent implements OnInit {
     localStorage.setItem('listaReservas', JSON.stringify(this.listaReservas))
   }
 
-delete (id: number) {
+  delete(id: number) {
+    this.listaPedidos.forEach((item)=>{
+      if(item.id == id){
+        this.produtoService.getByIdProduto(item.id).subscribe((resp: Produto)=>{
+          this.produto = resp
+          console.log(this.produto)
+          this.produto.estoque += item.estoque
+          this.produtoService.putProduto(this.produto).subscribe((resp: Produto)=>{
+            this.produto = resp
+            console.log(this.produto)
+          })
+        })
+      }
+    })
+    this.finalizar(id)
+  }
 
-}
+  deleteAll(){
+    this.selecionaReserva(this.idReserva)
+    this.listaPedidos.forEach((item=>{
+      this.delete(item.id)
+    }))
+  }
 }

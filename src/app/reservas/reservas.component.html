@@ -45,14 +45,20 @@
                     </thead>
                     <tbody>
                         <tr *ngFor='let itens of listaReservas'>
-                            <th class= "roboto-font" scope="row">{{itens.id}}</th>
-                            <td class= "roboto-font">{{itens.usuarioCad.nomeCompleto}}</td>
-                            <td class= "roboto-font">{{itens.usuarioCad.email}}</td>
+                            <th class="roboto-font" scope="row">{{itens.id}}</th>
+                            <td class="roboto-font">{{itens.usuarioCad.nomeCompleto}}</td>
+                            <td class="roboto-font">{{itens.usuarioCad.email}}</td>
                             <td class="form-font">
-                                <button (click)='selecionaUsuario(itens.id)' class="btn btn-info">Pedidos</button>
+                                <button (click)='selecionaReserva(itens.id)' class="btn btn-info">Pedidos</button>
                             </td>
                             <td class="form-font">
-                                <button class="btn btn-danger">Apagar</button>
+                                <!-- Botão para acionar modal -->
+                                <button (click)='selectIdReserva(itens.id);selecionaReserva(itens.id)' type="button"
+                                    class="btn btn-danger form-font" data-toggle="modal"
+                                    data-target="#ExemploModalCentralizado">
+                                    Apagar
+                                </button>
+
                             </td>
                         </tr>
                     </tbody>
@@ -63,7 +69,7 @@
                 <h3 class="text-center form-font">Pedidos</h3>
                 <table class="table table-hover">
                     <thead>
-                        <tr class= "roboto-font">
+                        <tr class="roboto-font">
                             <th scope="col">Usuário</th>
                             <th scope="col">Medicamento</th>
                             <th scope="col">Posto</th>
@@ -74,15 +80,16 @@
                     </thead>
                     <tbody>
                         <tr *ngFor='let itens of listaPedidos'>
-                            <th class= "roboto-font" scope="row">{{usuario}}</th>
-                            <td class= "roboto-font">{{itens.nome}}</td>
-                            <td class= "roboto-font">{{itens.posto}}</td>
-                            <td class= "roboto-font">{{itens.endereco}}</td>
+                            <th class="roboto-font" scope="row">{{usuario}}</th>
+                            <td class="roboto-font">{{itens.nome}}</td>
+                            <td class="roboto-font">{{itens.posto}}</td>
+                            <td class="roboto-font">{{itens.endereco}}</td>
                             <td>
-                                <button (click)="finalizar(itens.id)" class="btn btn-success form-font">Finalizar</button>
+                                <button (click)="finalizar(itens.id)"
+                                    class="btn btn-success form-font">Finalizar</button>
                             </td>
                             <td>
-                                <button (click)="delete(itens.id)" class="btn btn-danger form-font">Apagar</button>
+                                <button (click)="delete(itens.id)" class="btn btn-danger form-font">Ignorar</button>
                             </td>
                         </tr>
                     </tbody>
@@ -92,3 +99,51 @@
     </div>
 </div>
 <!-- /listaRemedios  -->
+
+<!-- Modal -->
+<div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog"
+    aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title form-font" id="TituloModalCentralizado">Lista de Reservas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="overflow: auto; height: 500px">
+                    <div class="border bg-light p-2 mb-2">
+                        <h3 class="text-center form-font">Exclusão de Pedido</h3>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class="roboto-font">
+                                    <th scope="col">Usuário</th>
+                                    <th scope="col">Medicamento</th>
+                                    <th scope="col">Posto</th>
+                                    <th scope="col">Endereço</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor='let itens of listaPedidos'>
+                                    <th class="roboto-font" scope="row">{{usuario}}</th>
+                                    <td class="roboto-font">{{itens.nome}}</td>
+                                    <td class="roboto-font">{{itens.posto}}</td>
+                                    <td class="roboto-font">{{itens.endereco}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer form-font">
+               <h3 class="text-center">Tem certeza que deseja cancelar a Reserva?</h3>
+            </div>
+            <div class="modal-footer form-font">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button (click)='deleteAll()' type="button" class="btn btn-success"
+                    data-dismiss="modal">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
