@@ -101,11 +101,9 @@ export class ReservasComponent implements OnInit {
       if(item.id == id){
         this.produtoService.getByIdProduto(item.id).subscribe((resp: Produto)=>{
           this.produto = resp
-          console.log(this.produto)
           this.produto.estoque += item.estoque
           this.produtoService.putProduto(this.produto).subscribe((resp: Produto)=>{
             this.produto = resp
-            console.log(this.produto)
           })
         })
       }
@@ -118,5 +116,6 @@ export class ReservasComponent implements OnInit {
     this.listaPedidos.forEach((item=>{
       this.delete(item.id)
     }))
+    this.alertasService.showAlertSuccess('Cancelamento realizado com sucesso!')
   }
 }

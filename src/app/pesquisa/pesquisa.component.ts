@@ -23,6 +23,7 @@ export class PesquisaComponent implements OnInit {
 
   produto: Produto = new Produto()
   listaProdutos: Produto[]
+  lista: Produto[]
   carrinho: Produto[] = []
   id: number
 
@@ -84,25 +85,49 @@ export class PesquisaComponent implements OnInit {
 
   findAllProdutos() {
     this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
-      this.listaProdutos = resp
+      this.lista = resp
+      this.listaProdutos = []
+      this.lista.forEach((item)=>{
+        if(item.estoque > 0 && item.ativo){
+          this.listaProdutos.push(item)
+        }
+      })
     })
   }
 
   findByNomeProduto() {
     this.produtoService.getByNomeProduto(this.produto.nome).subscribe((resp: Produto[]) => {
-      this.listaProdutos = resp
+      this.lista = resp
+      this.listaProdutos = []
+      this.lista.forEach((item)=>{
+        if(item.estoque > 0 && item.ativo){
+          this.listaProdutos.push(item)
+        }
+      })
     })
   }
 
   findAllByNomePosto() {
     this.produtoService.getAllByNomePosto(this.produto.nome, this.produto.posto).subscribe((resp: Produto[]) => {
-      this.listaProdutos = resp
+      this.lista = resp
+      this.listaProdutos = []
+      this.lista.forEach((item)=>{
+        if(item.estoque > 0 && item.ativo){
+          this.listaProdutos.push(item)
+        }
+      })
     })
   }
 
   findAllByNomeMunicipioZona() {
     this.produtoService.getAllByNomeMunicipioZona(this.produto.nome, this.produto.municipioCidade, this.produto.zona).subscribe((resp: Produto[]) => {
-      this.listaProdutos = resp
+      this.lista = resp
+      this.listaProdutos = []
+      this.lista.forEach((item)=>{
+        if(item.estoque > 0 && item.ativo){
+          this.listaProdutos.push(item)
+        }
+      })
     })
   }
 
