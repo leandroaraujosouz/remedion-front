@@ -18,6 +18,7 @@ export class CadastroUsuarioComponent implements OnInit {
   auxSenha: string = ''
   auxTipoUsuario: string = ''
   fundo: any //variavel que pega div de fundo
+  objFoto: any
 
   nomeCompleto: any
   labelNomeCompleto: any
@@ -66,6 +67,7 @@ export class CadastroUsuarioComponent implements OnInit {
     this.labelConfirmSenha = document.querySelector('#labelConfirmSenha')
     this.divConfirmSenha = document.querySelector('#divConfirmSenha')
 
+    this.objFoto = window.document.querySelector('#foto')
   }
 
   //Método para validar se o nome do usuário tem mais de três caracteres
