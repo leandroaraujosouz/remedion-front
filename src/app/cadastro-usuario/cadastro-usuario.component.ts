@@ -18,6 +18,7 @@ export class CadastroUsuarioComponent implements OnInit {
   auxSenha: string = ''
   auxTipoUsuario: string = ''
   fundo: any //variavel que pega div de fundo
+  foto: string
 
   constructor(
     public authService: AuthService,
@@ -69,4 +70,9 @@ export class CadastroUsuarioComponent implements OnInit {
     }
   }
 
+  mostrarFoto(){
+    let foto = window.document.getElementById('foto')
+    this.foto = (<HTMLSelectElement>foto).value
+    console.log(this.foto)
+    }
 }

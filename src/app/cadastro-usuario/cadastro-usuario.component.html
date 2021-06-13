@@ -1,62 +1,88 @@
-  <div class="container">
+<div class="container">
 
-    <form>
+  <form>
 
-      <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
 
-        <div class="col-md-6 molde height-100">
+      <div class="col-md-6 molde height-100">
 
-          <div class="text-center">
-            <img id="logo" class="img-fluid mt-1 mb-4" src="https://i.imgur.com/mKM8ufz.jpg" alt="Logo do RemediOn">
-          </div>
-          <h2 class="mb-2 text-center form-font">CADASTRE-SE</h2>
+        <div class="text-center">
+          <img id="logo" class="img-fluid mt-1 mb-4" src="https://i.imgur.com/mKM8ufz.jpg" alt="Logo do RemediOn">
+        </div>
+        <h2 class="mb-2 text-center form-font">CADASTRE-SE</h2>
 
-            <div class="form-group roboto-font">
-              <label class='ml-3 mb-0' for="categoria">Nome </label>
-              <input [(ngModel)]='user.nomeCompleto' class="form-control campos" type="text" name="categoria" id="categoria"
-                placeholder="Digite seu nome completo">
-            </div>
+        <div class="form-group roboto-font">
+          <label class='ml-3 mb-0' for="categoria">Nome </label>
+          <input [(ngModel)]='user.nomeCompleto' class="form-control campos" type="text" name="categoria" id="categoria"
+            placeholder="Digite seu nome completo">
+        </div>
 
-            <div class="form-group roboto-font">
-              <label class='ml-3 mb-0' for="descricao">E-mail </label>
-              <input [(ngModel)]='user.email' class="form-control campos" type="text" name="descricao" id="descricao"
-                placeholder="Digite seu email">
-            </div>
+        <div class="form-group roboto-font">
+          <label class='ml-3 mb-0' for="descricao">E-mail </label>
+          <input [(ngModel)]='user.email' class="form-control campos" type="text" name="descricao" id="descricao"
+            placeholder="Digite seu email">
+        </div>
 
-            <div class="form-group roboto-font">
-              <label class='ml-3 mb-0' for="foto">Foto </label>
-              <input [(ngModel)]='user.foto' class="form-control campos" type="text" name="foto" id="foto"
-                placeholder="Link da sua foto">
-            </div>
+        <div class="form-group roboto-font">
+          <label class='ml-3 mb-0' for="foto">Foto </label><!-- Botão para acionar modal -->
+              <i (click)="mostrarFoto()" id="btnFoto" class="fa fa-user-circle ml-2" data-toggle="modal" data-target="#ExemploModalCentralizado" aria-hidden="true"></i>
+          <input [(ngModel)]='user.foto' value class="form-control campos" type="text" name="foto" id="foto"
+            placeholder="Link da sua foto">
+        </div>
 
-            <div class="form-group roboto-font">
-              <label class='ml-3 mb-0' for="senha">Senha </label>
-              <input (input)='confirmarSenha($event)' class="form-control campos" type="password" name="senha" id="senha" placeholder="Digite sua senha">
-            </div>
+        <div class="form-group roboto-font">
+          <label class='ml-3 mb-0' for="senha">Senha </label>
+          <input (input)='confirmarSenha($event)' class="form-control campos" type="password" name="senha" id="senha"
+            placeholder="Digite sua senha">
+        </div>
 
-            <div class="form-group roboto-font">
-              <label class='ml-3 mb-0' for="confirmSenha">Confirmar Senha </label>
-              <input [(ngModel)]='user.senha' class="form-control campos" type="password" name="confirmSenha" id="confirmSenha"
-                placeholder="Digite novamente sua senha">
-            </div>
+        <div class="form-group roboto-font">
+          <label class='ml-3 mb-0' for="confirmSenha">Confirmar Senha </label>
+          <input [(ngModel)]='user.senha' class="form-control campos" type="password" name="confirmSenha"
+            id="confirmSenha" placeholder="Digite novamente sua senha">
+        </div>
 
-            <div *ngIf="authService.adm()" class="form-group roboto-font">
-              <label class='ml-3 mb-0' for="tipoUsuario">Usuário</label>
-              <select class="form-control campos" name="tipoUsuario" id="tipoUsuario" (change)='tipoUsuario($event)'>
-                <option>Selecione um tipo de usuário</option>
-                <option value="normal">Normal</option>
-                <option value="adm">Administrador</option>
-              </select>
-
-            </div>
-
-          <div class="d-flex justify-content-center form-font">
-            <button type="submit" class="btn btn-danger mt-3 mr-2" (click)='cancelar()'>Cancelar</button>
-            <button type="submit" class="btn btn-success mt-3" (click)= 'cadastrar()'>Cadastrar</button>
-          </div>
+        <div *ngIf="authService.adm()" class="form-group roboto-font">
+          <label class='ml-3 mb-0' for="tipoUsuario">Usuário</label>
+          <select class="form-control campos" name="tipoUsuario" id="tipoUsuario" (change)='tipoUsuario($event)'>
+            <option>Selecione um tipo de usuário</option>
+            <option value="normal">Normal</option>
+            <option value="adm">Administrador</option>
+          </select>
 
         </div>
-      </div>
 
-    </form>
+        <div class="d-flex justify-content-center form-font">
+          <button type="submit" class="btn btn-danger mt-3 mr-2" (click)='cancelar()'>Cancelar</button>
+          <button type="submit" class="btn btn-success mt-3" (click)='cadastrar()'>Cadastrar</button>
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog"
+  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Foto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body d-flex align-items-center">
+        <img src="{{foto}}" alt="Imagem do user" width="60px" height="60px" class="rounded-circle ml-3">
+        <p class="ml-3 mt-3 h3"> Sua foto de Perfil</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
   </div>
+</div>
