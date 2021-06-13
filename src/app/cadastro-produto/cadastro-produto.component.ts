@@ -76,8 +76,11 @@ export class CadastroProdutoComponent implements OnInit {
       this.alertasService.showAlertDanger('Todos os campos devem ser preenchidos')
     } else if (this.produto.estoque < 0) {
       this.alertasService.showAlertInfo('O produto não pode ser cadastrado com estoque negativo')
-    } else if(this.validaNumero(this.produto.estoque.toString())) {
-        this.produtoService.postProduto(this.produto).subscribe((resp: Produto) => {
+    } else if(this.validaNumero(this.produto.estoque.toString()) == false) {
+      this.alertasService.showAlertInfo('O valor do estoque precisa ser um numero inteiro!')
+    }
+    else if(this.verificaProduto()){
+      this.produtoService.postProduto(this.produto).subscribe((resp: Produto) => {
         this.produto = resp
         this.alertasService.showAlertSuccess('Produto cadastrado com sucesso!')
         this.produto = new Produto()
@@ -85,9 +88,10 @@ export class CadastroProdutoComponent implements OnInit {
       })
     }
     else{
-      this.alertasService.showAlertInfo('O valor do estoque precisa ser um numero inteiro!')
+      this.alertasService.showAlertInfo('Produto ja cadastrado!')
     }
   }
+
   validaNumero(numero: string)
   {
     let confirma = false
@@ -99,6 +103,17 @@ export class CadastroProdutoComponent implements OnInit {
         }else{
           return false
         }
+    }
+    return confirma
+  }
+
+  verificaProduto(){
+    let confirma = true
+    this.findAllProdutos()
+    for(let i= 0; i < this.listaProdutos.length; i++){
+      if((this.listaProdutos[i].nome == this.produto.nome)&&(this.listaProdutos[i].endereco == this.produto.endereco)){
+        return false
+      }
     }
     return confirma
   }

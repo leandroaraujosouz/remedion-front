@@ -46,10 +46,12 @@ export class CategoriaEditComponent implements OnInit {
   }
 
   editar() {
+    console.log(this.categoria)
     if(this.categoria.tipo == null || this.categoria.tipo == "") {
       this.alertasService.showAlertDanger('O campo deve ser preenchido!')
     } else {
-    this.categoriaService.putCategoria(this.categoria).subscribe((resp: Categoria) => {
+      this.categoria.produto = []
+      this.categoriaService.putCategoria(this.categoria).subscribe((resp: Categoria) => {
       this.categoria = resp
       this.alertasService.showAlertSuccess('Categoria atualizada com sucesso! ')
       this.router.navigate(['/categoria'])

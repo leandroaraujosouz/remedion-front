@@ -225,6 +225,12 @@ export class PesquisaComponent implements OnInit {
       this.findAllByNomeMunicipioZona()
     }
 
+    setTimeout(()=>{
+      if(this.listaProdutos.length == 0){
+        this.alertasService.showAlertInfo('Resultado da consulta não encontrado!')
+      }
+    },500)
+
   }
 
 

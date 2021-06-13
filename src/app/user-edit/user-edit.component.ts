@@ -17,6 +17,7 @@ export class UserEditComponent implements OnInit {
   auxSenha: string
   auxTipoUsuario: string
   fundo: any
+  objFoto: any
 
   nomeCompleto: any
   labelNomeCompleto: any
@@ -74,6 +75,7 @@ export class UserEditComponent implements OnInit {
     this.labelConfirmSenha = document.querySelector('#labelConfirmSenha')
     this.divConfirmSenha = document.querySelector('#divConfirmSenha')
 
+    this.objFoto = window.document.querySelector('#foto')
   }
 
   mudar(){

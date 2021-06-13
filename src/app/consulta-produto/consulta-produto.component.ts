@@ -1,3 +1,4 @@
+import { chainedInstruction } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
@@ -17,7 +18,26 @@ export class ConsultaProdutoComponent implements OnInit {
 
   key = 'nome'
   reverse = false
+  objDescricao = ''
+  objEstoque = ''
+  objClassificacao = ''
+  objCategoria = ''
+  objPosto = ''
+  objEndereco = ''
+  objMunicipio = ''
+  objZona = ''
+  objAtivo = ''
 
+  chDescricao = true
+  chEstoque = true
+  chClassificacao = true
+  chCategoria = true
+  chPosto = true
+  chEndereco = true
+  chMunicipio = true
+  chZona = true
+  chAtivo = true
+  chAll = true
   produto: Produto = new Produto()
   listaProdutos: Produto[]
 
@@ -29,21 +49,84 @@ export class ConsultaProdutoComponent implements OnInit {
     private router: Router,
     private categoriaService: CategoriaService,
     private produtoService: ProdutoService,
-    private alertasService: AlertasService
+    private alertasService: AlertasService,
+
   ) { }
 
   ngOnInit() {
-    if(environment.token == '') {
+    if (environment.token == '') {
       this.alertasService.showAlertInfo('Sua sessão expirou. Entre novamente!')
       this.router.navigate(['/entrar'])
     }
 
-    window.scroll(0,0)
+
+    window.scroll(0, 0)
     this.fundo = window.document.querySelector('#fundo')
     this.mudar()
     this.findAllCategorias()
     this.findAllProdutos()
   }
+
+  desabilitar(num: number) {
+    if (num == 1)
+      this.objDescricao = 'd-none'
+    else if (num == 2)
+      this.objEstoque = 'd-none'
+    else if (num == 3)
+      this.objClassificacao = 'd-none'
+    else if (num == 4)
+      this.objCategoria = 'd-none'
+    else if (num == 5)
+      this.objPosto = 'd-none'
+    else if (num == 6)
+      this.objEndereco = 'd-none'
+    else if (num == 7)
+      this.objMunicipio = 'd-none'
+    else if (num == 8)
+      this.objZona = 'd-none'
+    else if (num == 9)
+      this.objAtivo = 'd-none'
+
+    this.chAll = false
+  }
+
+  habilitar() {
+    if (this.chAll) {
+      this.objDescricao = ''
+      this.objEstoque = ''
+      this.objClassificacao = ''
+      this.objCategoria = ''
+      this.objPosto = ''
+      this.objEndereco = ''
+      this.objMunicipio = ''
+      this.objZona = ''
+      this.objAtivo = ''
+      this.chDescricao = true
+      this.chEstoque = true
+      this.chClassificacao = true
+      this.chCategoria = true
+      this.chPosto = true
+      this.chEndereco = true
+      this.chMunicipio = true
+      this.chZona = true
+      this.chAtivo = true
+      this.chAll = true
+    }
+    else {
+      this.objDescricao = 'd-none'
+      this.objEstoque = 'd-none'
+      this.objClassificacao = 'd-none'
+      this.objCategoria = 'd-none'
+      this.objPosto = 'd-none'
+      this.objEndereco = 'd-none'
+      this.objMunicipio = 'd-none'
+      this.objZona = 'd-none'
+      this.objAtivo = 'd-none'
+      
+      this.chAll = false
+    }
+  }
+
   mudar() {
     this.fundo.style.backgroundImage = "url('https://imgur.com/7sY6rq0.jpg')"
   }
@@ -60,13 +143,13 @@ export class ConsultaProdutoComponent implements OnInit {
     })
   }
 
-  findAllByNomePosto(){
+  findAllByNomePosto() {
     this.produtoService.getAllByNomePosto(this.produto.nome, this.produto.posto).subscribe((resp: Produto[]) => {
       this.listaProdutos = resp
     })
   }
 
-  findAllByNomeMunicipioZona(){
+  findAllByNomeMunicipioZona() {
     this.produtoService.getAllByNomeMunicipioZona(this.produto.nome, this.produto.municipioCidade, this.produto.zona).subscribe((resp: Produto[]) => {
       this.listaProdutos = resp
     })
@@ -85,11 +168,11 @@ export class ConsultaProdutoComponent implements OnInit {
   }
 
   pesquisa() {
-    if(
-    (this.produto.nome == null || this.produto.nome == "")&&
-    (this.produto.posto == null || this.produto.posto == "") &&
-    (this.produto.municipioCidade == null || this.produto.municipioCidade == "") &&
-    (this.produto.zona == null || this.produto.zona == "")){
+    if (
+      (this.produto.nome == null || this.produto.nome == "") &&
+      (this.produto.posto == null || this.produto.posto == "") &&
+      (this.produto.municipioCidade == null || this.produto.municipioCidade == "") &&
+      (this.produto.zona == null || this.produto.zona == "")) {
       this.findAllProdutos()
     }
     else if (this.produto.nome != "" &&
@@ -98,18 +181,23 @@ export class ConsultaProdutoComponent implements OnInit {
       (this.produto.zona == null || this.produto.zona == "")) {
       this.findByNomeProduto()
     }
-    else if(this.produto.nome != "" && this.produto.posto != "" &&
-    (this.produto.municipioCidade == null || this.produto.municipioCidade == "") &&
-    (this.produto.zona == null || this.produto.zona == "")){
+    else if (this.produto.nome != "" && this.produto.posto != "" &&
+      (this.produto.municipioCidade == null || this.produto.municipioCidade == "") &&
+      (this.produto.zona == null || this.produto.zona == "")) {
       this.findAllByNomePosto()
     }
-    else if(
-    (this.produto.posto == null || this.produto.posto == "") &&
-    (this.produto.nome != "") &&
-    (this.produto.municipioCidade != "") &&
-    (this.produto.zona != "")){
+    else if (
+      (this.produto.posto == null || this.produto.posto == "") &&
+      (this.produto.nome != "") &&
+      (this.produto.municipioCidade != "") &&
+      (this.produto.zona != "")) {
       this.findAllByNomeMunicipioZona()
     }
 
+    setTimeout(() => {
+      if (this.listaProdutos.length == 0) {
+        this.alertasService.showAlertInfo('Resultado da consulta não encontrado!')
+      }
+    }, 500)
   }
 }
