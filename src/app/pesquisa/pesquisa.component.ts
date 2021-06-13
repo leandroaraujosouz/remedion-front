@@ -27,6 +27,8 @@ export class PesquisaComponent implements OnInit {
   carrinho: Produto[] = []
   id: number
 
+  carrinhoVazio = true
+
   listaPedidos = [{
     ativo: true,
     categoria: { id: 0, tipo: '' },
@@ -87,8 +89,8 @@ export class PesquisaComponent implements OnInit {
     this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
       this.lista = resp
       this.listaProdutos = []
-      this.lista.forEach((item)=>{
-        if(item.estoque > 0 && item.ativo){
+      this.lista.forEach((item) => {
+        if (item.estoque > 0 && item.ativo) {
           this.listaProdutos.push(item)
         }
       })
@@ -99,8 +101,8 @@ export class PesquisaComponent implements OnInit {
     this.produtoService.getByNomeProduto(this.produto.nome).subscribe((resp: Produto[]) => {
       this.lista = resp
       this.listaProdutos = []
-      this.lista.forEach((item)=>{
-        if(item.estoque > 0 && item.ativo){
+      this.lista.forEach((item) => {
+        if (item.estoque > 0 && item.ativo) {
           this.listaProdutos.push(item)
         }
       })
@@ -111,8 +113,8 @@ export class PesquisaComponent implements OnInit {
     this.produtoService.getAllByNomePosto(this.produto.nome, this.produto.posto).subscribe((resp: Produto[]) => {
       this.lista = resp
       this.listaProdutos = []
-      this.lista.forEach((item)=>{
-        if(item.estoque > 0 && item.ativo){
+      this.lista.forEach((item) => {
+        if (item.estoque > 0 && item.ativo) {
           this.listaProdutos.push(item)
         }
       })
@@ -123,8 +125,8 @@ export class PesquisaComponent implements OnInit {
     this.produtoService.getAllByNomeMunicipioZona(this.produto.nome, this.produto.municipioCidade, this.produto.zona).subscribe((resp: Produto[]) => {
       this.lista = resp
       this.listaProdutos = []
-      this.lista.forEach((item)=>{
-        if(item.estoque > 0 && item.ativo){
+      this.lista.forEach((item) => {
+        if (item.estoque > 0 && item.ativo) {
           this.listaProdutos.push(item)
         }
       })
@@ -134,13 +136,14 @@ export class PesquisaComponent implements OnInit {
 
 
   listaReserva(produto: Produto) {
-    let confirma = true
     produto.estoque = 1
     if (this.carrinho.find(element => element == produto) != undefined) {
-      this.alertasService.showAlertInfo('Medicamento já reservado!')
+      this.alertasService.showAlertInfo('Medicamento já está no carrinho!')
     }
     else {
       this.carrinho.push(produto)
+      this.carrinhoVazio = false
+      this.alertasService.showAlertSuccess('Medicamento foi para o carrinho!')
     }
   }
 
@@ -152,43 +155,52 @@ export class PesquisaComponent implements OnInit {
       }
     }
     this.carrinho = lista
+    if (this.carrinho.length == 0) {
+      this.carrinhoVazio = true
+    }
   }
 
   reservar() {
-    this.usuario.email = environment.email
-    this.usuario.nomeCompleto = environment.nomeCompleto
-    this.usuario.id = environment.id
-    if (this.listaReservas.length == 0) {
-      this.id = 1
-    }
-    else {
-      this.id = this.listaReservas[this.listaReservas.length - 1].id + 1
-    }
-    this.listaPedidos = []
-    this.carrinho.forEach((item) => {
-      this.listaPedidos.push(item)
-    })
+    if (this.carrinho.length > 0) {
+      this.usuario.email = environment.email
+      this.usuario.nomeCompleto = environment.nomeCompleto
+      this.usuario.id = environment.id
+      if (this.listaReservas.length == 0) {
+        this.id = 1
+      }
+      else {
+        this.id = this.listaReservas[this.listaReservas.length - 1].id + 1
+      }
+      this.listaPedidos = []
+      this.carrinho.forEach((item) => {
+        this.listaPedidos.push(item)
+      })
 
-    this.carrinho.forEach((item) => {
-      this.produtoService.getByIdProduto(item.id).subscribe((resp: Produto) => {
-        this.produto = resp
-        this.produto.estoque -= item.estoque
-        this.produtoService.putProduto(this.produto).subscribe((resp: Produto) => {
+      this.carrinho.forEach((item) => {
+        this.produtoService.getByIdProduto(item.id).subscribe((resp: Produto) => {
           this.produto = resp
+          this.produto.estoque -= item.estoque
+          this.produtoService.putProduto(this.produto).subscribe((resp: Produto) => {
+            this.produto = resp
+          })
         })
       })
-    })
 
-    this.listaReservas.push(
-      {
-        id: this.id,
-        usuarioCad: this.usuario,
-        listaPedidos: this.listaPedidos
-      })
-    this.carrinho = []
-    localStorage.setItem('listaReservas', JSON.stringify(this.listaReservas))
-    this.alertasService.showAlertSuccess('Pedido reservado com sucesso!')
-
+      this.listaReservas.push(
+        {
+          id: this.id,
+          usuarioCad: this.usuario,
+          listaPedidos: this.listaPedidos
+        })
+      this.carrinho = []
+      this.carrinhoVazio = true
+      localStorage.setItem('listaReservas', JSON.stringify(this.listaReservas))
+      this.alertasService.showAlertSuccess('Pedido reservado com sucesso!')
+      
+    }
+    else{
+      this.alertasService.showAlertInfo('Carrinho vazio!')
+    }
   }
 
   habilitar() {
@@ -225,11 +237,11 @@ export class PesquisaComponent implements OnInit {
       this.findAllByNomeMunicipioZona()
     }
 
-    setTimeout(()=>{
-      if(this.listaProdutos.length == 0){
+    setTimeout(() => {
+      if (this.listaProdutos.length == 0) {
         this.alertasService.showAlertInfo('Resultado da consulta não encontrado!')
       }
-    },500)
+    }, 500)
 
   }
 

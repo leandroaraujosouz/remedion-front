@@ -38,4 +38,5 @@ export class MenuComponent implements OnInit {
     environment.token=''
     this.router.navigate(['/inicio'])
   }
+  
 }

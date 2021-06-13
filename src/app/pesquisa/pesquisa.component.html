@@ -42,32 +42,6 @@
     </div>
   </div>
 
-  <div class="row mb-3">
-    <div class="col-md-6">
-      <div  style="overflow: auto; height: 200px">
-        <div class="row border carrinho m-1 p-0" *ngFor='let itens of carrinho'>
-          <div class="col-md-10 ">
-            <h4 class=" d-block form-font">{{itens.nome}}</h4>
-            <p class="roboto-font">Posto: {{itens.posto}}</p>
-            <p class="roboto-font">Endereço: {{itens.endereco}}</p>
-          </div>
-
-          <div class="col-md-2 p-0 text-right d-flex justify-content-end align-items-center">
-            <i id="excluir" (click)="removeCarrinho(itens)" class="fa fa-times-circle mr-4" aria-hidden="true"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <!-- Botão para acionar modal -->
-      <button *ngIf="habilitar()" type="button" class="btn btn-primary form-font" data-toggle="modal"
-        data-target="#ExemploModalCentralizado">
-        Lista de Reservas
-      </button>
-    </div>
-  </div>
-
-
   <div class="row">
     <div class="col-md-6">
       <div style="overflow: auto; height: 500px">
@@ -89,7 +63,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog"
+<div class="modal fade" id="carrinho" tabindex="-1" role="dialog"
   aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -101,10 +75,12 @@
       </div>
       <div class="modal-body">
         <div style="overflow: auto; height: 500px">
+          <h2 *ngIf=carrinhoVazio>Carrinho vazio!</h2>
           <div *ngFor='let itens of carrinho' class="border bg-light p-2 mb-2">
             <h3 class="form-font" (click)="mapa(itens.endereco)">{{itens.posto}}</h3>
             <p class="mb-0 roboto-font">Medicamento: {{itens.nome}}</p>
-            <p class="mb-0 roboto-font">Endereço: {{itens.endereco}}</p>
+            <p class="mb-0 roboto-font">Endereço: {{itens.endereco}} - zona: {{itens.zona}}</p>
+            <button class="btn btn-danger mt-2" (click)="removeCarrinho(itens)"> Remover</button>
           </div>
         </div>
       </div>
