@@ -1,0 +1,1360 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>remedion-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">remedion-front documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ReservasComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/reservas/reservas.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-reservas</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./reservas.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./reservas.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#idReserva">idReserva</a>
+                            </li>
+                            <li>
+                                <a href="#indice">indice</a>
+                            </li>
+                            <li>
+                                <a href="#listaConsulta">listaConsulta</a>
+                            </li>
+                            <li>
+                                <a href="#listaPedidos">listaPedidos</a>
+                            </li>
+                            <li>
+                                <a href="#listaReservas">listaReservas</a>
+                            </li>
+                            <li>
+                                <a href="#produto">produto</a>
+                            </li>
+                            <li>
+                                <a href="#User">User</a>
+                            </li>
+                            <li>
+                                <a href="#usuario">usuario</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#delete">delete</a>
+                            </li>
+                            <li>
+                                <a href="#deleteAll">deleteAll</a>
+                            </li>
+                            <li>
+                                <a href="#finalizar">finalizar</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#pesquisa">pesquisa</a>
+                            </li>
+                            <li>
+                                <a href="#selecionaReserva">selecionaReserva</a>
+                            </li>
+                            <li>
+                                <a href="#selectIdReserva">selectIdReserva</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, produtoService: <a href="../injectables/ProdutoService.html">ProdutoService</a>, alertasService: <a href="../injectables/AlertasService.html">AlertasService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/reservas/reservas.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>produtoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProdutoService.html" target="_self" >ProdutoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>alertasService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AlertasService.html" target="_self" >AlertasService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                        <b>
+                            delete
+                        </b>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>delete(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">src/app/reservas/reservas.component.ts:124</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteAll"></a>
+                    <span class="name">
+                        <b>
+                            deleteAll
+                        </b>
+                        <a href="#deleteAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteAll()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="139"
+                            class="link-to-prism">src/app/reservas/reservas.component.ts:139</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="finalizar"></a>
+                    <span class="name">
+                        <b>
+                            finalizar
+                        </b>
+                        <a href="#finalizar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>finalizar(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/reservas/reservas.component.ts:97</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/reservas/reservas.component.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pesquisa"></a>
+                    <span class="name">
+                        <b>
+                            pesquisa
+                        </b>
+                        <a href="#pesquisa"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pesquisa()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">src/app/reservas/reservas.component.ts:67</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selecionaReserva"></a>
+                    <span class="name">
+                        <b>
+                            selecionaReserva
+                        </b>
+                        <a href="#selecionaReserva"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selecionaReserva(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">src/app/reservas/reservas.component.ts:86</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectIdReserva"></a>
+                    <span class="name">
+                        <b>
+                            selectIdReserva
+                        </b>
+                        <a href="#selectIdReserva"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectIdReserva(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/app/reservas/reservas.component.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="idReserva"></a>
+                        <span class="name">
+                            <b>
+                            idReserva</b>
+                            <a href="#idReserva"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/reservas/reservas.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="indice"></a>
+                        <span class="name">
+                            <b>
+                            indice</b>
+                            <a href="#indice"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/reservas/reservas.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="listaConsulta"></a>
+                        <span class="name">
+                            <b>
+                            listaConsulta</b>
+                            <a href="#listaConsulta"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[{
+    id: 0,
+    usuarioCad: this.User,
+    listaPedidos: this.listaPedidos
+  }]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/reservas/reservas.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="listaPedidos"></a>
+                        <span class="name">
+                            <b>
+                            listaPedidos</b>
+                            <a href="#listaPedidos"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[{
+    ativo: true,
+    categoria: { id: 0, tipo: &#x27;&#x27; },
+    classificacao: &quot;&quot;,
+    endereco: &quot;&quot;,
+    estoque: 1,
+    id: 12,
+    municipioCidade: &quot;&quot;,
+    nome: &quot;&quot;,
+    posto: &quot;&quot;,
+    zona: &quot;&quot;
+  }]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/reservas/reservas.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="listaReservas"></a>
+                        <span class="name">
+                            <b>
+                            listaReservas</b>
+                            <a href="#listaReservas"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[{
+    id: 0,
+    usuarioCad: this.User,
+    listaPedidos: this.listaPedidos
+  }]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/reservas/reservas.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="produto"></a>
+                        <span class="name">
+                            <b>
+                            produto</b>
+                            <a href="#produto"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Produto.html" target="_self" >Produto</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/reservas/reservas.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="User"></a>
+                        <span class="name">
+                            <b>
+                            User</b>
+                            <a href="#User"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    nomeCompleto: &#x27;&#x27;,
+    email: &#x27;&#x27;,
+    id: 0
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/reservas/reservas.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="usuario"></a>
+                        <span class="name">
+                            <b>
+                            usuario</b>
+                            <a href="#usuario"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/reservas/reservas.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { environment } from &#x27;src/environments/environment.prod&#x27;;
+import { Produto } from &#x27;../model/Produto&#x27;;
+import { User } from &#x27;../model/user&#x27;;
+import { AlertasService } from &#x27;../service/alertas.service&#x27;;
+import { ProdutoService } from &#x27;../service/produto.service&#x27;;
+
+@Component({
+  selector: &#x27;app-reservas&#x27;,
+  templateUrl: &#x27;./reservas.component.html&#x27;,
+  styleUrls: [&#x27;./reservas.component.css&#x27;]
+})
+export class ReservasComponent implements OnInit {
+
+
+  listaPedidos &#x3D; [{
+    ativo: true,
+    categoria: { id: 0, tipo: &#x27;&#x27; },
+    classificacao: &quot;&quot;,
+    endereco: &quot;&quot;,
+    estoque: 1,
+    id: 12,
+    municipioCidade: &quot;&quot;,
+    nome: &quot;&quot;,
+    posto: &quot;&quot;,
+    zona: &quot;&quot;
+  }]
+  User &#x3D; {
+    nomeCompleto: &#x27;&#x27;,
+    email: &#x27;&#x27;,
+    id: 0
+  }
+  listaReservas &#x3D; [{
+    id: 0,
+    usuarioCad: this.User,
+    listaPedidos: this.listaPedidos
+  }]
+  listaConsulta &#x3D; [{
+    id: 0,
+    usuarioCad: this.User,
+    listaPedidos: this.listaPedidos
+  }]
+
+  usuario: string
+  indice: number
+  idReserva: number
+
+  produto: Produto
+
+  constructor(
+    private router: Router,
+    private produtoService: ProdutoService,
+    private alertasService: AlertasService
+  ) { }
+
+  ngOnInit() {
+    if (environment.token &#x3D;&#x3D; &#x27;&#x27;) {
+      this.alertasService.showAlertInfo(&#x27;Sua sessão expirou. Entre novamente!&#x27;)
+      this.router.navigate([&#x27;/entrar&#x27;])
+    }
+    this.listaReservas &#x3D; JSON.parse(localStorage.getItem(&#x27;listaReservas&#x27;) || &#x27;[]&#x27;)
+    this.listaConsulta &#x3D; JSON.parse(localStorage.getItem(&#x27;listaReservas&#x27;) || &#x27;[]&#x27;)
+    this.listaPedidos &#x3D; []
+  }
+
+  pesquisa() {
+    this.listaPedidos &#x3D; []
+    if (this.usuario &#x3D;&#x3D; undefined || this.usuario &#x3D;&#x3D; &quot;&quot;) {
+      this.listaReservas &#x3D; this.listaConsulta
+    }
+    else {
+      this.listaReservas &#x3D; []
+      this.listaConsulta.forEach((item) &#x3D;&gt; {
+        if (item.usuarioCad.nomeCompleto.search(this.usuario) !&#x3D; -1 ) {
+          this.listaReservas.push(item)
+        }
+      })
+    }
+  }
+
+  selectIdReserva(id: number) {
+    this.idReserva &#x3D; id
+  }
+
+  selecionaReserva(id: number) {
+    for (let i &#x3D; 0; i &lt; this.listaReservas.length; i++) {
+      if (this.listaReservas[i].id &#x3D;&#x3D; id) {
+        this.usuario &#x3D; this.listaReservas[i].usuarioCad.nomeCompleto
+        this.indice &#x3D; i
+        this.listaPedidos &#x3D; this.listaReservas[i].listaPedidos
+        i &#x3D; this.listaReservas.length
+      }
+    }
+  }
+
+  finalizar(id: number) {
+    let lista &#x3D; this.listaPedidos
+    this.listaPedidos &#x3D; []
+    lista.forEach((item) &#x3D;&gt; {
+      if (item.id !&#x3D; id) {
+        this.listaPedidos.push(item)
+      }
+    })
+    this.listaReservas[this.indice].listaPedidos &#x3D; []
+
+    this.listaPedidos.forEach((item) &#x3D;&gt; {
+      this.listaReservas[this.indice].listaPedidos.push(item)
+    })
+    if (this.listaPedidos.length &#x3D;&#x3D; 0) {
+      let listaR &#x3D; this.listaConsulta
+      this.listaConsulta &#x3D; []
+      this.listaReservas &#x3D; []
+      listaR.forEach((item) &#x3D;&gt; {
+        if (item.id !&#x3D; listaR[this.indice].id) {
+          this.listaConsulta.push(item)
+          this.listaReservas.push(item)
+        }
+      })
+    }
+    localStorage.setItem(&#x27;listaReservas&#x27;, JSON.stringify(this.listaReservas))
+  }
+
+  delete(id: number) {
+    this.listaPedidos.forEach((item) &#x3D;&gt; {
+      if (item.id &#x3D;&#x3D; id) {
+        this.produtoService.getByIdProduto(item.id).subscribe((resp: Produto) &#x3D;&gt; {
+          this.produto &#x3D; resp
+          this.produto.estoque +&#x3D; item.estoque
+          this.produtoService.putProduto(this.produto).subscribe((resp: Produto) &#x3D;&gt; {
+            this.produto &#x3D; resp
+          })
+        })
+      }
+    })
+    this.finalizar(id)
+  }
+
+  deleteAll() {
+    this.selecionaReserva(this.idReserva)
+    this.listaPedidos.forEach((item &#x3D;&gt; {
+      this.delete(item.id)
+    }))
+    this.alertasService.showAlertSuccess(&#x27;Cancelamento realizado com sucesso!&#x27;)
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;border molde ml-5 mr-5&quot; style&#x3D;&quot;border-radius: 50px 50px 0px 0px; margin-top: 100px; &quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+        &lt;div class&#x3D;&quot;row mb-5&quot;&gt;
+            &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+                &lt;h1 class&#x3D;&quot;text-center form-font&quot;&gt;Consulta de Reservas&lt;/h1&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- pesquisa --&gt;
+        &lt;div class&#x3D;&quot;row d-flex align-items-end justify-content-left mb-2&quot;&gt;
+
+            &lt;div class&#x3D;&quot;col-md-3&quot;&gt;
+                &lt;div class&#x3D;&quot;form-group mb-0&quot;&gt;
+                    &lt;input [(ngModel)]&#x3D;&quot;usuario&quot; type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control campos&quot; id&#x3D;&quot;nomeUsuario&quot;
+                        placeholder&#x3D;&quot;Nome do usuário&quot;&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;col-md-2&quot;&gt;
+                &lt;div&gt;
+                    &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-success form-font&quot; (click)&#x3D;&quot;pesquisa()&quot;&gt;Pesquisar&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+        &lt;!-- /pesquisa --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- listaRemedios  --&gt;
+&lt;div class&#x3D;&quot;border molde ml-5 mr-5 mb-3&quot; style&#x3D;&quot;overflow:auto; height: 500px; border-radius: 0px 0px 0px 50px ;&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid &quot;&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+                &lt;h3 class&#x3D;&quot;text-center form-font&quot;&gt;Usuários&lt;/h3&gt;
+                &lt;table class&#x3D;&quot;table table-hover&quot;&gt;
+                    &lt;thead&gt;
+                        &lt;tr class&#x3D;&quot;roboto-font&quot;&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;#&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;Nome&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;E-mail&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr *ngFor&#x3D;&#x27;let itens of listaReservas&#x27;&gt;
+                            &lt;th class&#x3D;&quot;roboto-font&quot; scope&#x3D;&quot;row&quot;&gt;{{itens.id}}&lt;/th&gt;
+                            &lt;td class&#x3D;&quot;roboto-font&quot;&gt;{{itens.usuarioCad.nomeCompleto}}&lt;/td&gt;
+                            &lt;td class&#x3D;&quot;roboto-font&quot;&gt;{{itens.usuarioCad.email}}&lt;/td&gt;
+                            &lt;td class&#x3D;&quot;form-font&quot;&gt;
+                                &lt;button (click)&#x3D;&#x27;selecionaReserva(itens.id)&#x27; class&#x3D;&quot;btn btn-info&quot;&gt;Pedidos&lt;/button&gt;
+                            &lt;/td&gt;
+                            &lt;td class&#x3D;&quot;form-font&quot;&gt;
+                                &lt;!-- Botão para acionar modal --&gt;
+                                &lt;button (click)&#x3D;&#x27;selectIdReserva(itens.id);selecionaReserva(itens.id)&#x27; type&#x3D;&quot;button&quot;
+                                    class&#x3D;&quot;btn btn-danger form-font&quot; data-toggle&#x3D;&quot;modal&quot;
+                                    data-target&#x3D;&quot;#ExemploModalCentralizado&quot;&gt;
+                                    Apagar
+                                &lt;/button&gt;
+
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+                &lt;h3 class&#x3D;&quot;text-center form-font&quot;&gt;Pedidos&lt;/h3&gt;
+                &lt;table class&#x3D;&quot;table table-hover&quot;&gt;
+                    &lt;thead&gt;
+                        &lt;tr class&#x3D;&quot;roboto-font&quot;&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;Usuário&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;Medicamento&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;Posto&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;Endereço&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr *ngFor&#x3D;&#x27;let itens of listaPedidos&#x27;&gt;
+                            &lt;th class&#x3D;&quot;roboto-font&quot; scope&#x3D;&quot;row&quot;&gt;{{usuario}}&lt;/th&gt;
+                            &lt;td class&#x3D;&quot;roboto-font&quot;&gt;{{itens.nome}}&lt;/td&gt;
+                            &lt;td class&#x3D;&quot;roboto-font&quot;&gt;{{itens.posto}}&lt;/td&gt;
+                            &lt;td class&#x3D;&quot;roboto-font&quot;&gt;{{itens.endereco}}&lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;button (click)&#x3D;&quot;finalizar(itens.id)&quot;
+                                    class&#x3D;&quot;btn btn-success form-font&quot;&gt;Finalizar&lt;/button&gt;
+                            &lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;button (click)&#x3D;&quot;delete(itens.id)&quot; class&#x3D;&quot;btn btn-danger form-font&quot;&gt;Ignorar&lt;/button&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- /listaRemedios  --&gt;
+
+&lt;!-- Modal --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;ExemploModalCentralizado&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot;
+    aria-labelledby&#x3D;&quot;TituloModalCentralizado&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-dialog modal-dialog-centered&quot; role&#x3D;&quot;document&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+            &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+                &lt;h5 class&#x3D;&quot;modal-title form-font&quot; id&#x3D;&quot;TituloModalCentralizado&quot;&gt;Lista de Reservas&lt;/h5&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Fechar&quot;&gt;
+                    &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+                &lt;div style&#x3D;&quot;overflow: auto; height: 500px&quot;&gt;
+                    &lt;div class&#x3D;&quot;border bg-light p-2 mb-2&quot;&gt;
+                        &lt;h3 class&#x3D;&quot;text-center form-font&quot;&gt;Exclusão de Pedido&lt;/h3&gt;
+                        &lt;table class&#x3D;&quot;table table-hover&quot;&gt;
+                            &lt;thead&gt;
+                                &lt;tr class&#x3D;&quot;roboto-font&quot;&gt;
+                                    &lt;th scope&#x3D;&quot;col&quot;&gt;Usuário&lt;/th&gt;
+                                    &lt;th scope&#x3D;&quot;col&quot;&gt;Medicamento&lt;/th&gt;
+                                    &lt;th scope&#x3D;&quot;col&quot;&gt;Posto&lt;/th&gt;
+                                    &lt;th scope&#x3D;&quot;col&quot;&gt;Endereço&lt;/th&gt;
+                                &lt;/tr&gt;
+                            &lt;/thead&gt;
+                            &lt;tbody&gt;
+                                &lt;tr *ngFor&#x3D;&#x27;let itens of listaPedidos&#x27;&gt;
+                                    &lt;th class&#x3D;&quot;roboto-font&quot; scope&#x3D;&quot;row&quot;&gt;{{usuario}}&lt;/th&gt;
+                                    &lt;td class&#x3D;&quot;roboto-font&quot;&gt;{{itens.nome}}&lt;/td&gt;
+                                    &lt;td class&#x3D;&quot;roboto-font&quot;&gt;{{itens.posto}}&lt;/td&gt;
+                                    &lt;td class&#x3D;&quot;roboto-font&quot;&gt;{{itens.endereco}}&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-footer form-font&quot;&gt;
+               &lt;h3 class&#x3D;&quot;text-center&quot;&gt;Tem certeza que deseja cancelar a Reserva?&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-footer form-font&quot;&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; data-dismiss&#x3D;&quot;modal&quot;&gt;Fechar&lt;/button&gt;
+                &lt;button (click)&#x3D;&#x27;deleteAll()&#x27; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success&quot;
+                    data-dismiss&#x3D;&quot;modal&quot;&gt;Confirmar&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./reservas.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.campos {
+  background: rgba(255, 255, 255, 0.73);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 57px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="border molde ml-5 mr-5" style="border-radius: 50px 50px 0px 0px; margin-top: 100px; ">    <div class="container-fluid">        <div class="row mb-5">            <div class="col-md-12">                <h1 class="text-center form-font">Consulta de Reservas</h1>            </div>        </div>        <!-- pesquisa -->        <div class="row d-flex align-items-end justify-content-left mb-2">            <div class="col-md-3">                <div class="form-group mb-0">                    <input [(ngModel)]="usuario" type="text" class="form-control campos" id="nomeUsuario"                        placeholder="Nome do usuário">                </div>            </div>            <div class="col-md-2">                <div>                    <button type="submit" class="btn btn-success form-font" (click)="pesquisa()">Pesquisar</button>                </div>            </div>        </div>        <!-- /pesquisa -->    </div></div><!-- listaRemedios  --><div class="border molde ml-5 mr-5 mb-3" style="overflow:auto; height: 500px; border-radius: 0px 0px 0px 50px ;">    <div class="container-fluid ">        <div class="row">            <div class="col-md-6">                <h3 class="text-center form-font">Usuários</h3>                <table class="table table-hover">                    <thead>                        <tr class="roboto-font">                            <th scope="col">#</th>                            <th scope="col">Nome</th>                            <th scope="col">E-mail</th>                            <th scope="col"></th>                            <th scope="col"></th>                        </tr>                    </thead>                    <tbody>                        <tr *ngFor=\'let itens of listaReservas\'>                            <th class="roboto-font" scope="row">{{itens.id}}</th>                            <td class="roboto-font">{{itens.usuarioCad.nomeCompleto}}</td>                            <td class="roboto-font">{{itens.usuarioCad.email}}</td>                            <td class="form-font">                                <button (click)=\'selecionaReserva(itens.id)\' class="btn btn-info">Pedidos</button>                            </td>                            <td class="form-font">                                <!-- Botão para acionar modal -->                                <button (click)=\'selectIdReserva(itens.id);selecionaReserva(itens.id)\' type="button"                                    class="btn btn-danger form-font" data-toggle="modal"                                    data-target="#ExemploModalCentralizado">                                    Apagar                                </button>                            </td>                        </tr>                    </tbody>                </table>            </div>            <div class="col-md-6">                <h3 class="text-center form-font">Pedidos</h3>                <table class="table table-hover">                    <thead>                        <tr class="roboto-font">                            <th scope="col">Usuário</th>                            <th scope="col">Medicamento</th>                            <th scope="col">Posto</th>                            <th scope="col">Endereço</th>                            <th scope="col"></th>                            <th scope="col"></th>                        </tr>                    </thead>                    <tbody>                        <tr *ngFor=\'let itens of listaPedidos\'>                            <th class="roboto-font" scope="row">{{usuario}}</th>                            <td class="roboto-font">{{itens.nome}}</td>                            <td class="roboto-font">{{itens.posto}}</td>                            <td class="roboto-font">{{itens.endereco}}</td>                            <td>                                <button (click)="finalizar(itens.id)"                                    class="btn btn-success form-font">Finalizar</button>                            </td>                            <td>                                <button (click)="delete(itens.id)" class="btn btn-danger form-font">Ignorar</button>                            </td>                        </tr>                    </tbody>                </table>            </div>        </div>    </div></div><!-- /listaRemedios  --><!-- Modal --><div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog"    aria-labelledby="TituloModalCentralizado" aria-hidden="true">    <div class="modal-dialog modal-dialog-centered" role="document">        <div class="modal-content">            <div class="modal-header">                <h5 class="modal-title form-font" id="TituloModalCentralizado">Lista de Reservas</h5>                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">                    <span aria-hidden="true">&times;</span>                </button>            </div>            <div class="modal-body">                <div style="overflow: auto; height: 500px">                    <div class="border bg-light p-2 mb-2">                        <h3 class="text-center form-font">Exclusão de Pedido</h3>                        <table class="table table-hover">                            <thead>                                <tr class="roboto-font">                                    <th scope="col">Usuário</th>                                    <th scope="col">Medicamento</th>                                    <th scope="col">Posto</th>                                    <th scope="col">Endereço</th>                                </tr>                            </thead>                            <tbody>                                <tr *ngFor=\'let itens of listaPedidos\'>                                    <th class="roboto-font" scope="row">{{usuario}}</th>                                    <td class="roboto-font">{{itens.nome}}</td>                                    <td class="roboto-font">{{itens.posto}}</td>                                    <td class="roboto-font">{{itens.endereco}}</td>                                </tr>                            </tbody>                        </table>                    </div>                </div>            </div>            <div class="modal-footer form-font">               <h3 class="text-center">Tem certeza que deseja cancelar a Reserva?</h3>            </div>            <div class="modal-footer form-font">                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>                <button (click)=\'deleteAll()\' type="button" class="btn btn-success"                    data-dismiss="modal">Confirmar</button>            </div>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AlertasComponent', 'selector': 'app-alertas'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CadastroProdutoComponent', 'selector': 'app-cadastro-produto'},{'name': 'CadastroUsuarioComponent', 'selector': 'app-cadastro-usuario'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'CategoriaDeleteComponent', 'selector': 'app-categoria-delete'},{'name': 'CategoriaEditComponent', 'selector': 'app-categoria-edit'},{'name': 'ConsultaProdutoComponent', 'selector': 'app-consulta-produto'},{'name': 'EntrarComponent', 'selector': 'app-entrar'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'PesquisaComponent', 'selector': 'app-pesquisa'},{'name': 'ProdutoDeleteComponent', 'selector': 'app-produto-delete'},{'name': 'ProdutoEditComponent', 'selector': 'app-produto-edit'},{'name': 'ReservasComponent', 'selector': 'app-reservas'},{'name': 'RodapeComponent', 'selector': 'app-rodape'},{'name': 'UserEditComponent', 'selector': 'app-user-edit'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ReservasComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ReservasComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -29,9 +29,6 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li *ngIf="authService.adm()" class="nav-item">
-                    <a class="nav-link active" routerLink='/pesquisa'>Pesquisa</a>
-                </li>
-                <li *ngIf="authService.adm()" class="nav-item">
                     <a class="nav-link" routerLink='/consultar-produto'>Área do Adm</a>
                 </li>
                 <li *ngIf="authService.adm()" class="nav-item">
@@ -43,7 +40,7 @@
                 <li *ngIf="authService.adm()" class="nav-item">
                     <a class="nav-link active" routerLink='/reservas'>Pedidos</a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="authService.normal()" class="nav-item">
                     <a class="nav-link active" data-toggle="modal"
                     data-target="#carrinho">Carrinho <i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
                 </li>

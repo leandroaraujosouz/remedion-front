@@ -45,4 +45,12 @@ export class AuthService {
     }
     return ok 
   }
+
+  normal(){
+    let ok = false
+    if (environment.tipoUsuario == 'normal'){
+      ok=true
+    }
+    return ok 
+  }
 }

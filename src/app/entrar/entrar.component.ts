@@ -46,7 +46,12 @@ export class EntrarComponent implements OnInit {
       environment.token = this.userLogin.token
       environment.tipoUsuario = this.userLogin.tipoUsuario
 
-      this.router.navigate(['/pesquisa'])
+      if(environment.tipoUsuario == 'normal'){
+        this.router.navigate(['/pesquisa'])
+      }else{
+        this.router.navigate(['/consultar-produto'])
+      }
+      
     }, erro=>{
       if(erro.status == 500){
         this.alertasService.showAlertDanger('E-mail ou senha estão incorretos. Tente novamente!')

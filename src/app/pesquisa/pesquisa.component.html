@@ -46,7 +46,7 @@
     <div class="col-md-6">
       <div style="overflow: auto; height: 500px">
         <div *ngFor='let itens of listaProdutos' class="border carrinho bg-light p-2 mb-2">
-          <h3 class="form-font" (click)="mapa(itens.endereco)">{{itens.posto}}</h3>
+          <h3 class="form-font ponteiro" (click)="mapa(itens.endereco)">{{itens.posto}}</h3>
           <p class="mb-0 roboto-font">Medicamento: {{itens.nome}}</p>
           <p class="mb-0 roboto-font">Endereço: {{itens.endereco}}</p>
           <button (click)='listaReserva(itens)' class="btn btn-success form-font">Reservar</button>
@@ -77,7 +77,7 @@
         <div style="overflow: auto; height: 500px">
           <h2 *ngIf=carrinhoVazio>Carrinho vazio!</h2>
           <div *ngFor='let itens of carrinho' class="border bg-light p-2 mb-2">
-            <h3 class="form-font" (click)="mapa(itens.endereco)">{{itens.posto}}</h3>
+            <h3 class="form-font">{{itens.posto}}</h3>
             <p class="mb-0 roboto-font">Medicamento: {{itens.nome}}</p>
             <p class="mb-0 roboto-font">Endereço: {{itens.endereco}} - zona: {{itens.zona}}</p>
             <button class="btn btn-danger mt-2" (click)="removeCarrinho(itens)"> Remover</button>

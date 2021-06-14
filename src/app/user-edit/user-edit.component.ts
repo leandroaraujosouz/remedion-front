@@ -182,4 +182,12 @@ export class UserEditComponent implements OnInit {
       this.user = resp
     })
   }
+
+  cancelar(){
+    if(environment.tipoUsuario == 'normal'){
+      this.router.navigate(['/pesquisa'])
+    }else{
+      this.router.navigate(['/consultar-produto'])
+    }
+  }
 }
