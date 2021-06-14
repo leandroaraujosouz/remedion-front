@@ -162,6 +162,10 @@ export class UserEditComponent implements OnInit {
   atualizarUser(){
     this.user.tipoUsuario = this.auxTipoUsuario
 
+    if(this.user.tipoUsuario == null || this.user.tipoUsuario == ""){
+      this.user.tipoUsuario = "normal"
+    }
+
     if(this.user.senha == this.auxSenha && this.validNomeCompleto && this.validEmail && this.validSenha && this.validConfirmSenha){
       this.authService.atualizarUsuario(this.user).subscribe((resp: User) => {
         this.user = resp
