@@ -49,7 +49,7 @@
                             <td class="roboto-font">{{itens.usuarioCad.nomeCompleto}}</td>
                             <td class="roboto-font">{{itens.usuarioCad.email}}</td>
                             <td class="form-font">
-                                <button (click)='selecionaReserva(itens.id)' class="btn btn-info">Pedidos</button>
+                                <button (click)='selectIdReserva(itens.id);selecionaReserva(itens.id)' class="btn btn-info">Pedidos</button>
                             </td>
                             <td class="form-font">
                                 <!-- Botão para acionar modal -->

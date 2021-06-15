@@ -39,4 +39,9 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/inicio'])
   }
   
+  zerarPadding(){
+    setTimeout(() => {
+      window.document.body.style.padding = "0px"
+    }, 400);
+  }
 }

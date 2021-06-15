@@ -43,7 +43,6 @@ export class ReservasComponent implements OnInit {
   }]
 
   usuario: string
-  indice: number
   idReserva: number
 
   produto: Produto
@@ -72,7 +71,7 @@ export class ReservasComponent implements OnInit {
     else {
       this.listaReservas = []
       this.listaConsulta.forEach((item) => {
-        if (item.usuarioCad.nomeCompleto.search(this.usuario) != -1 ) {
+        if (item.usuarioCad.nomeCompleto.search(this.usuario) != -1) {
           this.listaReservas.push(item)
         }
       })
@@ -87,11 +86,14 @@ export class ReservasComponent implements OnInit {
     for (let i = 0; i < this.listaReservas.length; i++) {
       if (this.listaReservas[i].id == id) {
         this.usuario = this.listaReservas[i].usuarioCad.nomeCompleto
-        this.indice = i
         this.listaPedidos = this.listaReservas[i].listaPedidos
         i = this.listaReservas.length
       }
     }
+
+    setTimeout(() => {
+      window.document.body.style.padding = "0px"
+    }, 400);
   }
 
   finalizar(id: number) {
@@ -102,23 +104,40 @@ export class ReservasComponent implements OnInit {
         this.listaPedidos.push(item)
       }
     })
-    this.listaReservas[this.indice].listaPedidos = []
-
-    this.listaPedidos.forEach((item) => {
-      this.listaReservas[this.indice].listaPedidos.push(item)
-    })
-    if (this.listaPedidos.length == 0) {
-      let listaR = this.listaConsulta
-      this.listaConsulta = []
-      this.listaReservas = []
-      listaR.forEach((item) => {
-        if (item.id != listaR[this.indice].id) {
-          this.listaConsulta.push(item)
-          this.listaReservas.push(item)
-        }
-      })
+    for(let i=0; i< this.listaReservas.length; i++){
+      if(this.listaReservas[i].id == this.idReserva){
+        this.listaReservas[i].listaPedidos = []
+        this.listaPedidos.forEach((item) => {
+          this.listaReservas[i].listaPedidos.push(item)
+        })
+        i = this.listaReservas.length
+      }
     }
-    localStorage.setItem('listaReservas', JSON.stringify(this.listaReservas))
+    for(let i=0; i< this.listaConsulta.length; i++){
+      if(this.listaConsulta[i].id == this.idReserva){
+        this.listaConsulta[i].listaPedidos = []
+        this.listaPedidos.forEach((item) => {
+          this.listaConsulta[i].listaPedidos.push(item)
+        })
+       
+        i = this.listaConsulta.length
+      }
+    }
+    
+    if (this.listaPedidos.length == 0) {
+        let listaR = this.listaConsulta
+        this.listaConsulta = []
+        listaR.forEach((item) => {
+          if (item.id != this.idReserva) {
+            this.listaConsulta.push(item)
+          }
+        })
+        this.usuario=""
+        this.pesquisa()
+    }
+    localStorage.setItem('listaReservas', JSON.stringify(this.listaConsulta))
+    
+   
   }
 
   delete(id: number) {
@@ -141,6 +160,8 @@ export class ReservasComponent implements OnInit {
     this.listaPedidos.forEach((item => {
       this.delete(item.id)
     }))
+    this.usuario =""
+    this.pesquisa()
     this.alertasService.showAlertSuccess('Cancelamento realizado com sucesso!')
   }
 }
