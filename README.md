@@ -11,6 +11,7 @@ Repositório Back-End: https://github.com/davidsm2k/remedion
 
 Tecnologia Utilizada:
 <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="logo-angular "/>
+<img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" alt="logo-bootstrap" />
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
 
