@@ -48,9 +48,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
-    this.fundo = window.document.querySelector('#fundo')
-    this.mudar() //muda o fundo da tela
-
+    
     this.nomeCompleto = document.querySelector('#nomeCompleto')
     this.labelNomeCompleto = document.querySelector('#labelNomeCompleto')
     this.divNomeCompleto = document.querySelector('#divNomeCompleto')
@@ -137,10 +135,6 @@ export class CadastroUsuarioComponent implements OnInit {
       this.confirmSenha.classList.add('is-valid')
       this.validConfirmSenha = true
     }
-  }
-
-  mudar(){
-    this.fundo.style.backgroundImage = "url('https://i.imgur.com/CnzlKp0.jpg')"
   }
 
   //Método para confirmar a senha do cadastro do usuário

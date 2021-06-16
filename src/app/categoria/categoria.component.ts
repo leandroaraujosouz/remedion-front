@@ -28,13 +28,7 @@ export class CategoriaComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
     window.scroll(0,0)
-    this.fundo = window.document.querySelector('#fundo')
-    this.mudar()
     this.findAllCategoria()
-  }
-
-  mudar(){
-    this.fundo.style.backgroundImage = "url('https://images.pexels.com/photos/3683074/pexels-photo-3683074.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') "
   }
 
   findAllCategoria(){

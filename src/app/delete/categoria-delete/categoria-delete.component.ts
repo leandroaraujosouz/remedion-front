@@ -29,9 +29,6 @@ export class CategoriaDeleteComponent implements OnInit {
     }
     
     window.scroll(0,0)
-    this.fundo = window.document.querySelector('#fundo')
-    this.mudar()
-
     this.idCategoria = this.route.snapshot.params['id']
     this.findByIdCategoria(this.idCategoria)
   }
@@ -48,9 +45,4 @@ export class CategoriaDeleteComponent implements OnInit {
       this.router.navigate(['/categoria'])
     })
   }
-
-  mudar(){
-    this.fundo.style.backgroundImage = "url('https://imgur.com/ks39nQS.jpg') "
-  }
-
 }

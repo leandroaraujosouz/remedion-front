@@ -39,18 +39,11 @@ export class ProdutoEditComponent implements OnInit {
       this.alertasService.showAlertInfo('Sua sessão expirou. Entre novamente!')
       this.router.navigate(['/entrar'])
     }
-
-    this.fundo = window.document.querySelector('#fundo')
-    this.mudar()
     this.findAllCategorias()
     this.findAllProdutos()
     this.idProduto = this.route.snapshot.params['id']
     this.findByIdProduto(this.idProduto)
 
-  }
-
-  mudar() {
-    this.fundo.style.backgroundImage = "url('https://i.imgur.com/wgCvfF7.jpg')"
   }
 
   findAllProdutos() {

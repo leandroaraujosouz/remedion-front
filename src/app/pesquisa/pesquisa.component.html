@@ -10,15 +10,16 @@
     <div class="col-md-3">
       <div class="form-group mb-0">
         <label for="posto"></label>
-        <input [(ngModel)]="produto.posto" type="text" class="form-control campos roboto-font" id="posto" placeholder="Posto">
+        <input [(ngModel)]="produto.posto" type="text" class="form-control campos roboto-font" id="posto"
+          placeholder="Posto">
       </div>
     </div>
 
     <div class="col-md-2">
       <div class="form-group mb-0">
         <label for="municipioCidade"></label>
-        <input [(ngModel)]="produto.municipioCidade" type="text" class="form-control campos roboto-font" id="municipioCidade"
-          placeholder="Município/Cidade">
+        <input [(ngModel)]="produto.municipioCidade" type="text" class="form-control campos roboto-font"
+          id="municipioCidade" placeholder="Município/Cidade">
       </div>
     </div>
     <div class="col-md-2">
@@ -36,8 +37,10 @@
     </div>
 
     <div class="col-md-2">
-      <div>
-        <button type="submit" class="btn btn-success form-font" (click)="pesquisa()">Pesquisar</button>
+      <div class="form-group mt-4 mb-0 roboto-font">
+        <div>
+          <button type="submit" class="btn btn-success form-font" (click)="pesquisa()">Pesquisar</button>
+        </div>
       </div>
     </div>
   </div>
@@ -63,8 +66,8 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="carrinho" tabindex="-1" role="dialog"
-  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+<div class="modal fade" id="carrinho" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -86,7 +89,8 @@
       </div>
       <div class="modal-footer form-font">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button (click)='reservar()' type="button" class="btn btn-success" data-dismiss="modal">Confirmar Reserva</button>
+        <button (click)='reservar()' type="button" class="btn btn-success" data-dismiss="modal">Confirmar
+          Reserva</button>
       </div>
     </div>
   </div>

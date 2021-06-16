@@ -31,5 +31,7 @@ export class InicioComponent implements OnInit {
 
   mudar() {
     this.fundo.style.backgroundImage = "url('https://imgur.com/i3WmNDn.jpg')"
+    this.fundo.style.opacity= 0.4
+
   }
 }

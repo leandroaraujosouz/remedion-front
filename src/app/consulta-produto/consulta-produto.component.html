@@ -61,24 +61,55 @@
                 </p>
             </div>
         </div>
-         <!-- /pesquisa -->
-
-        <!-- listaRemedios  -->
+        <!-- /pesquisa -->
+    </div>
+    <!-- listaRemedios  -->
     <div class="container-fluid" id="listaRemedios">
         <div class="table-responsive" style="overflow: auto; height: 500px; ">
             <table class="table table-hover roboto-font mt-4">
                 <thead>
                     <tr>
-                        <th class={{objDescricao}} scope="col"><div class="d-flex justify-content-center align-items-center">Descrição <input class="ml-2" type="checkbox" (change)='desabilitar(1);' [(ngModel)]='chDescricao' checked></div></th>
-                        <th class={{objEstoque}} scope="col"><div class="d-flex justify-content-center align-items-center">Estoque <input class="ml-2" type="checkbox" (change)='desabilitar(2);'  [(ngModel)]='chEstoque' checked></div></th>
-                        <th class={{objClassificacao}} scope="col"><div class="d-flex justify-content-center align-items-center"> Classificação<input class="ml-2" type="checkbox" (change)='desabilitar(3);'  [(ngModel)]='chClassificacao' checked></div></th>
-                        <th class={{objCategoria}} scope="col"><div class="d-flex justify-content-center align-items-center">Categoria <input class="ml-2" type="checkbox" (change)='desabilitar(4);' [(ngModel)]='chCategoria' checked></div></th>
-                        <th class={{objPosto}} scope="col"><div class="d-flex justify-content-center align-items-center">Posto <input class="ml-2" type="checkbox" (change)='desabilitar(5);' [(ngModel)]='chPosto' checked></div></th>
-                        <th class={{objEndereco}} scope="col"><div class="d-flex justify-content-center align-items-center">Endereço <input class="ml-2" type="checkbox" (change)='desabilitar(6);'  [(ngModel)]='chEndereco' checked></div></th>
-                        <th class={{objMunicipio}} scope="col"><div class="d-flex justify-content-center align-items-center">Município <input class="ml-2" type="checkbox" (change)='desabilitar(7);'  [(ngModel)]='chMunicipio' checked></div></th>
-                        <th class={{objZona}} scope="col"><div class="d-flex justify-content-center align-items-center">Zona <input class="ml-2" type="checkbox" (change)='desabilitar(8);'  [(ngModel)]='chZona' checked></div></th>
-                        <th class={{objAtivo}} scope="col"><div class="d-flex justify-content-center align-items-center">Ativo <input class="ml-2" type="checkbox" (change)='desabilitar(9);'  [(ngModel)]='chAtivo' checked></div></th>
-                        <th scope="col"><div class="d-flex justify-content-center align-items-center">All <input class="ml-2" type="checkbox" (change)='habilitar();'  [(ngModel)]='chAll' checked></div></th>
+                        <th class={{objDescricao}} scope="col">
+                            <div class="d-flex justify-content-center align-items-center">Descrição <input class="ml-2"
+                                    type="checkbox" (change)='desabilitar(1);' [(ngModel)]='chDescricao' checked></div>
+                        </th>
+                        <th class={{objEstoque}} scope="col">
+                            <div class="d-flex justify-content-center align-items-center">Estoque <input class="ml-2"
+                                    type="checkbox" (change)='desabilitar(2);' [(ngModel)]='chEstoque' checked></div>
+                        </th>
+                        <th class={{objClassificacao}} scope="col">
+                            <div class="d-flex justify-content-center align-items-center"> Classificação<input
+                                    class="ml-2" type="checkbox" (change)='desabilitar(3);'
+                                    [(ngModel)]='chClassificacao' checked></div>
+                        </th>
+                        <th class={{objCategoria}} scope="col">
+                            <div class="d-flex justify-content-center align-items-center">Categoria <input class="ml-2"
+                                    type="checkbox" (change)='desabilitar(4);' [(ngModel)]='chCategoria' checked></div>
+                        </th>
+                        <th class={{objPosto}} scope="col">
+                            <div class="d-flex justify-content-center align-items-center">Posto <input class="ml-2"
+                                    type="checkbox" (change)='desabilitar(5);' [(ngModel)]='chPosto' checked></div>
+                        </th>
+                        <th class={{objEndereco}} scope="col">
+                            <div class="d-flex justify-content-center align-items-center">Endereço <input class="ml-2"
+                                    type="checkbox" (change)='desabilitar(6);' [(ngModel)]='chEndereco' checked></div>
+                        </th>
+                        <th class={{objMunicipio}} scope="col">
+                            <div class="d-flex justify-content-center align-items-center">Município <input class="ml-2"
+                                    type="checkbox" (change)='desabilitar(7);' [(ngModel)]='chMunicipio' checked></div>
+                        </th>
+                        <th class={{objZona}} scope="col">
+                            <div class="d-flex justify-content-center align-items-center">Zona <input class="ml-2"
+                                    type="checkbox" (change)='desabilitar(8);' [(ngModel)]='chZona' checked></div>
+                        </th>
+                        <th class={{objAtivo}} scope="col">
+                            <div class="d-flex justify-content-center align-items-center">Ativo <input class="ml-2"
+                                    type="checkbox" (change)='desabilitar(9);' [(ngModel)]='chAtivo' checked></div>
+                        </th>
+                        <th scope="col">
+                            <div class="d-flex justify-content-center align-items-center">All <input class="ml-2"
+                                    type="checkbox" (change)='habilitar();' [(ngModel)]='chAll' checked></div>
+                        </th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -107,8 +138,8 @@
         </div>
     </div>
     <!-- /listaRemedios  -->
-    </div>
-   
 
-    
+
+
+
 </div>
