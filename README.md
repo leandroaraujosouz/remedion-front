@@ -7,10 +7,10 @@ Deploy Back-End (Heroku): https://remedion.herokuapp.com/swagger-ui.html#/
 
 Deploy Front-End(Netlify): https://remedion.netlify.app/
 
-Repositório Front-End: https://github.com/leandroaraujosouz/remedion-front
+Repositório Back-End: https://github.com/davidsm2k/remedion
 
 Tecnologia Utilizada:
-logo-java   
+<img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="logo-angular "/>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
 
