@@ -66,3 +66,17 @@
         justify-content: center;
     }
 }
+
+@media (max-width: 539.00px) {
+
+    #depoimentos .depoimento .img1{
+        display: none;
+    } 
+}
+
+@media (min-width: 539.00px) {
+
+    #depoimentos .depoimento .img2{
+        display: none;
+    } 
+}
