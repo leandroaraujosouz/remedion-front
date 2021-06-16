@@ -128,11 +128,20 @@ export class PesquisaComponent implements OnInit {
     })
   }
 
-
+  verficarlista(produto: Produto){
+    let retorno = false
+    this.carrinho.forEach((item)=>{
+      if(item.id == produto.id){
+        retorno = true
+      }
+    })
+    return retorno
+  }
 
   listaReserva(produto: Produto) {
+    console.log(produto)
     produto.estoque = 1
-    if (this.carrinho.find(element => element == produto) != undefined) {
+    if (this.verficarlista(produto)) {
       this.alertasService.showAlertInfo('Medicamento já está no carrinho!')
     }
     else {
