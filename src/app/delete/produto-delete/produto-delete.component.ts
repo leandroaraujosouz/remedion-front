@@ -34,15 +34,8 @@ export class ProdutoDeleteComponent implements OnInit {
     }
 
     window.scroll(0,0)
-    this.fundo = window.document.querySelector('#fundo')
-    this.mudar()
-
     this.idProduto = this.route.snapshot.params['id']
     this.findByIdProduto(this.idProduto)
-  }
-
-  mudar(){
-    this.fundo.style.backgroundImage = "url('https://i.imgur.com/FIBWP0c.jpg') "
   }
 
   findByIdProduto(id: number){

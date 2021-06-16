@@ -29,14 +29,8 @@ export class CategoriaEditComponent implements OnInit {
       this.alertasService.showAlertInfo('Sua sessão expirou. Entre novamente!')
       this.router.navigate(['/entrar'])
     }
-    this.fundo = window.document.querySelector('#fundo')
-    this.mudar()
     let id = this.route.snapshot.params['id']
     this.findByIdCategoria(id)
-  }
-
-  mudar(){
-    this.fundo.style.backgroundImage = "url('https://i.imgur.com/dveYVAl.jpg')"
   }
 
   findByIdCategoria(id: number) {

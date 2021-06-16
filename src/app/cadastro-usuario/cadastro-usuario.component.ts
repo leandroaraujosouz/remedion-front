@@ -48,9 +48,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
-    this.fundo = window.document.querySelector('#fundo')
-    this.mudar() //muda o fundo da tela
-
+    
     this.nomeCompleto = document.querySelector('#nomeCompleto')
     this.labelNomeCompleto = document.querySelector('#labelNomeCompleto')
     this.divNomeCompleto = document.querySelector('#divNomeCompleto')
@@ -139,10 +137,6 @@ export class CadastroUsuarioComponent implements OnInit {
     }
   }
 
-  mudar(){
-    this.fundo.style.backgroundImage = "url('https://i.imgur.com/CnzlKp0.jpg')"
-  }
-
   //Método para confirmar a senha do cadastro do usuário
   confirmarSenha(event: any){
     this.auxSenha = event.target.value
@@ -155,7 +149,11 @@ export class CadastroUsuarioComponent implements OnInit {
 
   cancelar(){
     if(this.authService.logado()){
-      this.router.navigate(['/pesquisa'])
+      if(environment.tipoUsuario == 'normal') {
+        this.router.navigate(['/pesquisa'])
+      } else {
+        this.router.navigate(['/consultar-produto'])
+      }
     }
     else{
       this.router.navigate(['/inicio'])
@@ -165,6 +163,10 @@ export class CadastroUsuarioComponent implements OnInit {
   //Método para cadastrar usuário
   cadastrar() {
     this.user.tipoUsuario = this.auxTipoUsuario
+
+    if(this.user.tipoUsuario == null || this.user.tipoUsuario == ""){
+      this.user.tipoUsuario = "normal"
+    }
 
     if(this.user.senha == this.auxSenha && this.validNomeCompleto && this.validEmail && this.validSenha && this.validConfirmSenha){
       this.authService.cadastrar(this.user).subscribe((resp: User) => {

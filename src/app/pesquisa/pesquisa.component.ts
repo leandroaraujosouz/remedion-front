@@ -75,14 +75,9 @@ export class PesquisaComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
     this.limpa()
-    this.fundo = window.document.querySelector('#fundo')
-    this.mudar()
     this.mapa("São paulo")
 
     this.listaReservas = JSON.parse(localStorage.getItem('listaReservas') || '[]')
-  }
-  mudar() {
-    this.fundo.style.backgroundImage = "url('http://edivaldojunior.com.br/wp-content/uploads/2018/03/14-12.jpg')"
   }
 
   findAllProdutos() {

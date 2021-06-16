@@ -1,8 +1,8 @@
-<div class="border molde ml-5 mr-5" style="border-radius: 50px 50px 0px 0px; margin-top: 100px; ">
+<div id="principal" class="border molde mb-5" style="border-radius: 50px 0px 50px 0px; margin-top: 100px; ">
     <div class="container-fluid">
         <div class="row mb-5">
             <div class="col-md-12">
-                <h1 class="text-center form-font">Consulta de Reservas</h1>
+                <h1 class="text-center form-font titulo">Consulta de Reservas</h1>
             </div>
         </div>
 
@@ -10,90 +10,91 @@
         <div class="row d-flex align-items-end justify-content-left mb-2">
 
             <div class="col-md-3">
-                <div class="form-group mb-0">
+                <div class="form-group mb-3">
                     <input [(ngModel)]="usuario" type="text" class="form-control campos" id="nomeUsuario"
                         placeholder="Nome do usuário">
                 </div>
             </div>
 
-            <div class="col-md-2">
-                <div>
-                    <button type="submit" class="btn btn-success form-font" (click)="pesquisa()">Pesquisar</button>
+            <div class="col-md-3">
+                <div class="form-group mt-2 mb-3">
+                    <div>
+                        <button type="submit" class="btn btn-success form-font" (click)="pesquisa()">Pesquisar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /pesquisa -->
+
+        <div class="row">
+            <div class="col-md-6" style="min-height: 500px;">
+                <div class="table-responsive" style="overflow: auto; height: 500px; ">
+                    <h3 class="text-center form-font">Usuários</h3>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="roboto-font">
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let itens of listaReservas'>
+                                <th class="roboto-font" scope="row">{{itens.id}}</th>
+                                <td class="roboto-font">{{itens.usuarioCad.nomeCompleto}}</td>
+                                <td class="roboto-font">{{itens.usuarioCad.email}}</td>
+                                <td class="form-font">
+                                    <button (click)='selectIdReserva(itens.id);selecionaReserva(itens.id)'
+                                        class="btn btn-info">Pedidos</button>
+                                </td>
+                                <td class="form-font">
+                                    <!-- Botão para acionar modal -->
+                                    <button (click)='selectIdReserva(itens.id);selecionaReserva(itens.id)' type="button"
+                                        class="btn btn-danger form-font" data-toggle="modal"
+                                        data-target="#ExemploModalCentralizado">
+                                        Apagar
+                                    </button>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-        </div>
-        <!-- /pesquisa -->
-    </div>
-</div>
-
-<!-- listaRemedios  -->
-<div class="border molde ml-5 mr-5 mb-3" style="overflow:auto; height: 500px; border-radius: 0px 0px 0px 50px ;">
-    <div class="container-fluid ">
-        <div class="row">
             <div class="col-md-6">
-                <h3 class="text-center form-font">Usuários</h3>
-                <table class="table table-hover">
-                    <thead>
-                        <tr class="roboto-font">
-                            <th scope="col">#</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">E-mail</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor='let itens of listaReservas'>
-                            <th class="roboto-font" scope="row">{{itens.id}}</th>
-                            <td class="roboto-font">{{itens.usuarioCad.nomeCompleto}}</td>
-                            <td class="roboto-font">{{itens.usuarioCad.email}}</td>
-                            <td class="form-font">
-                                <button (click)='selecionaReserva(itens.id)' class="btn btn-info">Pedidos</button>
-                            </td>
-                            <td class="form-font">
-                                <!-- Botão para acionar modal -->
-                                <button (click)='selectIdReserva(itens.id);selecionaReserva(itens.id)' type="button"
-                                    class="btn btn-danger form-font" data-toggle="modal"
-                                    data-target="#ExemploModalCentralizado">
-                                    Apagar
-                                </button>
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-md-6">
-                <h3 class="text-center form-font">Pedidos</h3>
-                <table class="table table-hover">
-                    <thead>
-                        <tr class="roboto-font">
-                            <th scope="col">Usuário</th>
-                            <th scope="col">Medicamento</th>
-                            <th scope="col">Posto</th>
-                            <th scope="col">Endereço</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor='let itens of listaPedidos'>
-                            <th class="roboto-font" scope="row">{{usuario}}</th>
-                            <td class="roboto-font">{{itens.nome}}</td>
-                            <td class="roboto-font">{{itens.posto}}</td>
-                            <td class="roboto-font">{{itens.endereco}}</td>
-                            <td>
-                                <button (click)="finalizar(itens.id)"
-                                    class="btn btn-success form-font">Finalizar</button>
-                            </td>
-                            <td>
-                                <button (click)="delete(itens.id)" class="btn btn-danger form-font">Ignorar</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive" style="overflow: auto; height: 500px; ">
+                    <h3 class="text-center form-font">Pedidos</h3>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="roboto-font">
+                                <th scope="col">Usuário</th>
+                                <th scope="col">Medicamento</th>
+                                <th scope="col">Posto</th>
+                                <th scope="col">Endereço</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let itens of listaPedidos'>
+                                <th class="roboto-font" scope="row">{{usuario}}</th>
+                                <td class="roboto-font">{{itens.nome}}</td>
+                                <td class="roboto-font">{{itens.posto}}</td>
+                                <td class="roboto-font">{{itens.endereco}}</td>
+                                <td>
+                                    <button (click)="finalizar(itens.id)"
+                                        class="btn btn-success form-font">Finalizar</button>
+                                </td>
+                                <td>
+                                    <button (click)="delete(itens.id)" class="btn btn-danger form-font">Ignorar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -137,7 +138,7 @@
                 </div>
             </div>
             <div class="modal-footer form-font">
-               <h3 class="text-center">Tem certeza que deseja cancelar a Reserva?</h3>
+                <h3 class="text-center">Tem certeza que deseja cancelar a Reserva?</h3>
             </div>
             <div class="modal-footer form-font">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

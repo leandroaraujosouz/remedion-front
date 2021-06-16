@@ -61,8 +61,6 @@ export class ConsultaProdutoComponent implements OnInit {
 
 
     window.scroll(0, 0)
-    this.fundo = window.document.querySelector('#fundo')
-    this.mudar()
     this.findAllCategorias()
     this.findAllProdutos()
   }
@@ -125,10 +123,6 @@ export class ConsultaProdutoComponent implements OnInit {
       
       this.chAll = false
     }
-  }
-
-  mudar() {
-    this.fundo.style.backgroundImage = "url('https://imgur.com/7sY6rq0.jpg')"
   }
 
   findAllProdutos() {

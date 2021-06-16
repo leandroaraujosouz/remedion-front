@@ -53,9 +53,6 @@ export class UserEditComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
 
-    this.fundo = window.document.querySelector('#fundo')
-    this.mudar()
-
     this.idUser = this.route.snapshot.params['id']
     this.findByIdUser(this.idUser)
 
@@ -76,10 +73,6 @@ export class UserEditComponent implements OnInit {
     this.divConfirmSenha = document.querySelector('#divConfirmSenha')
 
     this.objFoto = window.document.querySelector('#foto')
-  }
-
-  mudar(){
-    this.fundo.style.backgroundImage = "url('https://i.imgur.com/btVhpX7.jpg')"
   }
 
   //Método para validar se o nome do usuário tem mais de três caracteres
@@ -161,6 +154,10 @@ export class UserEditComponent implements OnInit {
 
   atualizarUser(){
     this.user.tipoUsuario = this.auxTipoUsuario
+
+    if(this.user.tipoUsuario == null || this.user.tipoUsuario == ""){
+      this.user.tipoUsuario = "normal"
+    }
 
     if(this.user.senha == this.auxSenha && this.validNomeCompleto && this.validEmail && this.validSenha && this.validConfirmSenha){
       this.authService.atualizarUsuario(this.user).subscribe((resp: User) => {

@@ -31,7 +31,8 @@ export class EntrarComponent implements OnInit {
   }
 
   mudar(){
-    this.fundo.style.backgroundImage = "url('https://i.imgur.com/fUjrW1b.jpg')"
+    this.fundo.style.backgroundImage = "none"//"url('https://i.imgur.com/fUjrW1b.jpg')"
+    this.fundo.style.opacity= 1
   }
 
   entrar(){

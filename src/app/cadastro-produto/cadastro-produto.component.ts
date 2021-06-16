@@ -37,13 +37,11 @@ export class CadastroProdutoComponent implements OnInit {
 
     window.scroll(0, 0)
     this.fundo = window.document.querySelector('#fundo')
-    this.mudar()
+   
     this.findAllCategorias()
     this.findAllProdutos()
   }
-  mudar() {
-    this.fundo.style.backgroundImage = "url('https://i.imgur.com/Yqziiaz.jpg')"
-  }
+  
 
   findAllProdutos() {
     this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
