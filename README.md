@@ -1,5 +1,17 @@
 # RemedionFront
 
+Descrição:
+Este repositório é dedicado para o projeto integrador desenvolvido durante o Bootcamp da Generation Brasil para formação de um Desenvolvedor Full Stack Java Junior.
+
+Deploy Back-End (Heroku): https://remedion.herokuapp.com/swagger-ui.html#/
+
+Deploy Front-End(Netlify): https://remedion.netlify.app/
+
+Repositório Front-End: https://github.com/leandroaraujosouz/remedion-front
+
+Tecnologia Utilizada:
+logo-java   
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
 
 ## Development server
