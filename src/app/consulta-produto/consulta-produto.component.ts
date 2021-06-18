@@ -58,11 +58,10 @@ export class ConsultaProdutoComponent implements OnInit {
       this.alertasService.showAlertInfo('Sua sessão expirou. Entre novamente!')
       this.router.navigate(['/entrar'])
     }
-
-
+  
     window.scroll(0, 0)
-    this.findAllCategorias()
-    this.findAllProdutos()
+      this.findAllCategorias()
+      this.findAllProdutos()
   }
 
   desabilitar(num: number) {

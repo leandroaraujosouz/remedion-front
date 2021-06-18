@@ -12,40 +12,50 @@ export class ProdutoService {
   constructor(
     private http :HttpClient
     ) { }
-
+  
   token={
     headers: new HttpHeaders().set('Authorization',environment.token)
   }
 
+ 
+
   getAllProdutos(): Observable <Produto[]>{
+    this.token.headers = new HttpHeaders().set('Authorization',environment.token)
     return this.http.get<Produto[]>(`${environment.server}/produto`,this.token)
   }
 
   getByIdProduto(id: number): Observable <Produto>{
+    this.token.headers = new HttpHeaders().set('Authorization',environment.token)
     return this.http.get<Produto>(`${environment.server}/produto/${id}`,this.token)
   }
 
   getByNomeProduto(nome: String): Observable <Produto[]>{
+    this.token.headers = new HttpHeaders().set('Authorization',environment.token)
     return this.http.get<Produto[]>(`${environment.server}/produto/nome/${nome}`,this.token)
   }
 
   getAllByNomePosto(nome: String, posto: String): Observable<Produto[]>{
+    this.token.headers = new HttpHeaders().set('Authorization',environment.token)
     return this.http.get<Produto[]>(`${environment.server}/produto/nomePosto/${nome}/${posto}`,this.token)
   }
 
   getAllByNomeMunicipioZona(nome: String, municipio: String, zona: String): Observable<Produto[]>{
+    this.token.headers = new HttpHeaders().set('Authorization',environment.token)
     return this.http.get<Produto[]>(`${environment.server}/produto/completa/${nome}/${municipio}/${zona}`,this.token)
   }
 
   postProduto(Produto: Produto): Observable<Produto>{
+    this.token.headers = new HttpHeaders().set('Authorization',environment.token)
     return this.http.post<Produto>(`${environment.server}/produto`,Produto, this.token)
   }
 
   putProduto(Produto: Produto): Observable<Produto>{
+    this.token.headers = new HttpHeaders().set('Authorization',environment.token)
     return this.http.put<Produto>(`${environment.server}/produto`, Produto, this.token)
   }
 
   deleteProduto(id: number){
+    this.token.headers = new HttpHeaders().set('Authorization',environment.token)
     return this.http.delete(`${environment.server}/produto/${id}`,this.token)
   }
 }

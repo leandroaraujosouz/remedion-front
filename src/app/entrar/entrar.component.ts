@@ -46,7 +46,6 @@ export class EntrarComponent implements OnInit {
       environment.foto = this.userLogin.foto
       environment.token = this.userLogin.token
       environment.tipoUsuario = this.userLogin.tipoUsuario
-
       if(environment.tipoUsuario == 'normal'){
         this.router.navigate(['/pesquisa'])
       }else{
