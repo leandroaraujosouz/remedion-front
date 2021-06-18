@@ -25,7 +25,7 @@ import { AlertasComponent } from './alertas/alertas.component';
 import { from } from 'rxjs';
 import { ReservasComponent } from './reservas/reservas.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
-
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 
 
@@ -60,7 +60,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
     ModalModule.forRoot(),
     OrderModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
