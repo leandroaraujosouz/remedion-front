@@ -15,6 +15,9 @@ export class InicioComponent implements OnInit {
   ngOnInit() {
     environment.token = ''
     environment.tipoUsuario = ''
+    environment.foto=''
+    environment.id=0
+    environment.nomeCompleto=''
     
     window.scroll(0, 0)
     window.onscroll = function () {

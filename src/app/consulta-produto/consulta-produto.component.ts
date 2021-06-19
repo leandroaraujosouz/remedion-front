@@ -148,6 +148,19 @@ export class ConsultaProdutoComponent implements OnInit {
     })
   }
 
+  findAllByNomeMunicipioZonaPosto() {
+    this.produtoService.getAllByNomeMunicipioZona(this.produto.nome, this.produto.municipioCidade, this.produto.zona).subscribe((resp: Produto[]) => {
+      let lista = []
+      lista = resp
+      this.listaProdutos = []
+      lista.forEach((item) => {
+        if (item.posto.search( this.produto.posto) != -1) {
+          this.listaProdutos.push(item)
+        }
+      })
+    })   
+  }
+
   findByIdCategoria() {
     this.categoriaService.getByIdCategoria(this.idCategoria).subscribe((resp: Categoria) => {
       this.categoria = resp
@@ -185,12 +198,21 @@ export class ConsultaProdutoComponent implements OnInit {
       (this.produto.municipioCidade != "") &&
       (this.produto.zona != "")) {
       this.findAllByNomeMunicipioZona()
+    }else if (
+      (this.produto.posto != "") &&
+      (this.produto.nome != "") &&
+      (this.produto.municipioCidade != "") &&
+      (this.produto.zona != "")) {
+      this.findAllByNomeMunicipioZonaPosto()
+      setTimeout(() => {
+        if(this.listaProdutos.length == 0){
+          this.alertasService.showAlertInfo('Resultado da consulta não encontrado!')
+        }
+      }, 500);
+    }else{
+      setTimeout(() => {
+          this.alertasService.showAlertInfo('Resultado da consulta não encontrado!')
+      }, 500)
     }
-
-    setTimeout(() => {
-      if (this.listaProdutos.length == 0) {
-        this.alertasService.showAlertInfo('Resultado da consulta não encontrado!')
-      }
-    }, 500)
   }
 }

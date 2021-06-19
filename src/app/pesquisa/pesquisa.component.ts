@@ -128,6 +128,18 @@ export class PesquisaComponent implements OnInit {
     })
   }
 
+  findAllByNomeMunicipioZonaPosto() {
+    this.produtoService.getAllByNomeMunicipioZona(this.produto.nome, this.produto.municipioCidade, this.produto.zona).subscribe((resp: Produto[]) => {
+      this.lista = resp
+      this.listaProdutos = []
+      this.lista.forEach((item) => {
+        if (item.estoque > 0 && item.ativo && item.posto.search( this.produto.posto) != -1) {
+          this.listaProdutos.push(item)
+        }
+      })
+    })   
+  }
+
   verficarlista(produto: Produto){
     let retorno = false
     this.carrinho.forEach((item)=>{
@@ -240,13 +252,22 @@ export class PesquisaComponent implements OnInit {
       (this.produto.zona != "")) {
       this.findAllByNomeMunicipioZona()
     }
-
-    setTimeout(() => {
-      if (this.listaProdutos.length == 0) {
-        this.alertasService.showAlertInfo('Resultado da consulta não encontrado!')
-      }
-    }, 500)
-
+    else if (
+      (this.produto.posto != "") &&
+      (this.produto.nome != "") &&
+      (this.produto.municipioCidade != "") &&
+      (this.produto.zona != "")) {
+      this.findAllByNomeMunicipioZonaPosto()
+      setTimeout(() => {
+        if(this.listaProdutos.length == 0){
+          this.alertasService.showAlertInfo('Resultado da consulta não encontrado!')
+        }
+      }, 500);
+    }else{
+      setTimeout(() => {
+          this.alertasService.showAlertInfo('Resultado da consulta não encontrado!')
+      }, 500)
+    }
   }
 
 
